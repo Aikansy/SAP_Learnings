@@ -1,4 +1,4 @@
-### **INCLUDE**
+# **`INCLUDE`**
 
 > Deux notions très importantes du `DDIC` sont : l’`include` (pouvant être traduit par `inclusion` en français) et l’`append` (`ajout`) de structure. Ces deux notions ont le même but, qui est de rajouter des champs supplémentaires.
 >

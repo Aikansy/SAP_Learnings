@@ -2,58 +2,58 @@
 
 > L’instruction commencera par CONSTANTS et devra comporter obligatoirement une valeur fixe avec VALUE.
 
-### **INTEGER**
+## **INTEGER**
 
 > ```JS
 > CONSTANTS: c_integer TYPE i VALUE 10.
 > ```
 
-### **FLOAT**
+## **FLOAT**
 
 > ```JS
 > CONSTANTS: c_float TYPE f VALUE '3.14'.
 > ```
 
-### **DECIMAL**
+## **DECIMAL**
 
 > ```JS
 > CONSTANTS: c_decimal TYPE decfloat34 VALUE '1234567890123456789012345678901234'.
 > ```
 
-### **STRING**
+## **STRING**
 
 > ```JS
 > CONSTANTS: c_string TYPE string VALUE 'Hello, World!'.
 > ```
 
-### **CHAR**
+## **CHAR**
 
 > ```JS
 > CONSTANTS: c_char TYPE C LENGTH 1 VALUE 'F'.
 > ```
 
-### **BOOLEAN**
+## **BOOLEAN**
 
 > ```JS
 > CONSTANTS: c_bool TYPE boolean VALUE abap_true.
 > CONSTANTS: c_boolean TYPE abap_bool VALUE abap_false.
 > ```
 
-### **DATE** - AAAAMMJJ
+## **DATE** - AAAAMMJJ
 
 > ```JS
 > CONSTANTS: c_date TYPE d VALUE sy-datum.
 > CONSTANTS: c_date TYPE d VALUE 1986110.
 > ```
 
-### **TIME** - HHMMSS
+## **TIME** - HHMMSS
 
 > ```JS
 > CONSTANTS: c_time TYPE t VALUE sy-uzeit.
 > CONSTANTS: c_time TYPE t VALUE 183045.
 > ```
 
-## **DECIMAL NUMBER**
+# **DECIMAL NUMBER**
 
 > Il est à noter qu’en ABAP, le point (.) est utilisé pour les décimales.
 >

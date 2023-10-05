@@ -1,9 +1,9 @@
 # **`CLE PRIMAIRE`**
 
-```JS
-... [UNIQUE|NON-UNIQUE] KEY ...
-```
-
+> ```JS
+> ... [UNIQUE|NON-UNIQUE] KEY ...
+> ```
+>
 > Deux types de `clé primaires` peuvent être déclarées :
 >
 > - `Unique`
@@ -12,18 +12,18 @@
 > et comme leur nom l'indique, elles autorisent ou non les doublons, dans la table interne, de données de même clé.
 >
 > Exemple :
-
-```JS
-TYPES: BEGIN OF ty_citizen,
-         country TYPE char3,
-         name    TYPE char20,
-         age     TYPE numc2,
-       END OF ty_citizen.
-
-DATA: t_citizen TYPE HASHED TABLE OF ty_citizen
-                WITH UNIQUE KEY country.
-```
-
+>
+> ```JS
+> TYPES: BEGIN OF ty_citizen,
+>          country TYPE char3,
+>          name    TYPE char20,
+>          age     TYPE numc2,
+>        END OF ty_citizen.
+>
+> DATA: t_citizen TYPE HASHED TABLE OF ty_citizen
+>                 WITH UNIQUE KEY country.
+> ```
+>
 > La référence `TY_CITIZEN` est créée contenant trois champs :
 >
 > - `COUNTRY` de type `CHAR3`

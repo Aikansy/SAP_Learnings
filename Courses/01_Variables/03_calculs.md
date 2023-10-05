@@ -1,8 +1,8 @@
 # **`OPERATIONS ARITHMETIQUES`**
 
-> Comme dans tout langage de programmation, les variables de types numériques (`N`, `I`, `P`...) peuvent être utilisées dans des opérations arithmétiques.
+> Comme dans tout langage de programmation, les `variables` de types `numériques` (`N`, `I`, `P`...) peuvent être utilisées dans des opérations arithmétiques.
 >
-> Tout d’abord, pour assigner une valeur à une variable, les instructions `MOVE` ou égal `=` sont utilisées.
+> Tout d’abord, pour assigner une valeur à une `variable`, les instructions `MOVE` ou égal `=` sont utilisées.
 >
 > ```JS
 > DATA: v_a(2) TYPE i,
@@ -21,7 +21,14 @@
 >       / 'Valeur de v_d : ', v_d.
 > ```
 >
-> Quatre variables ont été créées `V_A`, `V_B`, `V_C` et `V_D`, toutes de type entier `I` avec une longueur d’une seule position. Tout d’abord, la valeur `3` sera assignée par un égal `=` à la variable `V_A`, puis la variable `V_B` prendra la valeur de `V_A`. Dans un deuxième temps, l’instruction `MOVE` va commencer par attribuer la valeur `5` à `V_C`, puis la valeur de `V_C` à `V_D`. Elles sont enfin toutes affichées démontrant ainsi le rôle de chacune de ces instructions.
+> Quatre `variables` ont été créées :
+>
+> - `V_A`
+> - `V_B`
+> - `V_C`
+> - `V_D`
+>
+> toutes de type entier `I` avec une longueur d’une seule position. Tout d’abord, la valeur `3` sera assignée par un égal `=` à la variable `V_A`, puis la variable `V_B` prendra la valeur de `V_A`. Dans un deuxième temps, l’instruction `MOVE` va commencer par attribuer la valeur `5` à `V_C`, puis la valeur de `V_C` à `V_D`. Elles sont enfin toutes affichées démontrant ainsi le rôle de chacune de ces instructions.
 >
 > ![](../00_Ressources/99_03_01.png)
 >
@@ -44,7 +51,7 @@
 >
 > Ainsi l’addition se fera avec le signe `+` ou l’instruction `ADD... TO...`, la soustraction avec le signe `-` ou `SUBSTRACT... FROM...`, la multiplication avec `\*` ou `MULTIPLY... BY...` et enfin la division avec `/` ou `DIVIDE... BY...`.
 
-### **ADDITION**
+## **ADDITION**
 
 > ```JS
 > DATA: v_a(2) TYPE I.
@@ -53,7 +60,7 @@
 > ADD 7 TO v_a.
 > ```
 
-### **SOUSTRACTION**
+## **SOUSTRACTION**
 
 > ```JS
 > DATA: v_a(2) TYPE i,
@@ -64,7 +71,7 @@
 > SUBTRACT 3 FROM v_b.
 > ```
 
-### **MULTIPLICATION**
+## **MULTIPLICATION**
 
 > ```JS
 > DATA: v_a(2) TYPE i,
@@ -77,7 +84,7 @@
 > MULTIPLY v_c BY 2.
 > ```
 
-### **DIVISION**
+## **DIVISION**
 
 > ```JS
 > DATA: v_a(2) TYPE i,

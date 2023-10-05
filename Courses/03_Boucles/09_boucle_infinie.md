@@ -1,13 +1,13 @@
 # **`BOUCLE INFINIE`**
 
 > Dans la partie sur la boucle `DO... ENDDO`, il a été mentionné le risque de créer une `boucle infinie` si une condition de sortie n’était pas définie. Seulement, il est possible de faire des erreurs et d’en créer une par mégarde. Cette section propose une astuce pour pallier cette situation si elle se produit.
-
-```JS
-DO.
-  WRITE:/ sy-index.
-ENDDO.
-```
-
+>
+> ```JS
+> DO.
+>   WRITE:/ sy-index.
+> ENDDO.
+> ```
+>
 > Ce code va tourner en boucle en permanence, affichant la variable [SY-INDEX](../99_Help/02_SY-SYSTEM.md) à l’infini, du moins en théorie, car après un temps d’exécution dépassant 10 minutes (en règle générale, car cette valeur est paramétrée par l’équipe `Basis` et diffère selon les clients et les projets), le programme s’arrête avec un dump de type `TIMEOUT`.
 >
 > Lorsque ce programme est exécuté, il sera totalement bloqué et impossible de l’arrêter directement. Il faudra alors exécuter les actions suivantes :

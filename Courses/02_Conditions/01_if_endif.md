@@ -1,40 +1,40 @@
 # **`IF ... ENDIF`**
 
-```JS
-IF log_exp1.
-  [statement_block1]
-[ELSEIF log_exp2.
-  [statement_block2]]
-...
-[ELSE.
-  [statement_blockn]]
-ENDIF.
-```
-
+> ```JS
+> IF log_exp1.
+>   [statement_block1]
+> [ELSEIF log_exp2.
+>   [statement_block2]]
+> ...
+> [ELSE.
+>   [statement_blockn]]
+> ENDIF.
+> ```
+>
 > L’instruction `IF` est une condition permettant de contrôler et de comparer une variable selon une valeur ou une autre variable, et d’exécuter un traitement si la condition est vraie.
-
-```JS
-DATA: v_a TYPE i,
-      v_b TYPE i,
-      v_c TYPE i.
-
-v_b = 3.
-V_c = 2.
-
-v_a = v_b + v_c.
-
-IF v_a = 5.
-  WRITE:/ 'Condition confirmée, v_a = 5'.
-ENDIF.
-```
-
+>
+> ```JS
+> DATA: v_a TYPE i,
+>       v_b TYPE i,
+>       v_c TYPE i.
+>
+> v_b = 3.
+> V_c = 2.
+>
+> v_a = v_b + v_c.
+>
+> IF v_a = 5.
+>   WRITE:/ 'Condition confirmée, v_a = 5'.
+> ENDIF.
+> ```
+>
 > Trois variables ont été créées, `V_A`, `V_B` et `V_C` de type entier. `V_B` prend la valeur `3`, `V_C`, la valeur `2`, quant à `V_A` elle est la somme de `V_B` et `V_C`. Vient ensuite une condition, comparant la variable `V_A` avec la valeur `5`. Si cette condition est valide, le texte `Condition confirmée, v_a = 5` sera affiché.
-
-![](../00_Ressources/02_01_01.png)
-
+>
+> ![](../00_Ressources/02_01_01.png)
+>
 > L’opérateur de comparaison de cette condition est le signe égal (=) mais d’autres existent également sur SAP.
 
-### **OPERATEURS DE COMPARAISON**
+## **OPERATEURS DE COMPARAISON**
 
 > Les opérateurs de comparaison suivants peuvent être utilisés pour tous les types de données, que ce soit pour des valeurs numériques, alphanumériques ou même du texte.
 >
@@ -49,7 +49,7 @@ ENDIF.
 > | `Inférieur ou égal à`     | <=          | `LE`          | Lower or Equal      |
 > | `Différent`               | <>          | `NE`          | Not Equal           |
 
-### **DUMP**
+## **DUMP**
 
 > Il a été vu que l’exécution d’un programme pouvait s’arrêter brutalement et retourner un dump dû à une division par zéro par exemple.
 >
@@ -89,7 +89,7 @@ ENDIF.
 >
 > ![](../00_Ressources/02_01_02.png)
 
-### **ELSEIF**
+## **ELSEIF**
 
 > La condition `IF` peut intégrer une variante avec le `ELSEIF` pouvant par exemple tester les différentes valeurs de la variable `V_MONTH` contenant le mois de la date système [sy_datum](../99_Help/02_SY-SYSTEM.md), et afficher un texte adéquat :
 >

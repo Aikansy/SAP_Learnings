@@ -1,8 +1,8 @@
 # **`VARIABLES`**
 
-> `ABAP` contient des variables et des constantes. Par définition, une `variable` est un symbole informatique associant un nom à une valeur qui peut varier durant l’exécution du programme. Cette définition s’applique également à une constante, à la différence près que sa valeur est fixée dès le début et ne changera jamais au cours de l’exécution du programme.
+> `ABAP` contient des `variables` et des `constantes`. Par définition, une `variable` est un symbole informatique associant un nom à une valeur qui peut varier durant l’exécution du programme. Cette définition s’applique également à une constante, à la différence près que sa valeur est fixée dès le début et ne changera jamais au cours de l’exécution du programme.
 >
-> On retrouve sur `SAP` les types de variables suivants :
+> On retrouve sur `SAP` les types de `variables` suivants :
 >
 > Types de `variables ABAP` :
 >
@@ -19,7 +19,7 @@
 > | `STRING`  | _Long text_           | Any length         | "                 | `Any string` |
 > | `XSTRING` | _Hexadecimal string_  | Any length         |                   | `Any string` |
 
-### **TYPE ou LIKE**
+## **TYPE ou LIKE**
 
 > l’instruction de référence peut être égale à `TYPE` ou `LIKE`. Pour comprendre la différence entre les deux, voici un exemple :
 >
@@ -30,7 +30,7 @@
 >
 > La variable `LV_NAME` est déclarée avec un type chaîne de caractères et de longueur `10` et `LV_NAME2` quant à elle prend comme référence la variable `LV_NAME`. Ainsi, `TYPE` va pointer directement vers un type spécifique alors que le `LIKE` va en prendre indirectement une `référence`. Dans une `programmation objet` (cf. chapitre Les classes), le `TYPE` est à `privilégier`.
 
-### **CHAR**
+## **CHAR**
 
 > ```JS
 > DATA: lv_char TYPE CHAR255,
@@ -40,12 +40,11 @@
 > * lv_name = 'Frederic GIUSTINI'.              Reverra 'Frederic G' uniquement
 > ```
 
-### **INTEGER & NUMERIC**
+## **INTEGER & NUMERIC**
 
 > Si le type entier I et le type numérique N sont comparés, il apparaît qu’ils sont sensiblement les mêmes :
 >
 > - le type entier `I` est une chaîne numérique de nombres entiers.
->
 > - Le type numérique `N` est aussi une chaîne numérique mais stockée sous forme de caractères, ce qui est pratique lors d’un travail avec des instructions sur des variables texte comme le `CONCATENATE`
 >
 > ```JS
@@ -55,7 +54,7 @@
 > * lv_integer = 10.
 > ```
 
-### **DATE** - AAAAMMJJ
+## **DATE** - AAAAMMJJ
 
 > Le format date [sy-datum](../99_Help/02_SY-SYSTEM.md) est de type `AnnéeMoisJour` (`AAAAMMJJ`), pour un affichage plus adéquat, il faudra toujours modifier la variable date.
 >
@@ -66,7 +65,7 @@
 > * lv_date = 19861102.
 > ```
 
-### **TIME** - HHMMSS
+## **TIME** - HHMMSS
 
 > Le format time [sy-uzeit](../99_Help/02_SY-SYSTEM.md) est de type `HeuresMinutesSecondes` (`AAAAMMJJ`), pour un affichage plus adéquat, il faudra toujours modifier la variable date.
 >
@@ -77,7 +76,7 @@
 > * lv_time = 183045.
 > ```
 
-### **FLOAT**
+## **FLOAT**
 
 > ```JS
 > DATA: lv_float TYPE f.
@@ -85,7 +84,7 @@
 > * lv_float = '3.14'.
 > ```
 
-### **PACKED DECIMAL**
+## **PACKED DECIMAL**
 
 > ```JS
 > DATA: lv_decimal TYPE p DECIMALS 2.
@@ -93,7 +92,7 @@
 > * lv_decimal = 1234.56.
 > ```
 
-### **STRING**
+## **STRING**
 
 > ```JS
 > DATA: lv_string1 TYPE string.
@@ -101,7 +100,7 @@
 > * lv_string1 = 'Bonjour le monde'.
 > ```
 
-### **BOOLEAN**
+## **BOOLEAN**
 
 > ```JS
 > DATA: lv_bool TYPE boolean,
