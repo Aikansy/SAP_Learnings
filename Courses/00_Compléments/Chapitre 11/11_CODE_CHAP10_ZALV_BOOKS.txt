@@ -1,0 +1,35 @@
+*&---------------------------------------------------------------------*
+*& Report  ZALV_BOOKS
+*&
+*&---------------------------------------------------------------------*
+*&
+*&
+*&---------------------------------------------------------------------*
+REPORT zalv_books.
+
+
+*Déclaration des variables et écran de sélection
+INCLUDE zalv_books_top.
+
+*Routines
+INCLUDE zalv_books_f01.
+
+
+INITIALIZATION.
+  "Vider les tables internes du développement
+  REFRESH: gt_books, gt_category, gt_data.
+
+
+
+START-OF-SELECTION.
+  "Sélection des données
+  PERFORM f_select_data.
+
+  "Sélection des valeurs du domaine
+  PERFORM f_dom_values.
+
+  "Définir les données pour l'ALV
+  PERFORM f_get_alv_data.
+
+  "Affichage du rapport ALV
+  PERFORM f_alv_display.

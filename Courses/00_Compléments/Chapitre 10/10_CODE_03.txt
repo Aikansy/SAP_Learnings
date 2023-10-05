@@ -1,0 +1,98 @@
+*&--------------------------------------------------------------*
+*& Report  ZALV_TRAVEL
+*&
+*&--------------------------------------------------------------*
+*&
+*&
+*&--------------------------------------------------------------*
+REPORT zalv_travel.
+
+
+TABLES: ztravel.
+
+SELECTION-SCREEN BEGIN OF BLOCK b00 WITH FRAME TITLE text-b00.
+SELECT-OPTIONS: s_trdate FOR ztravel-date_travel,
+                s_cityfr FOR ztravel-city_from,
+                s_cityto FOR ztravel-city_to.
+SELECTION-SCREEN END OF BLOCK b00.
+
+
+
+SELECT t~date_travel,
+       t~city_from,
+       t~country_from,
+       t~city_to,
+       t~country_to,
+       d~surname && ' ' && d~name   AS driver,
+       d~car_brand,
+       d~car_model,
+       p1~surname && ' ' && p1~name AS passenger1,
+       p2~surname && ' ' && p2~name AS passenger2,
+       p3~surname && ' ' && p3~name AS passenger3,
+       t~kms,
+       t~kms_unit,
+       t~toll,
+       t~gasol,
+       t~unit
+  FROM ztravel           AS t
+  INNER JOIN zdriver_car AS d
+    ON t~id_driver       EQ d~id_driver
+  INNER JOIN zpassenger  AS p1
+    ON t~id_passenger1   EQ p1~id_passenger
+  INNER JOIN zpassenger  AS p2
+    ON t~id_passenger2   EQ p2~id_passenger
+  INNER JOIN zpassenger  AS p3
+    ON t~id_passenger3   EQ p3~id_passenger
+  INTO TABLE @DATA(t_data)
+  WHERE t~date_travel IN @s_trdate
+    AND t~city_from   IN @s_cityfr
+    AND t~city_to     IN @s_cityto
+  ORDER BY t~date_travel.
+
+
+
+DATA: o_alv           TYPE REF TO cl_salv_table,
+      o_alv_functions TYPE REF TO cl_salv_functions.
+
+TRY.
+    CALL METHOD cl_salv_table=>factory
+      IMPORTING
+        r_salv_table = o_alv
+      CHANGING
+        t_table      = t_data.
+
+    o_alv_functions = o_alv->get_functions( ).
+    o_alv_functions->set_all( abap_true ).
+
+    DATA: o_columns TYPE REF TO cl_salv_columns_table.
+    o_columns = o_alv->get_columns( ).
+    o_columns->set_optimize( abap_true ).
+
+
+    DATA: o_column  TYPE REF TO cl_salv_column_table.
+    o_column ?= o_columns->get_column( 'DRIVER' ).
+    o_column->set_long_text( 'Conducteur' ).
+    o_column->set_medium_text( 'Conduct.' ).
+    o_column->set_short_text( 'Cond.' ).
+
+    o_column ?= o_columns->get_column( 'PASSENGER1' ).
+    o_column->set_long_text( 'Passager 1' ).
+    o_column->set_medium_text( 'Pass. 1' ).
+    o_column->set_short_text( 'Pass1' ).
+
+    o_column ?= o_columns->get_column( 'PASSENGER2' ).
+    o_column->set_long_text( 'Passager 2' ).
+    o_column->set_medium_text( 'Pass. 2' ).
+    o_column->set_short_text( 'Pass2' ).
+
+    o_column ?= o_columns->get_column( 'PASSENGER3' ).
+    o_column->set_long_text( 'Passager 3' ).
+    o_column->set_medium_text( 'Pass. 3' ).
+    o_column->set_short_text( 'Pass3' ).
+
+    o_alv->display( ).
+
+  CATCH cx_salv_msg .
+    MESSAGE 'Impossible d''afficher le rapport ALV'
+            TYPE 'I' DISPLAY LIKE 'E'.
+ENDTRY.

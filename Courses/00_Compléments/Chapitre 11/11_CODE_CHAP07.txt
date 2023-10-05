@@ -1,0 +1,156 @@
+*Déclaration du type pour la table interne T_TRAVEL1.
+TYPES:
+  BEGIN OF ty_travel1,
+    date_travel  TYPE leave_date,   "Date de départ
+    nb_travel(2) TYPE i,            "Nombre de voyage effectué
+    tot_dur      TYPE n1dauer,      "Total des durées de voyage
+    tot_dist     TYPE icl_mileage,  "Tot distances parcourus
+    tot_toll     TYPE ztravel_toll, "Total des coûts de péages
+    tot_gasol    TYPE rkeskwfulk,   "Tot des coûts en combustible
+    tot_costs     TYPE rkeskwfulk,   "Total des coûts journaliers
+  END OF ty_travel1,
+
+*Déclaration du type pour la table interne T_TRAVEL2.
+  BEGIN OF ty_travel2,
+    date_travel    TYPE leave_date, "Date de voyage
+    hour_travel    TYPE s_dep_time, "Heure de voyage
+    name_drive(30) TYPE c,          "Nom et prénom du conducteur
+    city_from      TYPE s_from_cit, "Ville de départ
+    city_to        TYPE s_to_city,  "Ville d'arrivée
+    name_pass1(30) TYPE c,          "Nom/Prénom du 1° passager
+    name_pass2(30) TYPE c,          "Nom/Prénom du 2° passager
+    name_pass3(30) TYPE c,          "Nom/Prénom du 3° passager
+  END OF ty_travel2.
+
+*Déclaration des tables internes
+DATA:
+  t_travel  TYPE TABLE OF ztravel,          "Nouv enregistrements
+  t_travel1 TYPE SORTED TABLE OF ty_travel1 "Resultat 1°requête
+            WITH NON-UNIQUE KEY date_travel,
+  t_travel2 TYPE SORTED TABLE OF ty_travel2 "Résultat 2°requête
+            WITH NON-UNIQUE KEY date_travel hour_travel.
+
+*Declaration des structures
+DATA:
+  s_travel  TYPE ztravel,
+  s_travel1 TYPE ty_travel1,
+  s_travel2 TYPE ty_travel2.
+
+
+
+*Insertion des nouveaux enregistrements
+CLEAR s_travel.
+s_travel-date_travel   = '20180213'.
+s_travel-hour_travel   = '0800'.
+s_travel-id_driver     = 'C0002'.
+s_travel-id_passenger1 = 'P0003'.
+s_travel-id_passenger2 = ''.
+s_travel-id_passenger3 = ''.
+s_travel-city_from     = 'LERIDA'.
+s_travel-country_from  = 'ES'.
+s_travel-city_to       = 'BARCELONE'.
+s_travel-country_to    = 'ES'.
+s_travel-kms           = '190'.
+s_travel-kms_unit      = 'KM'.
+s_travel-duration      = '120'.
+s_travel-toll          = '11'.
+s_travel-gasol         = '68'.
+s_travel-unit          = 'EUR'.
+APPEND s_travel TO t_travel.
+
+CLEAR s_travel.
+s_travel-date_travel   = '20180213'.
+s_travel-hour_travel   = '1530'.
+s_travel-id_driver     = 'C0003'.
+s_travel-id_passenger1 = 'P0001'.
+s_travel-id_passenger2 = 'P0002'.
+s_travel-id_passenger3 = 'P0004'.
+s_travel-city_from     = 'PERPIGNAN'.
+s_travel-country_from  = 'FR'.
+s_travel-city_to       = 'MONTPELLIER'.
+s_travel-country_to    = 'FR'.
+s_travel-kms           = '160'.
+s_travel-kms_unit      = 'KM'.
+s_travel-duration      = '110'.
+s_travel-toll          = '18'.
+s_travel-gasol         = '98'.
+s_travel-unit          = 'EUR'.
+APPEND s_travel TO t_travel.
+
+*Si la table T_TRAVEL n'est pas vide, mise à jour de la table ZTRAVEL
+ULINE.
+WRITE:/ 'NOUVEAUX ENREGISTREMENTS'.
+IF NOT t_travel[] IS INITIAL.
+  MODIFY ztravel FROM TABLE t_travel.
+
+  IF sy-subrc = 0.
+    WRITE:/ 'La table ZTRAVEL a correctement été mise à jour'.
+  ELSE.
+    WRITE:/ 'Erreur pendant la mise à jour de la table ZTRAVEL'.
+  ENDIF.
+  ULINE.
+ENDIF.
+
+
+
+*Première sélection
+ULINE.
+WRITE:/ 'PREMIÈRE SÉLECTION'.
+
+SELECT date_travel,                       "Date de départ
+       COUNT(*)             AS nb_travel, "Nbre  voyage effectué
+       SUM( duration )      AS tot_dur,   "Tot.  durées de voyage
+       SUM( kms )           AS tot_dist,  "Tot. Dist. parcourus
+       SUM( toll )          AS tot_toll,  "Tot. coûts de péages
+       SUM( gasol )         AS tot_gasol, "Tot. coûts combustible
+       SUM(  toll + gasol ) AS tot_costs  "Tot. coûts journaliers
+  FROM ztravel
+  INTO TABLE @t_travel1
+  GROUP BY date_travel.
+
+
+LOOP AT t_travel1 INTO s_travel1.
+  WRITE:/ s_travel1-date_travel, s_travel1-nb_travel,
+          s_travel1-tot_dur,     s_travel1-tot_dist,
+          s_travel1-tot_toll,    s_travel1-tot_gasol,
+          s_travel1-tot_costs.
+ENDLOOP.
+ULINE.
+
+
+*Deuxième sélection
+ULINE.
+WRITE:/ 'DEUXIÈME SÉLECTION'.
+SELECT
+    t~date_travel,                               "Date de voyage
+    t~hour_travel,                               "Heure de voyage
+    d~surname && @space && d~name AS name_drive, "Conducteur
+    t~city_from,                                 "Ville de départ
+    t~city_to,                                   "Ville d'arrivée
+    COALESCE( p1~surname && @space && p1~name, 'X' ) AS name_pass1, "Pass1
+    COALESCE( p2~surname && @space && p2~name, 'X' ) AS name_pass2, "Pass2
+    COALESCE( p3~surname && @space && p3~name, 'X' ) AS name_pass3  "Pass3
+   FROM ztravel AS t
+   INNER JOIN zdriver_car AS d
+    ON t~id_driver = d~id_driver
+   LEFT JOIN zpassenger AS p1
+    ON t~id_passenger1 = p1~id_passenger
+   LEFT JOIN zpassenger AS p2
+    ON t~id_passenger2 = p2~id_passenger
+   LEFT JOIN zpassenger AS p3
+    ON t~id_passenger3 = p3~id_passenger
+   INTO TABLE @t_travel2.
+
+IF NOT t_travel2[] IS INITIAL.
+  LOOP AT t_travel2 INTO s_travel2.
+    ULINE.
+    WRITE:/ s_travel2-date_travel, s_travel2-hour_travel,
+*    WRITE:/ s_travel2-name_drive,  s_travel2-city_from,
+            s_travel2-name_drive,  s_travel2-city_from,
+            s_travel2-city_to.
+    WRITE:/ s_travel2-name_pass1,  s_travel2-name_pass2,
+            s_travel2-name_pass3.
+  ENDLOOP.
+ENDIF.
+
+ULINE.

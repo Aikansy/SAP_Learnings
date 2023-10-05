@@ -1,0 +1,30 @@
+*Ecran de Sélection
+PARAMETERS: p_city TYPE ztravel-city_from
+                   AS LISTBOX VISIBLE LENGTH 20.
+
+
+*Evénement
+AT SELECTION-SCREEN OUTPUT.
+  DATA: t_list TYPE TABLE OF vrm_value,
+        s_list TYPE vrm_value,
+        v_name TYPE vrm_id.
+
+  v_name = 'P_CITY'.
+
+  CLEAR s_list.
+  s_list-key  = '1'.
+  s_list-text = 'BARCELONE'.
+  APPEND s_list TO t_list.
+
+  s_list-key  = '2'.
+  s_list-text = 'TOULOUSE'.
+  APPEND s_list TO t_list.
+
+  s_list-key  = '3'.
+  s_list-text = 'PERPIGNAN'.
+  APPEND s_list TO t_list.
+
+  CALL FUNCTION 'VRM_SET_VALUES'
+    EXPORTING
+      id     = v_name
+      values = t_list.

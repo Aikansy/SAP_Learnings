@@ -1,0 +1,7 @@
+METHOD get_books.
+
+  SELECT * FROM zbooks
+    INTO TABLE t_books
+    WHERE zcategory = mv_category.
+
+ENDMETHOD.

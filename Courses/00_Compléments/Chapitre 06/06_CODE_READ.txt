@@ -1,0 +1,58 @@
+TYPES: BEGIN OF ty_citizen,
+         country TYPE char3,
+         name    TYPE char20,
+         age     TYPE numc2,
+       END OF ty_citizen.
+
+DATA: t_citizen TYPE STANDARD TABLE OF ty_citizen,
+      s_citizen TYPE ty_citizen.
+
+FIELD-SYMBOLS: <fs_citizen> TYPE ty_citizen.
+
+s_citizen-country = 'FR'.
+s_citizen-name    = 'Thierry'.
+s_citizen-age     = '24'.
+APPEND s_citizen TO t_citizen.
+
+s_citizen-country = 'ES'.
+s_citizen-name    = 'Luis'.
+s_citizen-age     = '32'.
+APPEND s_citizen TO t_citizen.
+
+s_citizen-country = 'BR'.
+s_citizen-name    = 'Renata'.
+s_citizen-age     = '27'.
+APPEND s_citizen TO t_citizen.
+
+s_citizen-country = 'FR'.
+s_citizen-name    = 'Floriane'.
+s_citizen-age     = '32'.
+APPEND s_citizen TO t_citizen.
+
+
+s_citizen-country = 'BR'.
+s_citizen-name    = 'Renata'.
+s_citizen-age     = '27'.
+READ TABLE t_citizen ASSIGNING <fs_citizen> FROM s_citizen.
+IF sy-subrc = 0.
+  WRITE: 'READ FROM structure :'.
+  WRITE:/ <fs_citizen>-country, <fs_citizen>-name, <fs_citizen>-age.
+ENDIF.
+ULINE.
+
+
+READ TABLE t_citizen INTO s_citizen INDEX 4.
+IF sy-subrc = 0.
+  WRITE:/ 'READ INDEX :'.
+  WRITE:/ s_citizen-country, s_citizen-name, s_citizen-age.
+ENDIF.
+ULINE.
+
+
+SORT t_citizen BY country.
+READ TABLE t_citizen WITH KEY country = 'ES' BINARY SEARCH
+                     TRANSPORTING NO FIELDS.
+IF sy-subrc = 0.
+  WRITE:/ 'READ WITH KEY :'.
+  WRITE:/ 'Il existe un enregistrement avec le champ COUNTRY égal à ''ES'' à la ligne :', sy-tabix.
+ENDIF.

@@ -1,0 +1,143 @@
+*&---------------------------------------------------------------------*
+*& Report  ZCHAPTER8_EXER
+*&
+*&---------------------------------------------------------------------*
+*&
+*&
+*&---------------------------------------------------------------------*
+REPORT zchapter8_exer.
+
+DATA: t_books    TYPE TABLE OF zbooks,
+      t_messages TYPE TABLE OF bapiret2,
+      s_books    TYPE zbooks,
+      s_messages TYPE bapiret2.
+
+
+CLEAR s_books.
+s_books-zcategory = 'SCI'.
+s_books-title     = 'LA PLANÈTE DES SINGES'.
+s_books-year_book = '1963'.
+s_books-author    = 'PIERRE BOULLE'.
+APPEND s_books TO t_books.
+
+
+CLEAR s_books.
+s_books-zcategory = 'FAN'.
+s_books-title     = 'LE SEIGNEUR DES ANNEAUX'.
+s_books-year_book = '1955'.
+s_books-author    = 'J.R.R. TOLKIEN'.
+APPEND s_books TO t_books.
+
+
+CLEAR s_books.
+s_books-zcategory = 'BIO'.
+s_books-title     = 'FRIDA KHALO'.
+s_books-year_book = '2009'.
+s_books-author    = 'FRIDA KHALO'.
+APPEND s_books TO t_books.
+
+
+CLEAR s_books.
+s_books-zcategory = 'HOR'.
+s_books-title     = 'ÇA'.
+s_books-year_book = '1986'.
+s_books-author    = 'STEPHEN KING'.
+APPEND s_books TO t_books.
+
+
+CLEAR s_books.
+s_books-zcategory = 'ROM'.
+s_books-title     = 'L''ALCHIMISTE'.
+s_books-year_book = '1988'.
+s_books-author    = 'PAULO COELHO'.
+APPEND s_books TO t_books.
+
+
+CLEAR s_books.
+s_books-zcategory = 'SCI'.
+s_books-title     = 'DUNE'.
+s_books-year_book = '1965'.
+s_books-author    = 'FRANK HERBERT'.
+APPEND s_books TO t_books.
+
+
+CLEAR s_books.
+s_books-zcategory = 'HOR'.
+s_books-title     = 'L''APPEL DE CTHULHU'.
+s_books-year_book = '1928'.
+s_books-author    = 'HOWARD P. LOVECRAFT'.
+APPEND s_books TO t_books.
+
+
+CLEAR s_books.
+s_books-zcategory = 'BIO'.
+s_books-title     = 'OPEN'.
+s_books-year_book = '2011'.
+s_books-author    = 'ANDRÉ AGASSI'.
+APPEND s_books TO t_books.
+
+
+CLEAR s_books.
+s_books-zcategory = 'ROM'.
+s_books-title     = 'AU BONHEUR DES OGRES'.
+s_books-year_book = '1985'.
+s_books-author    = 'DANIEL PENNAC'.
+APPEND s_books TO t_books.
+
+
+CLEAR s_books.
+s_books-zcategory = 'FAN'.
+s_books-title     = 'LE TRÔNE DE FER'.
+s_books-year_book = '1996'.
+s_books-author    = 'GEORGE R.R. MARTIN'.
+APPEND s_books TO t_books.
+
+
+CLEAR s_books.
+s_books-zcategory = 'SCI'.
+s_books-title     = 'LA NUIT DES TEMPS'.
+s_books-year_book = '1968'.
+s_books-author    = 'RENÉ BARJAVEL'.
+APPEND s_books TO t_books.
+
+
+CALL FUNCTION 'ZFM_BOOKS_CREATE'
+  CHANGING
+    it_books     = t_books
+    et_messages  = t_messages
+  EXCEPTIONS
+    empty_table  = 1
+    update_error = 2
+    OTHERS       = 3.
+IF sy-subrc <> 0.
+
+  CASE sy-subrc.
+    WHEN 1.
+      WRITE:/ 'La table T_BOOKS est vide'.
+    WHEN 2.
+      WRITE:/ 'Erreur pendant la mise à jour de la table'.
+    WHEN OTHERS.
+      WRITE:/ 'Une erreur inatendue est survenue'.
+  ENDCASE.
+
+ENDIF.
+
+
+IF NOT t_messages[] IS INITIAL.
+
+  SORT t_messages BY row.
+
+  LOOP AT t_messages INTO s_messages.
+
+    ULINE.
+    IF s_messages-type = 'E'.
+      WRITE:/ 'ERREUR - Ligne ', s_messages-row.
+    ELSE.
+      WRITE:/ 'SUCCÈS - Ligne ', s_messages-row.
+    ENDIF.
+
+    WRITE:/ s_messages-message.
+
+  ENDLOOP.
+
+ENDIF.

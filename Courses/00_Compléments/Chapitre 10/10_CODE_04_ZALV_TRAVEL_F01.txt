@@ -1,0 +1,116 @@
+*&---------------------------------------------------------------------*
+*&  Include           ZALV_TRAVEL_F01
+*&---------------------------------------------------------------------*
+
+*&---------------------------------------------------------------------*
+*&      Form  F_SELECT_DATA
+*&---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+*  -->  p1        text
+*  <--  p2        text
+*----------------------------------------------------------------------*
+FORM f_select_data .
+
+  "La table interne GT_DATA est vidée de tout contenu
+  REFRESH gt_data.
+
+  SELECT t~date_travel,
+         t~city_from,
+         t~country_from,
+         t~city_to,
+         t~country_to,
+         d~surname && ' ' && d~name   AS driver,
+         d~car_brand,
+         d~car_model,
+         p1~surname && ' ' && p1~name AS passenger1,
+         p2~surname && ' ' && p2~name AS passenger2,
+         p3~surname && ' ' && p3~name AS passenger3,
+         t~kms,
+         t~kms_unit,
+         t~toll,
+         t~gasol,
+         t~unit
+    FROM ztravel           AS t
+    INNER JOIN zdriver_car AS d
+      ON t~id_driver       EQ d~id_driver
+    INNER JOIN zpassenger  AS p1
+      ON t~id_passenger1   EQ p1~id_passenger
+    INNER JOIN zpassenger  AS p2
+      ON t~id_passenger2   EQ p2~id_passenger
+    INNER JOIN zpassenger  AS p3
+      ON t~id_passenger3   EQ p3~id_passenger
+    INTO TABLE @gt_data
+    WHERE t~date_travel IN @s_trdate
+      AND t~city_from   IN @s_cityfr
+      AND t~city_to     IN @s_cityto
+    ORDER BY t~date_travel.
+
+ENDFORM.
+
+
+
+*&---------------------------------------------------------------------*
+*&      Form  F_ALV_DISPLAY
+*&---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+*  -->  p1        text
+*  <--  p2        text
+*----------------------------------------------------------------------*
+FORM f_alv_display .
+
+*VARIABLES D'OBJET
+  DATA:
+    lo_alv           TYPE REF TO cl_salv_table, "Rapport ALV
+    lo_alv_functions TYPE REF TO cl_salv_functions, "Fonc. ALV
+    lo_columns       TYPE REF TO cl_salv_columns_table, "Col. ALV
+    lo_column        TYPE REF TO cl_salv_column_table.  "Col. Ind
+
+
+  TRY.
+      "Création de l'objet ALV
+      CALL METHOD cl_salv_table=>factory
+        IMPORTING
+          r_salv_table = lo_alv
+        CHANGING
+          t_table      = gt_data.
+
+      "Création des fonctions du rapport ALV
+      lo_alv_functions = lo_alv->get_functions( ).
+      lo_alv_functions->set_all( abap_true ).
+
+      "Importation de toutes les colonnes du rapport ALV
+      lo_columns = lo_alv->get_columns( ).
+      lo_columns->set_optimize( abap_true ).
+
+      "Spécifité de quelques colones du rapport ALV
+      lo_column ?= lo_columns->get_column( 'DRIVER' ).
+      lo_column->set_long_text( 'Conducteur' ).
+      lo_column->set_medium_text( 'Conduct.' ).
+      lo_column->set_short_text( 'Cond.' ).
+
+      lo_column ?= lo_columns->get_column( 'PASSENGER1' ).
+      lo_column->set_long_text( 'Passager 1' ).
+      lo_column->set_medium_text( 'Pass. 1' ).
+      lo_column->set_short_text( 'Pass1' ).
+
+      lo_column ?= lo_columns->get_column( 'PASSENGER2' ).
+      lo_column->set_long_text( 'Passager 2' ).
+      lo_column->set_medium_text( 'Pass. 2' ).
+      lo_column->set_short_text( 'Pass2' ).
+
+      lo_column ?= lo_columns->get_column( 'PASSENGER3' ).
+      lo_column->set_long_text( 'Passager 3' ).
+      lo_column->set_medium_text( 'Pass. 3' ).
+      lo_column->set_short_text( 'Pass3' ).
+
+      "Affichage du rapport ALV
+      lo_alv->display( ).
+
+    CATCH cx_salv_msg .
+      "Si erreur, affichage du message suivant
+      MESSAGE 'Impossible d''afficher le rapport ALV' TYPE 'I' DISPLAY LIKE 'E'.
+  ENDTRY.
+
+ENDFORM.

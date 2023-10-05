@@ -1,0 +1,130 @@
+FUNCTION zfm_books_create.
+*"---------------------------------------------------------------
+*"*"Interface locale :
+*"  CHANGING
+*"     REFERENCE(IT_BOOKS) TYPE  ZTT_BOOKS
+*"     REFERENCE(ET_MESSAGES) TYPE  BAPIRET2_TT
+*"  EXCEPTIONS
+*"      EMPTY_TABLE
+*"      UPDATE_ERROR
+*"---------------------------------------------------------------
+
+  DATA: it_data_ok TYPE TABLE OF zbooks.
+  DATA: s_books    TYPE zbooks,
+        s_exist    TYPE zbooks,
+        s_messages TYPE bapiret2.
+  DATA: v_year(4)  TYPE c,
+        v_subrc    TYPE sy-subrc,
+        v_tabix    type sy-tabix.
+
+
+* Vérifier si table est vide, sinon RAISE
+  IF it_books[] IS INITIAL.
+    RAISE empty_table.
+  ENDIF.
+
+  "Prendre l'année en cours
+  v_year = sy-datum(4).
+
+
+  "Boucle sur les enregistrements d ela table IT_BOOKS
+  LOOP AT it_books INTO s_books.
+
+    "Initialisation de la variable V_SUBRC à 0
+    v_subrc = 0.
+
+    "Initialisation de la variable V_TABIX
+    v_tabix = sy-tabix.
+
+    "Vérifier si la catégorie est correctement renseignée
+    IF s_books-zcategory IS INITIAL.
+      CLEAR s_messages.
+      s_messages-type = 'E'.
+      s_messages-message = 'La catégorie doit être renseignée'.
+      s_messages-row = v_tabix.
+      APPEND s_messages TO et_messages.
+      v_subrc = 4.
+    ENDIF.
+
+    "Vérifier si le titre est correctement renseigné
+    IF s_books-title IS INITIAL.
+      CLEAR s_messages.
+      s_messages-type = 'E'.
+      s_messages-message = 'Le titre du livre doit être renseigné'.
+      s_messages-row = v_tabix.
+      APPEND s_messages TO et_messages.
+      v_subrc = 4.
+    ENDIF.
+
+    "Vérifier si l'année de parution est correctement renseignée
+    IF s_books-year_book IS INITIAL.
+      CLEAR s_messages.
+      s_messages-type = 'E'.
+      s_messages-message = 'L''année de parution doit être renseignée'.
+      s_messages-row = v_tabix.
+      APPEND s_messages TO et_messages.
+      v_subrc = 4.
+    ENDIF.
+
+    "Vérifier si l'année de parution est inférieure ou égale
+    "à l'année en cours
+    IF s_books-year_book > v_year.
+      CLEAR s_messages.
+      s_messages-type = 'E'.
+      s_messages-message = 'L''année de parution est obsolète'.
+      s_messages-row = v_tabix.
+      APPEND s_messages TO et_messages.
+      v_subrc = 4.
+    ENDIF.
+
+    "Vérifier si l'auteur est correctement renseigné
+    IF s_books-author IS INITIAL.
+      CLEAR s_messages.
+      s_messages-type = 'E'.
+      s_messages-message = 'L''auteur doit être renseigné'.
+      s_messages-row = v_tabix.
+      APPEND s_messages TO et_messages.
+      v_subrc = 4.
+    ENDIF.
+
+    "Vérifier si l'enregistrement n'existe pas déjà
+    SELECT SINGLE * FROM zbooks
+      INTO @s_exist
+      WHERE title     = @s_books-title
+        AND year_book = @s_books-year_book
+        AND author    = @s_books-author.
+    IF sy-subrc = 0.
+      CLEAR s_messages.
+      s_messages-type = 'E'.
+      s_messages-message = 'L''enregistrement existe déjà'.
+      s_messages-row = sy-tabix.
+      APPEND s_messages TO et_messages.
+      v_subrc = 4.
+    ENDIF.
+
+    "Si aucune erreur n'a été constatée, insérer le registre
+    "dans la table interne IT_DATA_OK
+    IF v_subrc = 0.
+      APPEND s_books TO it_data_ok.
+
+      CLEAR s_messages.
+      s_messages-type = 'S'.
+      s_messages-message = 'Registre OK pour la table ZBOOKS'.
+      s_messages-row = v_tabix.
+      APPEND s_messages TO et_messages.
+    ENDIF.
+
+  ENDLOOP.
+
+
+
+  "Si la table interne IT_DATA_OK n'est pas vide,
+  "mettre à jour ZBOOKS
+  IF NOT it_data_ok[] IS INITIAL.
+    MODIFY zbooks FROM TABLE it_data_ok.
+    IF sy-subrc NE 0.
+      RAISE update_error.
+    ENDIF.
+  ENDIF.
+
+ENDFUNCTION.

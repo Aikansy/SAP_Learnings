@@ -1,0 +1,43 @@
+DATA: v_kunnr TYPE kunnr.
+
+CALL FUNCTION 'SD_CUSTOMER_MAINTAIN_ALL'
+  IMPORTING
+    e_kunnr                 = v_kunnr
+  EXCEPTIONS
+    client_error            = 1
+    kna1_incomplete         = 2
+    knb1_incomplete         = 3
+    knb5_incomplete         = 4
+    knvv_incomplete         = 5
+    kunnr_not_unique        = 6
+    sales_area_not_unique   = 7
+    sales_area_not_valid    = 8
+    insert_update_conflict  = 9
+    number_assignment_error = 10
+    number_not_in_range     = 11
+    number_range_not_extern = 12
+    number_range_not_intern = 13
+    account_group_not_valid = 14
+    parnr_invalid           = 15
+    bank_address_invalid    = 16
+    tax_data_not_valid      = 17
+    no_authority            = 18
+    company_code_not_unique = 19
+    dunning_data_not_valid  = 20
+    knb1_reference_invalid  = 21
+    cam_error               = 22
+    OTHERS                  = 23.
+
+CASE sy-subrc.
+  WHEN 0.
+    WRITE: 'Le client nº ', v_kunnr, ' a été créé avec succès.'.
+  WHEN 1.
+    WRITE 'Erreur de client.'.
+  WHEN 2.
+    WRITE 'La structure en entrée KNA1 est incomplète.'.
+  WHEN 3.
+    WRITE 'La structure en entrée KNB1 est incomplète.'.
+  ...
+  WHEN OTHERS.
+    WRITE 'Une erreur inconnue est survenue durant la création du client.'.
+ENDCASE.

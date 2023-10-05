@@ -1,0 +1,5 @@
+METHOD constructor.
+
+  mv_category = iv_category.
+
+ENDMETHOD.

@@ -1,0 +1,33 @@
+DATA: t_travel TYPE TABLE OF ztravel,
+      s_travel TYPE ztravel.
+
+DATA: o_driver TYPE REF TO zcl_driver.
+
+CONSTANTS: c_driver_id TYPE zdriver_id VALUE 'C0003'.
+
+
+CREATE OBJECT o_driver
+  EXPORTING
+    iv_driver_id = c_driver_id.
+
+
+CALL METHOD o_driver->get_travel
+  IMPORTING
+    t_travel      = t_travel
+  EXCEPTIONS
+    no_data_found = 1
+    OTHERS        = 2.
+
+
+IF sy-subrc = 1.
+  WRITE: / 'Aucune donnée retournée'.
+ELSE.
+
+  LOOP AT t_travel INTO s_travel.
+    WRITE: / s_travel-date_travel,
+             s_travel-hour_travel,
+             s_travel-city_from,
+             s_travel-city_to.
+  ENDLOOP.
+
+ENDIF.

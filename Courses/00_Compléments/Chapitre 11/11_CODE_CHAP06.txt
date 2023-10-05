@@ -1,0 +1,165 @@
+*Déclaration du type de table pour T_CATEGORY
+TYPES: BEGIN OF ty_category,
+         category(3)     TYPE c,  "Catégorie de livre
+         description(20) TYPE c,  "Description catégorie
+       END OF ty_category.
+
+
+*Déclaration des tables internes
+DATA: t_category TYPE HASHED TABLE OF ty_category
+                 WITH UNIQUE KEY category,
+
+      t_books    TYPE SORTED TABLE OF zbooks
+                 WITH NON-UNIQUE KEY year_book zcategory.
+
+*Déclaration des structures
+DATA: s_category TYPE ty_category,
+      s_books    TYPE zbooks.
+
+*Déclaration des variables
+DATA: v_lines(2) TYPE n.    "Nombre de lignes de la table T_BOOKS
+
+
+
+*Ajout des enregistrements dans la table T_CATEGORY
+CLEAR s_category.
+s_category-category    = 'BIO'.
+s_category-description = 'Biographie'.
+INSERT s_category INTO TABLE t_category.
+
+CLEAR s_category.
+s_category-category    = 'FAN'.
+s_category-description = 'Fantasy'.
+INSERT s_category INTO TABLE t_category.
+
+CLEAR s_category.
+s_category-category    = 'HOR'.
+s_category-description = 'Horreur'.
+INSERT s_category INTO TABLE t_category.
+
+CLEAR s_category.
+s_category-category    = 'ROM'.
+s_category-description = 'Roman'.
+INSERT s_category INTO TABLE t_category.
+
+CLEAR s_category.
+s_category-category    = 'SCI'.
+s_category-description = 'Science-Fiction'.
+INSERT s_category INTO TABLE t_category.
+
+
+
+*Ajout des enregistrements dans la table T_BOOKS
+CLEAR s_books.
+s_books-zcategory = 'SCI'.
+s_books-title     =  'La planète des Singes'.
+s_books-year_book =  '1963'.
+s_books-author    = 'Pierre Boulle'.
+INSERT s_books INTO TABLE t_books.
+
+CLEAR s_books.
+s_books-zcategory = 'FAN'.
+s_books-title     =  'Le Seigneur des Anneaux'.
+s_books-year_book =  '1955'.
+s_books-author    = 'J.R.R. Tolkien'.
+INSERT s_books INTO TABLE t_books.
+
+CLEAR s_books.
+s_books-zcategory = 'BIO'.
+s_books-title     =  'Frida Khalo'.
+s_books-year_book =  '2009'.
+s_books-author    = 'Frida Khalo'.
+INSERT s_books INTO TABLE t_books.
+
+CLEAR s_books.
+s_books-zcategory = 'HOR'.
+s_books-title     =  'Ça'.
+s_books-year_book =  '1986'.
+s_books-author    = 'Stephen King'.
+INSERT s_books INTO TABLE t_books.
+
+CLEAR s_books.
+s_books-zcategory = 'ROM'.
+s_books-title     =  'L''alchimiste'.
+s_books-year_book =  '1988'.
+s_books-author    = 'Paulo Coelho'.
+INSERT s_books INTO TABLE t_books.
+
+CLEAR s_books.
+s_books-zcategory = 'SCI'.
+s_books-title     =  'Dune'.
+s_books-year_book =  '1965'.
+s_books-author    = 'Frank Herbert'.
+INSERT s_books INTO TABLE t_books.
+
+CLEAR s_books.
+s_books-zcategory = 'HOR'.
+s_books-title     =  'L''Appel de Cthulhu'.
+s_books-year_book =  '1928'.
+s_books-author    = 'Howard P. Lovecraft'.
+INSERT s_books INTO TABLE t_books.
+
+CLEAR s_books.
+s_books-zcategory = 'BIO'.
+s_books-title     =  'Open'.
+s_books-year_book =  '2011'.
+s_books-author    = 'André Agassi'.
+INSERT s_books INTO TABLE t_books.
+
+CLEAR s_books.
+s_books-zcategory = 'ROM'.
+s_books-title     =  'Au bonheur des Ogres'.
+s_books-year_book =  '1985'.
+s_books-author    = 'Daniel Pennac'.
+INSERT s_books INTO TABLE t_books.
+
+CLEAR s_books.
+s_books-zcategory = 'FAN'.
+s_books-title     =  'Le Trône de fer'.
+s_books-year_book =  '1996'.
+s_books-author    = 'George R.R. Martin'.
+INSERT s_books INTO TABLE t_books.
+
+CLEAR s_books.
+s_books-zcategory = 'SCI'.
+s_books-title     =  'La Nuit des Temps'.
+s_books-year_book =  '1968'.
+s_books-author    = 'René Barjavel'.
+INSERT s_books INTO TABLE t_books.
+
+
+*Spécifier le nombre de lignes contenus dans la table T_BOOKS
+DESCRIBE TABLE t_books LINES v_lines.
+CONDENSE v_lines NO-GAPS.
+WRITE:/ 'La bibliothèque contient ', v_lines, ' livres.'.
+
+
+*Boucle sur la table T_BOOKS
+LOOP AT t_books INTO s_books.
+
+  AT FIRST.
+    "Afficher un texte d'introduction
+    WRITE:/ 'Liste des livres contenus dans la bibliothèque'.
+  ENDAT.
+
+  AT NEW year_book.
+    "Pour chaque nouvelle ligne, afficher un séparateur et 
+    "l'année de parution du livre
+    ULINE.
+    WRITE:/ s_books-year_book.
+  ENDAT.
+
+  "Rechercher la description de la catégorie de livre
+  READ TABLE t_category INTO s_category 
+       WITH KEY category = s_books-zcategory.
+
+  "Afficher les enregistrements
+  WRITE:/ s_books-title, s_category-description, s_books-author.
+
+
+  AT LAST.
+    "Afficher un texte de conclusion
+    WRITE:/ 'Fin de la liste'.
+  ENDAT.
+
+ENDLOOP.

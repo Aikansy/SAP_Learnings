@@ -1,0 +1,266 @@
+DATA: t_car    TYPE TABLE OF zcar_brand_mod,
+      t_driver TYPE TABLE OF zdriver_car,
+      t_pass   TYPE TABLE OF zpassenger,
+      t_travel TYPE TABLE OF ztravel.
+
+DATA: s_car    TYPE zcar_brand_mod,
+      s_driver TYPE zdriver_car,
+      s_pass   TYPE zpassenger,
+      s_travel TYPE ztravel.
+
+
+CLEAR s_car.
+s_car-brand             = 'AUDI'.
+s_car-model             = 'A3'.
+s_car-model_year        = '2016'.
+APPEND s_car TO t_car.
+
+CLEAR s_car.
+s_car-brand             = 'CITROËN'.
+s_car-model             = 'C5'.
+s_car-model_year        = '2012'.
+APPEND s_car TO t_car.
+
+CLEAR s_car.
+s_car-brand             = 'FORD'.
+s_car-model             = 'ESCORT'.
+s_car-model_year        = '2013'.
+APPEND s_car TO t_car.
+
+CLEAR s_car.
+s_car-brand             = 'PEUGEOT'.
+s_car-model             = '208'.
+s_car-model_year        = '2012'.
+APPEND s_car TO t_car.
+
+CLEAR s_car.
+s_car-brand             = 'PEUGEOT'.
+s_car-model             = '307'.
+s_car-model_year        = '2011'.
+APPEND s_car TO t_car.
+
+CLEAR s_car.
+s_car-brand             = 'RENAULT'.
+s_car-model             = 'MÉGANE'.
+s_car-model_year        = '2013'.
+APPEND s_car TO t_car.
+
+CLEAR s_car.
+s_car-brand             = 'VOLKSWAGEN'.
+s_car-model             = 'GOLF'.
+s_car-model_year        = '2015'.
+APPEND s_car TO t_car.
+
+MODIFY zcar_brand_mod FROM TABLE t_car.
+
+IF sy-subrc = 0.
+  WRITE:/ 'Table ZCAR_BRAND_MOD mise à jour avec succès'.
+ELSE.
+  WRITE:/ 'Erreur lors de la mise à jour de la table ZCAR_BRAND_MOD'.
+ENDIF.
+
+
+
+CLEAR s_driver.
+s_driver-id_driver      = 'C0001'.
+s_driver-surname        = 'DEBBACHE'.
+s_driver-name           = 'AMINH'.
+s_driver-date_birth     = '19781216'.
+s_driver-city           = 'TOULOUSE'.
+s_driver-country        = 'FR'.
+s_driver-car_brand      = 'PEUGEOT'.
+s_driver-car_model      = '307'.
+s_driver-car_year       = '2011'.
+s_driver-car_color      = 'NOIR'.
+s_driver-car_id         = 'FB243TR'.
+s_driver-lang           = 'F'.
+APPEND s_driver TO t_driver.
+
+CLEAR s_driver.
+s_driver-id_driver      = 'C0002'.
+s_driver-surname        = 'ALDAIR'.
+s_driver-name           = 'PAULA'.
+s_driver-date_birth     = '19900424'.
+s_driver-city           = 'BARCELONE'.
+s_driver-country        = 'ES'.
+s_driver-car_brand      = 'AUDI'.
+s_driver-car_model      = 'A3'.
+s_driver-car_year       = '2016'.
+s_driver-car_color      = 'ROUGE'.
+s_driver-car_id         = '5144FTY'.
+s_driver-lang           = 'S'.
+APPEND s_driver TO t_driver.
+
+CLEAR s_driver.
+s_driver-id_driver      = 'C0003'.
+s_driver-surname        = 'PILON'.
+s_driver-name           = 'BEATRIZ'.
+s_driver-date_birth     = '19880211'.
+s_driver-city           = 'PERPIGNAN'.
+s_driver-country        = 'FR'.
+s_driver-car_brand      = 'FORD'.
+s_driver-car_model      = 'ESCORT'.
+s_driver-car_year       = '2013'.
+s_driver-car_color      = 'BLANCHE'.
+s_driver-car_id         = 'TR141GF'.
+s_driver-lang           = 'F'.
+APPEND s_driver TO t_driver.
+
+CLEAR s_driver.
+s_driver-id_driver      = 'C0004'.
+s_driver-surname        = 'OLIVEIRA'.
+s_driver-name           = 'JOSÉ'.
+s_driver-date_birth     = '19781106'.
+s_driver-city           = 'BARCELONE'.
+s_driver-country        = 'ES'.
+s_driver-car_brand      = 'CITROËN'.
+s_driver-car_model      = 'C5'.
+s_driver-car_year       = '2012'.
+s_driver-car_color      = 'NOIR'.
+s_driver-car_id         = '6723DIY'.
+s_driver-lang           = 'S'.
+APPEND s_driver TO t_driver.
+
+MODIFY zdriver_car FROM TABLE t_driver.
+
+IF sy-subrc = 0.
+  WRITE:/ 'Table ZDRIVER_CAR mise à jour avec succès'.
+ELSE.
+  WRITE:/ 'Erreur lors de la mise à jour de la table ZDRIVER_CAR'.
+ENDIF.
+
+
+
+CLEAR s_pass.
+s_pass-id_passenger     = 'P0001'.
+s_pass-surname          = 'PEREZ'.
+s_pass-name             = 'MICHEL'.
+s_pass-date_birth       = '19790724'.
+s_pass-city             = 'PERPIGNAN'.
+s_pass-country          = 'FR'.
+s_pass-lang             = 'F'.
+APPEND s_pass TO t_pass.
+
+CLEAR s_pass.
+s_pass-id_passenger     = 'P0002'.
+s_pass-surname          = 'VALE'.
+s_pass-name             = 'SONIA'.
+s_pass-date_birth       = '19830220'.
+s_pass-city             = 'TOULOUSE'.
+s_pass-country          = 'FR'.
+s_pass-lang             = 'F'.
+APPEND s_pass TO t_pass.
+
+CLEAR s_pass.
+s_pass-id_passenger     = 'P0003'.
+s_pass-surname          = 'OLIVEIRA'.
+s_pass-name             = 'JOSÉ'.
+s_pass-date_birth       = '19781106'.
+s_pass-city             = 'BARCELONE'.
+s_pass-country          = 'ES'.
+s_pass-lang             = 'S'.
+APPEND s_pass TO t_pass.
+
+CLEAR s_pass.
+s_pass-id_passenger     = 'P0004'.
+s_pass-surname          = 'HERNANDEZ'.
+s_pass-name             = 'PATRICIA'.
+s_pass-date_birth       = '19841002'.
+s_pass-city             = 'TOULOUSE'.
+s_pass-country          = 'FR'.
+s_pass-lang             = 'F'.
+APPEND s_pass TO t_pass.
+
+MODIFY zpassenger FROM TABLE t_pass.
+
+IF sy-subrc = 0.
+  WRITE:/ 'Table ZPASSENGER mise à jour avec succès'.
+ELSE.
+  WRITE:/ 'Erreur lors de la mise à jour de la table ZPASSENGER'.
+ENDIF.
+
+
+
+CLEAR s_travel.
+s_travel-date_travel    = '20171212'.
+s_travel-hour_travel    = '1530'.
+s_travel-id_driver      = 'C0003'.
+s_travel-id_passenger1  = 'P0001'.
+s_travel-id_passenger2  = 'P0003'.
+s_travel-id_passenger3  = ''.
+s_travel-city_from      = 'PERPIGNAN'.
+s_travel-country_from   = 'FR'.
+s_travel-city_to        = 'BARCELONE'.
+s_travel-country_to     = 'ES'.
+s_travel-kms            = '195'.
+s_travel-kms_unit       = 'KM'.
+s_travel-duration       = '130'.
+s_travel-toll           = '16.00'.
+s_travel-gasol          = '35.40'.
+s_travel-unit           = 'EUR'.
+APPEND s_travel TO t_travel.
+
+CLEAR s_travel.
+s_travel-date_travel    = '20180201'.
+s_travel-hour_travel    = '1630'.
+s_travel-id_driver      = 'C0003'.
+s_travel-id_passenger1  = 'P0001'.
+s_travel-id_passenger2  = ''.
+s_travel-id_passenger3  = ''.
+s_travel-city_from      = 'BARCELONE'.
+s_travel-country_from   = 'ES'.
+s_travel-city_to        = 'PERPIGNAN'.
+s_travel-country_to     = 'FR'.
+s_travel-kms            = '194'.
+s_travel-kms_unit       = 'KM'.
+s_travel-duration       = '150'.
+s_travel-toll           = '17.00'.
+s_travel-gasol          = '40.98'.
+s_travel-unit           = 'EUR'.
+APPEND s_travel TO t_travel.
+
+CLEAR s_travel.
+s_travel-date_travel    = '20180213'.
+s_travel-hour_travel    = '0700'.
+s_travel-id_driver      = 'C0001'.
+s_travel-id_passenger1  = 'P0001'.
+s_travel-id_passenger2  = 'P0002'.
+s_travel-id_passenger3  = 'P0004'.
+s_travel-city_from      = 'TOULOUSE'.
+s_travel-country_from   = 'FR'.
+s_travel-city_to        = 'PERPIGNAN'.
+s_travel-country_to     = 'FR'.
+s_travel-kms            = '205'.
+s_travel-kms_unit       = 'KM'.
+s_travel-duration       = '140'.
+s_travel-toll           = '21.00'.
+s_travel-gasol          = '50.21'.
+s_travel-unit           = 'EUR'.
+APPEND s_travel TO t_travel.
+
+CLEAR s_travel.
+s_travel-date_travel    = '20180421'.
+s_travel-hour_travel    = '1000'.
+s_travel-id_driver      = 'C0002'.
+s_travel-id_passenger1  = 'P0003'.
+s_travel-id_passenger2  = ''.
+s_travel-id_passenger3  = ''.
+s_travel-city_from      = 'BARCELONE'.
+s_travel-country_from   = 'ES'.
+s_travel-city_to        = 'LÉRIDA'.
+s_travel-country_to     = 'ES'.
+s_travel-kms            = '170'.
+s_travel-kms_unit       = 'KM'.
+s_travel-duration       = '100'.
+s_travel-toll           = '6.00'.
+s_travel-gasol          = '50.50'.
+s_travel-unit           = 'EUR'.
+APPEND s_travel TO t_travel.
+
+MODIFY ztravel FROM TABLE t_travel.
+
+IF sy-subrc = 0.
+  WRITE:/ 'Table ZTRAVEL mise à jour avec succès'.
+ELSE.
+  WRITE:/ 'Erreur lors de la mise à jour de la table ZTRAVEL'.
+ENDIF.

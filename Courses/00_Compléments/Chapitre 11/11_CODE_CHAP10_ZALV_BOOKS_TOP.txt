@@ -1,0 +1,55 @@
+*&---------------------------------------------------------------------*
+*&  Include           ZALV_BOOKS_TOP
+*&---------------------------------------------------------------------*
+
+TABLES: zbooks.
+
+
+*TYPES DE TABLE
+TYPES:
+  "Définir le type de la table interne GT_BOOKS
+  BEGIN OF gty_books,
+    zcategory TYPE zbooks-title,
+    title     TYPE zbooks-title,
+    year_book TYPE zbooks-year_book,
+    author    TYPE zbooks-author,
+  END OF gty_books,
+
+  "Définir le type de la table interne GT_DATA
+  BEGIN OF gty_data,
+    title     TYPE zbooks-title,
+    category  TYPE dd07v-ddtext,
+    year_book TYPE zbooks-year_book,
+    author    TYPE zbooks-author,
+  END OF gty_data.
+
+
+
+*TABLES INTERNES
+DATA:
+  "Table interne contenant les enregistrments de ZBOOKS
+  gt_books    TYPE SORTED TABLE OF gty_books
+              WITH NON-UNIQUE KEY zcategory title,
+  "Table interne avec comme reférence la table de sortie
+  " de la fonction FM_DOMAINVALUE_CHECK et contenant les
+  " valeurs du domaine ZCATEGORY
+  gt_category TYPE STANDARD TABLE OF dd07v,
+  "Table interne contenant les enregistrments du rapport ALV
+  gt_data     TYPE STANDARD TABLE OF gty_data.
+
+
+
+*STRUCTURES
+DATA:
+  gs_books    TYPE gty_books,
+  gs_category TYPE dd07v,
+  gs_data     TYPE gty_data.
+
+
+
+*ECRAN DE SELECTION
+SELECTION-SCREEN BEGIN OF BLOCK b00 WITH FRAME TITLE text-b00.
+SELECT-OPTIONS: s_categ  FOR zbooks-zcategory,  "Catégorie
+                s_author FOR zbooks-author,     "Auteur
+                s_year   FOR zbooks-year_book.  "Année de parution
+SELECTION-SCREEN END OF BLOCK b00.

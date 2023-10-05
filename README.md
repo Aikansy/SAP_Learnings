@@ -1,3 +1,1 @@
 # `SAP4U`
-
-## **Summary**

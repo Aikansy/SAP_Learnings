@@ -1,0 +1,156 @@
+*&---------------------------------------------------------------------*
+*&  Include           ZALV_BOOKS_F01
+*&---------------------------------------------------------------------*
+*&---------------------------------------------------------------------*
+*&      Form  F_SELECT_DATA
+*&---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+*  -->  p1        text
+*  <--  p2        text
+*----------------------------------------------------------------------*
+FORM f_select_data .
+
+  SELECT zcategory, title, year_book, author
+    FROM zbooks
+    INTO TABLE @gt_books
+    WHERE zcategory IN @s_categ
+      AND author    IN @s_author
+      AND year_book IN @s_year.
+
+  IF sy-subrc NE 0.
+    MESSAGE e001(00) WITH text-e01.
+  ENDIF.
+
+ENDFORM.
+
+
+
+*&---------------------------------------------------------------------*
+*&      Form  F_DOM_VALUES
+*&---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+*  -->  p1        text
+*  <--  p2        text
+*----------------------------------------------------------------------*
+FORM f_dom_values .
+
+  CALL FUNCTION 'FM_DOMAINVALUE_CHECK'
+    EXPORTING
+      i_domname         = 'ZCATEGORY'
+*     I_TABNAME         =
+*     I_FIELDNAME       =
+*     I_DOMVALUE        =
+    TABLES
+      t_dd07v           = gt_category
+    EXCEPTIONS
+      input_error       = 1
+      value_not_allowed = 2
+      OTHERS            = 3.
+
+  IF sy-subrc <> 0.
+    "Traitement des messages d'erreurs
+    CASE sy-subrc.
+      WHEN 1.
+        MESSAGE e001(00) WITH text-e02.
+      WHEN 2.
+        MESSAGE e001(00) WITH text-e03.
+      WHEN OTHERS.
+        MESSAGE e001(00) WITH text-e04.
+    ENDCASE.
+
+  ELSE.
+
+    "Trier la table interne pour l'utilisation du
+    " READ TABLE... BINARY SEARCH
+    SORT gt_category BY domvalue_l.
+
+  ENDIF.
+
+ENDFORM.
+
+
+
+*&---------------------------------------------------------------------*
+*&      Form  F_GET_ALV_DATA
+*&---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+*  -->  p1        text
+*  <--  p2        text
+*----------------------------------------------------------------------*
+FORM f_get_alv_data .
+
+"Boucle su GT_BOOKS
+  LOOP AT gt_books INTO gs_books.
+
+    "Lire la valeur de la catégorie
+    READ TABLE gt_category INTO gs_category
+         WITH KEY domvalue_l = gs_books-zcategory
+         BINARY SEARCH.
+
+    IF sy-subrc = 0.
+
+      "Copier les valeurs dans la table interne GT_DATA
+      MOVE-CORRESPONDING gs_books TO gs_data.
+      gs_data-category = gs_category-ddtext.
+      APPEND gs_data TO gt_data.
+
+    ENDIF.
+
+  ENDLOOP.
+
+ENDFORM.
+
+
+
+*&---------------------------------------------------------------------*
+*&      Form  F_ALV_DISPLAY
+*&---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+*  -->  p1        text
+*  <--  p2        text
+*----------------------------------------------------------------------*
+FORM f_alv_display .
+
+*VARIABLES D'OBJET
+  DATA:
+    lo_alv           TYPE REF TO cl_salv_table, "Rapport ALV
+    lo_alv_functions TYPE REF TO cl_salv_functions, "Fonc. ALV
+    lo_columns       TYPE REF TO cl_salv_columns_table, "Col. ALV
+    lo_column        TYPE REF TO cl_salv_column_table.  "Col. Ind
+
+
+  TRY.
+      "Création de l'objet ALV
+      CALL METHOD cl_salv_table=>factory
+        IMPORTING
+          r_salv_table = lo_alv
+        CHANGING
+          t_table      = gt_data.
+
+      "Création des fonctions du rapport ALV
+      lo_alv_functions = lo_alv->get_functions( ).
+      lo_alv_functions->set_all( abap_true ).
+
+      "Importation de toutes les colonnes du rapport ALV
+      lo_columns = lo_alv->get_columns( ).
+      lo_columns->set_optimize( abap_true ).
+
+      "Spécifité de quelques colones du rapport ALV
+      lo_column ?= lo_columns->get_column( 'CATEGORY' ).
+      lo_column->set_long_text( 'Catégorie' ).
+      lo_column->set_medium_text( 'Catég.' ).
+      lo_column->set_short_text( 'Cat.' ).
+
+      "Affichage du rapport ALV
+      lo_alv->display( ).
+
+    CATCH cx_salv_msg .
+      "Si erreur, affichage du message suivant
+      MESSAGE 'Impossible d''afficher le rapport ALV' TYPE 'I' DISPLAY LIKE 'E'.
+  ENDTRY.
+
+ENDFORM.

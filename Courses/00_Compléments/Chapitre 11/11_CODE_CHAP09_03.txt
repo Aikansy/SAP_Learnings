@@ -1,0 +1,32 @@
+DATA: t_books TYPE TABLE OF zbooks,
+      s_books TYPE zbooks.
+
+DATA: o_books TYPE REF TO zcl_books.
+
+CONSTANTS: c_category TYPE zcategory2 VALUE 'SCI'.
+
+
+CREATE OBJECT o_books
+  EXPORTING
+    iv_category = c_category.
+
+
+CALL METHOD o_books->get_books
+  IMPORTING
+    t_books       = t_books
+  EXCEPTIONS
+    no_data_found = 1
+    OTHERS        = 2.
+
+
+IF sy-subrc = 1.
+  WRITE: / 'Aucune donnée retournée'.
+ELSE.
+
+  LOOP AT t_books INTO s_books.
+    WRITE: / s_books-title,
+             s_books-author,
+             s_books-year_book.
+  ENDLOOP.
+
+ENDIF.

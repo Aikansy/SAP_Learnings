@@ -1,0 +1,41 @@
+TYPES: BEGIN OF ty_citizen,
+         country TYPE char3,
+         name    TYPE char20,
+         age     TYPE numc2,
+       END OF ty_citizen.
+
+DATA: t_citizen TYPE STANDARD TABLE OF ty_citizen,
+      s_citizen TYPE ty_citizen.
+
+FIELD-SYMBOLS: <fs_citizen> TYPE ty_citizen.
+
+s_citizen-country = 'FR'.
+s_citizen-name    = 'Thierry'.
+s_citizen-age     = '24'.
+APPEND s_citizen TO t_citizen.
+
+s_citizen-country = 'ES'.
+s_citizen-name    = 'Luis'.
+s_citizen-age     = '32'.
+APPEND s_citizen TO t_citizen.
+
+s_citizen-country = 'BR'.
+s_citizen-name    = 'Renata'.
+s_citizen-age     = '27'.
+APPEND s_citizen TO t_citizen.
+
+s_citizen-country = 'FR'.
+s_citizen-name    = 'Floriane'.
+s_citizen-age     = '32'.
+APPEND s_citizen TO t_citizen.
+
+s_citizen-country = 'ES'.
+s_citizen-name    = 'Luiza'.
+s_citizen-age     = '31'.
+APPEND s_citizen TO t_citizen.
+
+s_citizen-country = 'BR'.
+s_citizen-name    = 'Felipe'.
+s_citizen-age     = '25'.
+APPEND s_citizen TO t_citizen.
+

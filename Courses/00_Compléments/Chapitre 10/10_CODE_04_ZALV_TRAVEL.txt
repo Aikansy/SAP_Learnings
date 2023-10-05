@@ -1,0 +1,28 @@
+*&---------------------------------------------------------------------*
+*& Report  ZALV_TRAVEL
+*&
+*&---------------------------------------------------------------------*
+*&
+*&
+*&---------------------------------------------------------------------*
+REPORT zalv_travel.
+
+
+*Déclaration des variables et écran de sélection
+INCLUDE zalv_travel_top.
+
+*Routines
+INCLUDE zalv_travel_f01.
+
+
+INITIALIZATION.
+  REFRESH gt_data.
+
+
+
+START-OF-SELECTION.
+  "Sélection des données
+  PERFORM f_select_data.
+
+  "Affichage du rapport ALV
+  PERFORM f_alv_display.

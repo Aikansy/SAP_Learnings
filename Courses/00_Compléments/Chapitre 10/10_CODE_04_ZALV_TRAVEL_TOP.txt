@@ -1,0 +1,40 @@
+*&---------------------------------------------------------------------*
+*&  Include           ZALV_TRAVEL_TOP
+*&---------------------------------------------------------------------*
+
+TABLES: ztravel.
+
+
+*TYPES
+TYPES: BEGIN OF gty_data,
+         date_travel  TYPE ztravel-date_travel,
+         city_from    TYPE ztravel-city_from,
+         country_from TYPE ztravel-country_from,
+         city_to      TYPE ztravel-city_to,
+         country_to   TYPE ztravel-country_to,
+         driver       TYPE char40,
+         car_brand    TYPE zdriver_car-car_brand,
+         car_model    TYPE zdriver_car-car_model,
+         passenger1   TYPE char40,
+         passenger2   TYPE char40,
+         passenger3   TYPE char40,
+         kms          TYPE ztravel-kms,
+         kms_unit     TYPE ztravel-kms_unit,
+         toll         TYPE ztravel-toll,
+         gasol        TYPE ztravel-gasol,
+         unit         TYPE ztravel-unit,
+       END OF gty_data.
+
+
+*TABLES INTERNES
+DATA: gt_data TYPE TABLE OF gty_data.  "Tables données de l'ALV
+
+
+
+
+*ECRAN DE SELECTION
+SELECTION-SCREEN BEGIN OF BLOCK b00 WITH FRAME TITLE text-b00.
+SELECT-OPTIONS: s_trdate FOR ztravel-date_travel, "Date de voyage
+                s_cityfr FOR ztravel-city_from, "Ville de départ
+                s_cityto FOR ztravel-city_to.   "Ville d'arrivée
+SELECTION-SCREEN END OF BLOCK b00.

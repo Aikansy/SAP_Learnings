@@ -1,0 +1,26 @@
+TABLES: ztravel.
+
+PARAMETERS: p_opt1 TYPE char1 RADIOBUTTON GROUP grp.
+
+SELECTION-SCREEN BEGIN OF BLOCK b00 WITH FRAME TITLE text-t01.
+SELECT-OPTIONS: s_trdate FOR ztravel-date_travel
+                         DEFAULT sy-datum,
+                s_driver FOR ztravel-id_driver
+                         MATCHCODE OBJECT  zsh_driver.
+SELECTION-SCREEN END OF BLOCK b00.
+
+
+PARAMETERS: p_opt2 TYPE char1 RADIOBUTTON GROUP grp.
+
+SELECTION-SCREEN BEGIN OF BLOCK b01 WITH FRAME TITLE text-t02.
+PARAMETERS p_driver TYPE zdriver_car-id_driver.
+SELECTION-SCREEN END OF BLOCK b01.
+
+
+IF p_opt1 = 'X'.
+*  Sélection de la table ZTRAVEL
+
+ELSEIF p_opt2 = 'X'.
+*  Sélection de la table ZDRIVER_CAR
+
+ENDIF.

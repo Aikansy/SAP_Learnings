@@ -1,0 +1,47 @@
+*Déclaration des varaibles
+DATA: v_day(2)     TYPE n,
+      v_month(2)   TYPE n,
+      v_year(4)    TYPE n,
+      v_day_month  TYPE i,
+      v_date       TYPE char10,
+      v_date_month TYPE char10.
+
+v_day   = sy-datum+6(2). "Définir la date du jour
+v_month = sy-datum+4(2). "Définir le mois en cours
+v_year  = sy-datum(4).   "Définir l'année
+
+
+*Définir et afficher la date du jour au format DD/MM/YYYY
+CONCATENATE v_day v_month v_year INTO v_date 
+            SEPARATED BY '/'.
+CONDENSE v_date NO-GAPS.
+WRITE:/ 'Date du jour : ', v_date.
+
+
+*Définir le nombre de jours par mois
+CASE v_month.
+  WHEN 1 OR 3 OR 5 OR 7 OR 8 OR 10 OR 12.
+    v_day_month = 31.
+  WHEN 4 OR 6 OR 9 OR 11.
+    v_day_month = 30.
+  WHEN 2.
+    v_day_month = 28.
+ENDCASE.
+
+
+*Afficher toutes les dates du mois
+WHILE v_day < v_day_month.
+
+  "Vider la variable V_DATE_MONTH
+  CLEAR v_date_month.
+
+  "Incrémenter de 1 V_DAY
+  v_day = v_day + 1.
+
+  "Définri et afficher la date
+  CONCATENATE v_day v_month v_year INTO v_date_month
+              SEPARATED BY '/'.
+  CONDENSE v_date_month NO-GAPS.
+  WRITE:/ v_date_month.
+
+ENDWHILE.
