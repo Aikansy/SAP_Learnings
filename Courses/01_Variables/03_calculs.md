@@ -39,7 +39,7 @@ MOVE: 5   TO v_c,
       v_c TO v_d.
 ```
 
-Bien évidemment, d’autres opérations existent :
+_Bien évidemment, d’autres opérations existent :_
 
 | `OPERATIONS`     | `SIGNE` | `MOTS-CLES`            |
 | ---------------- | ------- | ---------------------- |
