@@ -48,7 +48,7 @@ Il est possible d’y voir plusieurs options :
 
 - Enfin, la liste des champs de l’écran de sélection est affichée regroupant les caractéristiques suivantes :
 
-![](../../99%20-%20Ressources/12_Screen%20-%2005%20-%2001%20-%2005.png)
+  ![](../../99%20-%20Ressources/12_Screen%20-%2005%20-%2001%20-%2005.png)
 
 - `Écran de sélection` indique le numéro de l’écran.
 
@@ -76,4 +76,66 @@ Il est possible d’y voir plusieurs options :
 
   ![](../../99%20-%20Ressources/12_Screen%20-%2005%20-%2001%20-%2012.png)
 
-- Afficher zone `JUSQ`
+- Afficher zone `JUSQ.` (entendre "JUSQU’A") : supprime l’intervalle pour les zones de type SELECT-OPTIONS.
+
+  ![](../../99%20-%20Ressources/12_Screen%20-%2005%20-%2001%20-%2013.png)
+
+  ![](../../99%20-%20Ressources/12_Screen%20-%2005%20-%2001%20-%2014.png)
+
+- `Enregistrer zone sans valeurs` signifie que lors de l’importation de la variante, si une zone a déjà été renseignée, elle ne sera pas écrasée par les valeurs de la variante. Un exemple concret sera proposé à la suite de la partie sur les options de variantes.
+
+- `Désactiver GPA` est utilisée dans le cas où une zone de l’écran de sélection utilise une mémoire système pour importer automatiquement des valeurs (GET MEMORY ID/SET MEMORY ID) comme mentionné dans le chapitre Dictionnaire de données (DDIC) - Éléments de données. Cette option permet d’annuler cet import automatique.
+
+- `Zone saisie obligatoire` définit la zone de l’écran de sélection comme requis.
+
+- `Variable sélection`, `Option` et `Nom des variables` sont trois paramètres permettant d’importer les valeurs d’une zone de l’écran de sélection via une table standard (comme la TVARV) ou via un calcul dynamique (pour les champs de type Date et Heure).
+
+  ![](../../99%20-%20Ressources/12_Screen%20-%2005%20-%2001%20-%2015.png)
+
+Pour sauver la variante, il suffit de cliquer sur le bouton de sauvegarde. Ainsi, lorsque le programme est exécuté de nouveau, une nouvelle icône apparaît dans la barre d’outils de l’écran de sélection ![](../../99%20-%20Ressources/12_Screen%20-%2005%20-%2001%20-%2016.png).
+
+En cliquant dessus, la liste des variantes apparaîtra pour sélection sauf celles définies comme étant à afficher uniquement dans le catalogue.
+
+![](../../99%20-%20Ressources/12_Screen%20-%2005%20-%2001%20-%2017.png)
+
+_Manipulation pour rechercher une variante dans le catalogue :_
+
+- Il suffit de se rendre dans l’éditeur ABAP (transaction SE38).
+
+- Renseigner le nom du programme et choisir l’option Variantes, puis cliquer sur Afficher.
+
+  ![](../../99%20-%20Ressources/12_Screen%20-%2005%20-%2001%20-%2018.png)
+
+- Une nouvelle fenêtre apparaît, où il est demandé de renseigner le nom de la variante.
+
+  ![](../../99%20-%20Ressources/12_Screen%20-%2005%20-%2001%20-%2019.png)
+
+- Il suffit d’aller dans le menu déroulant suivant pour afficher les variantes du catalogue :
+
+  _Variantes - Catalogue_
+
+  ![](../../99%20-%20Ressources/12_Screen%20-%2005%20-%2001%20-%2020.png)
+
+- La liste des variantes de catalogue s’affiche donc et il est alors possible de les sélectionner pour les modifier.
+
+  ![](../../99%20-%20Ressources/12_Screen%20-%2005%20-%2001%20-%2021.png)
+
+  Force est de constater qu’il est assez difficile de modifier ce type de variante. On l’utilisera donc en général lorsqu’il y a peu de modifications, ce qui est peu probable dans le cas d’une variante utilisée pour des tests.
+
+  _Exemple de l’option Enregistrer zone sans valeurs :_
+
+  _Création d’une variante (`SANS_VAL`) avec les zones `Ville de départ` égale à `TOULOUSE` et Ville d’arrivée à `PERPIGNAN`._
+
+  ![](../../99%20-%20Ressources/12_Screen%20-%2005%20-%2001%20-%2022.png)
+
+  L’option Enregistrer zone sans valeurs est définie pour la zone Ville d’arrivée.
+
+  ![](../../99%20-%20Ressources/12_Screen%20-%2005%20-%2001%20-%2023.png)
+
+  Le programme est exécuté de nouveau ; la zone Ville de départ est renseignée avec la valeur `BARCELONE` et Ville d’arrivée avec `TOULOUSE`.
+
+  ![](../../99%20-%20Ressources/12_Screen%20-%2005%20-%2001%20-%2024.png)
+
+  Lorsque la variante SANS_VAL est importée, la valeur de la ville de départ est écrasée par celle de la variante (`TOULOUSE`), mais celle de la ville d’arrivée ne l’est pas.
+
+  ![](../../99%20-%20Ressources/12_Screen%20-%2005%20-%2001%20-%2025.png)
