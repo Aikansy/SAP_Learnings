@@ -7,18 +7,20 @@ SPLIT dobj
   [IN {BYTE|CHARACTER} MODE].
 ```
 
-Un `SPLIT` permet de faire l’inverse du `CONCATENATE` : il va séparer une chaîne de caractères `dobj` selon le code séparateur défini après le `AT` et stocker le résultat dans des variables de sortie (`result1`, `result2...`) ou dans une table interne `itab`.
+- `SPLIT`
 
-Paramètre(s) supplémentaire(s) optionnel(s) :
+  Un `SPLIT` permet de faire l’inverse du `CONCATENATE` : il va séparer une chaîne de caractères `dobj` selon le code séparateur défini après le `AT` et stocker le résultat dans des variables de sortie (`result1`, `result2...`) ou dans une table interne `itab`.
 
-- `IN BYTE MODE` ou `IN CHARACTER MODE`, est un paramètre qui revient assez souvent en `ABAP`. La valeur par défaut sera toujours `IN CHARACTER MODE`. `IN BYTE MODE` est le plus souvent utilisé lors d’un travail avec des variables de type hexadécimal, autant dire assez rarement.
+  _Paramètre(s) supplémentaire(s) optionnel(s) :_
+
+  - `IN BYTE MODE` ou `IN CHARACTER MODE`, est un paramètre qui revient assez souvent en `ABAP`. La valeur par défaut sera toujours `IN CHARACTER MODE`. `IN BYTE MODE` est le plus souvent utilisé lors d’un travail avec des variables de type hexadécimal, autant dire assez rarement.
 
 ```JS
-DATA: v_txt1(20) TYPE c,
-      v_txt2(20) TYPE c,
-      v_txt3(20) TYPE c,
-      v_txt4(20) TYPE c,
-      v_txt5(20) TYPE c.
+DATA: v_txt1(20) TYPE C,
+      v_txt2(20) TYPE C,
+      v_txt3(20) TYPE C,
+      v_txt4(20) TYPE C,
+      v_txt5(20) TYPE C.
 
 CONSTANTS: c_string(50) TYPE c VALUE 'Hello World Bienvenue sur SAP'.
 
@@ -50,10 +52,10 @@ SPLIT c_string AT space
            DATA(v_txt5).
 ```
 
-`SAP` va automatiquement créer les variables `V_TXT1`, `V_TXT2`, `V_TXT3`, `V_TXT4`, et `V_TXT5` de type `string`. De même pour le résultat dans une table, `SAP` va en créer une de type string également.
+`SAP` va automatiquement créer les variables `V_TXT1`, `V_TXT2`, `V_TXT3`, `V_TXT4`, et `V_TXT5` de type `STRING`. De même pour le résultat dans une table, `SAP` va en créer une de type string également.
 
 ```JS
-CONSTANTS: c_string(50) TYPE c VALUE 'Hello World Bienvenue sur SAP'.
+CONSTANTS: c_string(50) TYPE C VALUE 'Hello World Bienvenue sur SAP'.
 
 SPLIT c_string AT space INTO TABLE DATA(tab_result).
 ```

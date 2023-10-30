@@ -4,11 +4,13 @@
 CONDENSE text [NO-GAPS].
 ```
 
-Cette instruction est très souvent utilisée avec le `CONCATENATE` car elle sépare chaque chaîne de caractères par un `[SPACE]`, en supprimant tous ceux en trop.
+- `CONDENSE`
 
-Paramètre(s) supplémentaire(s) optionnel(s) :
+  Cette instruction est très souvent utilisée avec le `CONCATENATE` car elle sépare chaque chaîne de caractères par un `[SPACE]`, en supprimant tous ceux en trop.
 
-- `NO-GAPS` qui supprime absolument tous les espaces et va donc regrouper tous les mots de la chaîne de caractères.
+  Paramètre(s) supplémentaire(s) optionnel(s) :
+
+  - `NO-GAPS` qui supprime absolument tous les espaces et va donc regrouper tous les mots de la chaîne de caractères.
 
 _L’exemple suivant permet d’éclaircir le rôle du `CONDENSE`._
 

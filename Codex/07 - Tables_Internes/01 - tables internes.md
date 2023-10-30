@@ -22,7 +22,7 @@ L’instruction commence par la commande `TYPES` puis `BEGIN OF` indiquant qu’
 
 Il n'y a pas vraiment de grandes différences aussi bien techniques que pour l’optimisation du programme.
 
-## **REFERENCE DIRECT à un TYPz de champ et une LONGUEUR**
+## **REFERENCE DIRECT à un TYPE de champ et une LONGUEUR**
 
 ```JS
 . . .

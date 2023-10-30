@@ -10,7 +10,9 @@ REPLACE [ {FIRST OCCURRENCE} | {ALL OCCURRENCES} OF] pattern
         { { [REPLACEMENT OFFSET roff] [REPLACEMENT LENGTH rlen] } | [RESULTS result_tab|result_wa] }.
 ```
 
-L’instruction `REPLACE` est identique au `FIND` sauf qu’au lieu de chercher uniquement une chaîne de caractères, elle va aussi la remplacer par une autre `WITH new`. Elle possède aussi les options `FIRST OCCURRENCE` (chercher et remplacer la première occurrence trouvée), et `ALL OCCURRENCES` (chercher et remplacer toutes les occurrences trouvées).
+- `REPLACE`
+
+  L’instruction `REPLACE` est identique au `FIND` sauf qu’au lieu de chercher uniquement une chaîne de caractères, elle va aussi la remplacer par une autre `WITH new`. Elle possède aussi les options `FIRST OCCURRENCE` (chercher et remplacer la première occurrence trouvée), et `ALL OCCURRENCES` (chercher et remplacer toutes les occurrences trouvées).
 
 _Exemple_
 

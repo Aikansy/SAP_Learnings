@@ -9,18 +9,22 @@ FIND [ {FIRST OCCURRENCE} | {ALL OCCURRENCES} OF ] pattern
      { { [MATCH OFFSET moff] [MATCH LENGTH mlen] } | [RESULTS result_tab|result_wa] }.
 ```
 
-L’instruction `FIND` recherche une chaîne de caractères modèle `pattern` dans une chaîne de caractères source `IN` `dobj`. Deux options sont possibles :
+- `FIND`
 
-- soit chercher toutes les occurrences `ALL OCCURRENCES` et stocker le résultat dans une table interne `result_tab`
-- soit uniquement la première `FIRST OCCURRENCE` et stocker le résultat dans une structure `result_wa`.
+  L’instruction `FIND` recherche une chaîne de caractères modèle `pattern` dans une chaîne de caractères source `IN` `dobj`.
 
-> Si l’option du résultat n’est pas indiquée (dans le cas du `FIRST OCCURRENCE`), la variable système [`SY-FDPOS`](../99%20-%20Help/02_SY-SYSTEM.md) est renseignée, contenant la position dans la chaîne source où a été trouvé le modèle.
+  _Deux options sont possibles :_
 
-_Paramètre(s) supplémentaire(s) optionnel(s) :_
+  - soit chercher toutes les occurrences `ALL OCCURRENCES` et stocker le résultat dans une table interne `result_tab`
+  - soit uniquement la première `FIRST OCCURRENCE` et stocker le résultat dans une structure `result_wa`.
+
+  _Paramètre(s) supplémentaire(s) optionnel(s) :_
 
 - `IN BYTE MODE` ou `IN CHARACTER MODE`, est un paramètre qui revient assez souvent en `ABAP`. La valeur par défaut sera toujours `IN CHARACTER MODE`. `IN BYTE MODE` est le plus souvent utilisé lors d’un travail avec des variables de type hexadécimal, autant dire assez rarement.
 - `RESPECTING`/`IGNORING CASE` indique si la casse de la chaîne de caractères doit être respectée. Par défaut, si cette option n’est pas renseignée, `RESPECTING CASE` est automatiquement choisie.
 - `MATCH COUNT` compte le nombre d’occurrences trouvées et sera toujours égal à 1 si l’option `FIRST OCCURRENCE` est choisie.
+
+> Si l’option du résultat n’est pas indiquée (dans le cas du `FIRST OCCURRENCE`), la variable système [`SY-FDPOS`](../99%20-%20Help/02%20-%20SY-SYSTEM.md) est renseignée, contenant la position dans la chaîne source où a été trouvé le modèle.
 
 _Exemple_
 
@@ -57,13 +61,14 @@ WRITE:  'V_OFFSET1 = ', v_offset1,
       / 'V_OFFSET2 = ', v_offset2.
 ```
 
-Les variables V_OFFSET1 et V_OFFSET2 contiendront respectivement les valeurs 6 et 0.
+Les variables `V_OFFSET1` et `V_OFFSET2` contiendront respectivement les valeurs 6 et 0.
 
 ![](../99%20-%20Ressources/01_Variables%20-%2007%20-%2002.png)
 
 > Dans une chaîne de caractères, la première position est `0`, ainsi dans cet exemple, le premier `A` se trouve à la position `0`, soit tout au début, et le dernier à la position `6`. Les variables `V_OFFSET1` et `V_OFFSET2` contiendront respectivement les valeurs `6` et `0`.
 
 - `MATCH LENGTH` retourne la longueur de la chaîne de caractères modèle. Utiliser le dernier exemple n’est pas très significatif car la longueur de `A` est de 1 mais s’il s’agit d’un cas complexe avec des variables dont les valeurs ne sont pas connues et attribuées dynamiquement, cette option serait utile.
+
 - `RESULTS` est soit une structure contenant le résultat du `REPLACE` `FIRST OCCURRENCE` soit une table `ALL OCCURRENCES` Elle est aussi de la forme `MATCH_RESULT` contenant les champs `OFFSET` et `LENGTH`
 
 > Petit aparté concernant les résultats : comme pour le `SPLIT`, il est possible de déclarer les variables dans l’instruction. Ainsi les exemples ci-dessus seront de la forme :

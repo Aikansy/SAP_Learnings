@@ -1,12 +1,12 @@
 # **`TABLES - AIDE/CONTROLE DE SAISIE`**
 
-A`ide/contrôle de saisie` est le quatrième onglet et rassemble les informations nécessaires au contrôle des enregistrements insérés.
+`Aide/contrôle de saisie` est le quatrième onglet et rassemble les informations nécessaires au contrôle des enregistrements insérés.
 
 ![](../99%20-%20Ressources/06_Tables_DB%20-%2007%20-%2001.png)
 
 Il est à son tour composé d’une barre d’outils mais sans grande nouveauté. Il va lister les zones de la table avec les informations suivantes :
 
-- `Zone - Elément de données -Type de données` comme indiqué dans l’onglet Zones.
+- `Zone - Elément de données - Type de données` comme indiqué dans l’onglet Zones.
 - `Clé externe` indique si la zone est liée à une table de contrôle définie dans un domaine. Dans l’exemple de la table MARA, le champ du mandant (`MANDT`) fait appel à la table `T000` pour vérifier ces valeurs. Concernant le numéro d’article (`MATNR`), cette indication n’est pas renseignée, ce qui paraît logique car l’élément de données `MATNR` utilise le domaine `MATNR` ayant `MARA` pour table de valeurs. L’utiliser comme clé externe créerait une référence cyclique provoquant ainsi une erreur à chaque création d’un numéro d’article et rendant donc cette étape impossible. Mais par sécurité, `SAP` sait repérer ce genre de cas et ne permet pas de les sauvegarder.
 
 Il serait intéressant cependant de voir le détail de la clé externe. Il suffit de sélectionner le champ (par exemple `MANDT`) puis de cliquer sur le bouton de la clé. Une nouvelle fenêtre s’ouvre avec les informations suivantes :

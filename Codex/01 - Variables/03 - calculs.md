@@ -1,14 +1,16 @@
 # **`OPERATIONS ARITHMETIQUES`**
 
-Comme dans tout langage de programmation, les `variables` de types `numériques` (`N`, `I`, `P`...) peuvent être utilisées dans des opérations arithmétiques.
+Comme dans tout langage de programmation, les [variables numériques](../01%20-%20Variables/01%20-%20variables.md) (`N`, `I`, `P`...) peuvent être utilisées dans des opérations arithmétiques.
+
+## **MOVE**
 
 Tout d’abord, pour assigner une valeur à une `variable`, les instructions `MOVE` ou égal `=` sont utilisées.
 
 ```JS
-DATA: v_a(2) TYPE i,
-      v_b(2) TYPE i,
-      v_c(2) TYPE i,
-      v_d(2) TYPE i.
+DATA: v_a(2) TYPE I,
+      v_b(2) TYPE I,
+      v_c(2) TYPE I,
+      v_d(2) TYPE I.
 
 v_a = 3.
 v_b = v_a.
@@ -39,6 +41,8 @@ MOVE: 5   TO v_c,
       v_c TO v_d.
 ```
 
+## **OPERATEURS ARITHMETIQUES**
+
 _Bien évidemment, d’autres opérations existent :_
 
 | `OPERATIONS`     | `SIGNE` | `MOTS-CLES`            |
@@ -65,8 +69,8 @@ ADD 7 TO v_a.
 ## **SOUSTRACTION**
 
 ```JS
-DATA: v_a(2) TYPE i,
-      v_b(2) TYPE i.
+DATA: v_a(2) TYPE I,
+      v_b(2) TYPE I.
 
 v_a = 5 + 2.
 v_b = v_a - 3.
@@ -76,9 +80,9 @@ SUBTRACT 3 FROM v_b.
 ## **MULTIPLICATION**
 
 ```JS
-DATA: v_a(2) TYPE i,
-      v_b(2) TYPE i,
-      v_c(2) TYPE i.
+DATA: v_a(2) TYPE I,
+      v_b(2) TYPE I,
+      v_c(2) TYPE I.
 
 v_a = 5 + 2.
 v_b = v_a - 3.
@@ -89,10 +93,10 @@ MULTIPLY v_c BY 2.
 ## **DIVISION**
 
 ```JS
-DATA: v_a(2) TYPE i,
-      v_b(2) TYPE i,
-      v_c(2) TYPE i,
-      v_d(2) TYPE i.
+DATA: v_a(2) TYPE I,
+      v_b(2) TYPE I,
+      v_c(2) TYPE I,
+      v_d(2) TYPE I.
 
 v_a = 5 + 2.
 v_b = v_a - 3.

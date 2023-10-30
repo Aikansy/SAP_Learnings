@@ -8,13 +8,15 @@ CONCATENATE [ {dobj1 dobj2 ...} | {LINES OF itab} ]
             [RESPECTING BLANKS].
 ```
 
-`CONCATENATE` permet de concaténer plusieurs chaînes de caractères définies par `dobj1`, `dobj2…` ou les lignes d’une table interne `LINES OF itab`, et de stocker le résultat dans une variable cible définie après le `INTO`
+- `CONCATENATE`
 
-_Paramètre(s) supplémentaire(s) optionnel(s) :_
+  permet de concaténer plusieurs chaînes de caractères définies par `dobj1`, `dobj2…` ou les lignes d’une table interne `LINES OF itab`, et de stocker le résultat dans une variable cible définie après le `INTO`
 
-- `IN BYTE MODE` ou `IN CHARACTER MODE`, est un paramètre qui revient assez souvent en `ABAP`. La valeur par défaut sera toujours `IN CHARACTER MODE`. `IN BYTE MODE` est le plus souvent utilisé lors d’un travail avec des variables de type hexadécimal, autant dire assez rarement.
-- `SEPARATED BY` renseigne le caractère de séparation entre les chaînes de caractères dans la variable résultat.
-- `RESPECTING BLANKS` affiche la chaîne complète y compris les espaces. Par exemple, si la variable de sortie est définie comme une chaîne de caractères de vingt positions, mais que le résultat du `CONCATENATE` est seulement un texte de cinq, le `RESPECTING BLANKS` affichera le texte de cinq caractères puis quinze espaces. Ce procédé est utilisé pour l’envoi de fichiers plats à des banques par exemple et dont le nombre de colonnes de chaque cellule est nécessaire pour être compris et pris en compte par leur système.
+  _Paramètre(s) supplémentaire(s) optionnel(s) :_
+
+  - `IN BYTE MODE` ou `IN CHARACTER MODE`, est un paramètre qui revient assez souvent en `ABAP`. La valeur par défaut sera toujours `IN CHARACTER MODE`. `IN BYTE MODE` est le plus souvent utilisé lors d’un travail avec des variables de type hexadécimal, autant dire assez rarement.
+  - `SEPARATED BY` renseigne le caractère de séparation entre les chaînes de caractères dans la variable résultat.
+  - `RESPECTING BLANKS` affiche la chaîne complète y compris les espaces. Par exemple, si la variable de sortie est définie comme une chaîne de caractères de vingt positions, mais que le résultat du `CONCATENATE` est seulement un texte de cinq, le `RESPECTING BLANKS` affichera le texte de cinq caractères puis quinze espaces. Ce procédé est utilisé pour l’envoi de fichiers plats à des banques par exemple et dont le nombre de colonnes de chaque cellule est nécessaire pour être compris et pris en compte par leur système.
 
 _L’exemple suivant démontre bien les différentes possibilités du `CONCATENATE` :_
 
@@ -25,9 +27,9 @@ CONSTANTS: c_txt1(20) TYPE c VALUE 'Hello',
            c_txt4(20) TYPE c VALUE 'sur',
            c_txt5(20) TYPE c VALUE 'SAP'.
 
-DATA: v_result1(50)  TYPE c,
-      v_result2(50)  TYPE c,
-      v_result3(100) TYPE c.
+DATA: v_result1(50)  TYPE C,
+      v_result2(50)  TYPE C,
+      v_result3(100) TYPE C.
 
 CONCATENATE c_txt1 c_txt2 c_txt3 c_txt4 c_txt5
   INTO v_result1.

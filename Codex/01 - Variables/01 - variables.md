@@ -1,10 +1,10 @@
 # **`VARIABLES`**
 
-`ABAP` contient des `variables` et des `constantes`. Par définition, une `variable` est un symbole informatique associant un nom à une valeur qui peut varier durant l’exécution du programme. Cette définition s’applique également à une constante, à la différence près que sa valeur est fixée dès le début et ne changera jamais au cours de l’exécution du programme.
+- `Variable` :
 
-On retrouve sur `SAP` les types de `variables` suivants :
+  Une variable est un symbole informatique associant un nom à une valeur qui peut varier durant l’exécution du programme. Cette définition s’applique également à une constante, à la différence près que sa valeur est fixée dès le début et ne changera jamais au cours de l’exécution du programme.
 
-_Types de `variables ABAP` :_
+_Types de variables `ABAP` :_
 
 | **Type**  | **Description**       | **Default length** | **Default value** | **Value**    |
 | --------- | --------------------- | ------------------ | ----------------- | ------------ |
@@ -28,7 +28,7 @@ DATA: lv_name(10) TYPE c,
       lv_name2    LIKE v_name.
 ```
 
-La variable `LV_NAME` est déclarée avec un type chaîne de caractères et de longueur `10` et `LV_NAME2` quant à elle prend comme référence la variable `LV_NAME`. Ainsi, `TYPE` va pointer directement vers un type spécifique alors que le `LIKE` va en prendre indirectement une `référence`. Dans une `programmation objet` (cf. chapitre Les classes), le `TYPE` est à `privilégier`.
+La variable `LV_NAME` est déclarée avec un type chaîne de caractères et de longueur `10` et `LV_NAME2` quant à elle prend comme référence la variable `LV_NAME`. Ainsi, `TYPE` va pointer directement vers un type spécifique alors que le `LIKE` va en prendre indirectement une `référence`. Dans une [programmation objet](../11%20-%20Classes/01%20-%20ABAP%20Object/), le `TYPE` est à `privilégier`.
 
 ## **CHAR**
 
@@ -41,10 +41,15 @@ DATA: lv_char TYPE CHAR255,
 
 ## **INTEGER & NUMERIC**
 
-Si le type entier I et le type numérique N sont comparés, il apparaît qu’ils sont sensiblement les mêmes :
+Si le type entier `I` et le type numérique `N` sont comparés, il apparaît qu’ils sont sensiblement les mêmes :
 
-- le type entier `I` est une chaîne numérique de nombres entiers.
-- Le type numérique `N` est aussi une chaîne numérique mais stockée sous forme de caractères, ce qui est pratique lors d’un travail avec des instructions sur des variables texte comme le `CONCATENATE`
+- Type entier `I` :
+
+  est une chaîne numérique de nombres entiers.
+
+- Type numérique `N` :
+
+  est aussi une chaîne numérique mais stockée sous forme de caractères, ce qui est pratique lors d’un travail avec des instructions sur des variables texte comme le [Concatenate](../01%20-%20Variables/04%20-%20concatenate.md)
 
 ```JS
 DATA: lv_integer TYPE I,
@@ -55,10 +60,10 @@ DATA: lv_integer TYPE I,
 
 ## **DATE** - AAAAMMJJ
 
-> Le format date [`SY-DATUM`](../99%20-%20Help/02_SY-SYSTEM.md) est de type `AnnéeMoisJour` (`AAAAMMJJ`), pour un affichage plus adéquat, il faudra toujours modifier la variable date.
+> Le format date [SY-DATUM](../99%20-%20Help/02%20-%20SY-SYSTEM.md) est de type `AnnéeMoisJour` (`AAAAMMJJ`), pour un affichage plus adéquat, il faudra toujours modifier la variable date.
 
 ```JS
-DATA: lv_date TYPE d.
+DATA: lv_date TYPE D.
 
 * lv_date = sy-datum.
 * lv_date = 19861102.
@@ -66,7 +71,7 @@ DATA: lv_date TYPE d.
 
 ## **TIME** - HHMMSS
 
-> Le format time [`SY-UZEIT`](../99%20-%20Help/02_SY-SYSTEM.md) est de type `HeuresMinutesSecondes` (`AAAAMMJJ`), pour un affichage plus adéquat, il faudra toujours modifier la variable date.
+> Le format time [SY-UZEIT](../99%20-%20Help/02%20-%20SY-SYSTEM.md) est de type `HeuresMinutesSecondes` (`AAAAMMJJ`), pour un affichage plus adéquat, il faudra toujours modifier la variable date.
 
 ```JS
 DATA: lv_time TYPE T.
@@ -78,7 +83,7 @@ DATA: lv_time TYPE T.
 ## **FLOAT**
 
 ```JS
-DATA: lv_float TYPE f.
+DATA: lv_float TYPE F.
 
 * lv_float = '3.14'.
 ```
@@ -86,7 +91,7 @@ DATA: lv_float TYPE f.
 ## **PACKED DECIMAL**
 
 ```JS
-DATA: lv_decimal TYPE p DECIMALS 2.
+DATA: lv_decimal TYPE P DECIMALS 2.
 
 * lv_decimal = 1234.56.
 ```
@@ -94,7 +99,7 @@ DATA: lv_decimal TYPE p DECIMALS 2.
 ## **STRING**
 
 ```JS
-DATA: lv_string1 TYPE string.
+DATA: lv_string1 TYPE STRING.
 
 * lv_string1 = 'Bonjour le monde'.
 ```
@@ -102,8 +107,8 @@ DATA: lv_string1 TYPE string.
 ## **BOOLEAN**
 
 ```JS
-DATA: lv_bool TYPE boolean,
-      lv_boolean TYPE abap_bool.
+DATA: lv_bool TYPE BOOLEAN,
+      lv_boolean TYPE ABAP_BOOL.
 
 * lv_bool = abap_true.
 * lv_boolean = abap_false.

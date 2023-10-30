@@ -23,4 +23,4 @@ ENDIF.
 
 L’exemple précédent est repris en modifiant la valeur de la constante `C_OPER2` pour `abcd`. Dans ce cas, avec l’opérateur `NA`, le programme vérifie qu’aucun caractère n’est contenu dans la constante `C_OPER2` et retourne le message correspondant.
 
-![](../00_Ressources/02_06_01.png)
+![](..//99%20-%20Ressources/02_Conditions%20-%2006%20-%2001.png)

@@ -1,27 +1,27 @@
 # **`CA - CONTAINS NOT ONLY`**
 
 ```JS
-IF oper1 CN oper2.
+IF oper1 CA oper2.
   ...
 ENDIF.
 ```
 
-`CN` signifie en anglais `Contains Not only` et au contraire de `CO`, vérifie que la chaîne de caractères `oper1` n’est pas uniquement composée de celle contenue dans `oper2`.
+`CA` signifie en anglais ` Contains Any` et vérifie que la chaîne de caractères `oper1` contient un quelconque caractère de `oper2`.
 
 _Exemple_
 
 ```JS
 DATA: c_oper1 TYPE char5 VALUE 'Hello',
-      c_oper2 TYPE char4 VALUE 'Hell'.
+      c_oper2 TYPE char3 VALUE 'llo'.
 
-IF c_oper1 CN c_oper2.
-  WRITE:/ 'C_OPER1 contient la chaîne de caractères ', c_oper2, '
+IF c_oper1 CA c_oper2.
+  WRITE:/ 'C_OPER1 contient au moins un caractère contenu dans ', c_oper2, '
 à la position ', sy-fdpos.
 ELSE.
-  WRITE:/ 'C_OPER1 ne contient pas la chaîne de caractères ', c_oper2.
+  WRITE:/ 'C_OPER1 ne contient aucun caractère contenu dans ', c_oper2.
 ENDIF.
 ```
 
-L’exemple précédent est repris en modifiant la valeur de la constante `C_OPER2` pour `Hell`. Dans ce cas, avec l’opérateur `CN`, le programme trouve la chaîne de caractères recherchée et renvoie sa position dans la variable système [sy_fdpos](../99_Help/02_SY-SYSTEM.md) de la même manière que pour le `CO`, à savoir la dernière position trouvée dans la constante `C_OPER1`, ici égale à `4`.
+L’exemple précédent est repris en modifiant la valeur de la constante `C_OPER2` pour `’llo’`. Dans ce cas, la condition va vérifier qu’au moins un caractère de la chaîne de `C_OPER1` soit contenu dans `C_OPER2` puis en retournera sa première position dans la variable système [SY-FDPOS](../99%20-%20Help/02%20-%20SY-SYSTEM.md), ici égale à 2.
 
 ![](../99%20-%20Ressources/02_Conditions%20-%2005%20-%2001.png)

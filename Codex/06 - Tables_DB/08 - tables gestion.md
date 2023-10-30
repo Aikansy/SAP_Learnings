@@ -12,7 +12,7 @@ _L’écran suivant s’affiche :_
 
 La `barre d’outils` se compose d’un seul bouton `Texte source` mais il ne sera pas traité dans ce chapitre. Ensuite se trouvent les options suivantes :
 
-- `Groupe autorisations` : sécurise l’accès et la gestion de la table, bien qu’elle soit définie comme affichage et gestion autorisés, elle est cependant limitée aux utilisateurs possédant ces autorisations. Pour information, si l’utilisateur ne les possède pas, il doit en faire la demande. Pour des tables spécifiques, le groupe utilisé est souvent &NC& (sans groupe d’autorisation).
+- `Groupe autorisations` : sécurise l’accès et la gestion de la table, bien qu’elle soit définie comme affichage et gestion autorisés, elle est cependant limitée aux utilisateurs possédant ces autorisations. Pour information, si l’utilisateur ne les possède pas, il doit en faire la demande. Pour des tables spécifiques, le groupe utilisé est souvent `&NC&` (sans groupe d’autorisation).
 - `Objet d’autorisation` est donc l’objet associé au groupe d’autorisation.
 - `Groupe fonctions` est un objet technique regroupant plusieurs autres objets techniques tels que des includes, des modules fonctions... et notamment les écrans de gestion de la table. Au cours du chapitre Les fonctions, la notion de groupe de fonctions sera développée.
 - Le bouton associé, `Txt gr.fnct.` affichera les détails du groupe de fonctions et permettra également de naviguer pour en voir le détail.
