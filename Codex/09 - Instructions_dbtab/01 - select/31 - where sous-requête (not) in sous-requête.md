@@ -4,7 +4,7 @@
 col [NOT] IN ss_requête
 ```
 
-> A distinguer de [`Where Sous-requête (not) in](<../09_SQL_Select/28_where_sous-requête_col_(not)_in.md>)
+> A distinguer de [Where Sous-requête (not) in](<../09_SQL_Select/28_where_sous-requête_col_(not)_in.md>)
 
 Cette option permet de contrôler si la valeur d'une colonne fait partie ou non (`NOT`) d'une sous-requête.
 

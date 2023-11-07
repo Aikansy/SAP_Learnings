@@ -9,14 +9,14 @@ Il est à son tour composé d’une barre d’outils mais sans grande nouveauté
 - `Zone - Elément de données - Type de données` comme indiqué dans l’onglet Zones.
 - `Clé externe` indique si la zone est liée à une table de contrôle définie dans un domaine. Dans l’exemple de la table MARA, le champ du mandant (`MANDT`) fait appel à la table `T000` pour vérifier ces valeurs. Concernant le numéro d’article (`MATNR`), cette indication n’est pas renseignée, ce qui paraît logique car l’élément de données `MATNR` utilise le domaine `MATNR` ayant `MARA` pour table de valeurs. L’utiliser comme clé externe créerait une référence cyclique provoquant ainsi une erreur à chaque création d’un numéro d’article et rendant donc cette étape impossible. Mais par sécurité, `SAP` sait repérer ce genre de cas et ne permet pas de les sauvegarder.
 
-Il serait intéressant cependant de voir le détail de la clé externe. Il suffit de sélectionner le champ (par exemple `MANDT`) puis de cliquer sur le bouton de la clé. Une nouvelle fenêtre s’ouvre avec les informations suivantes :
+  Il serait intéressant cependant de voir le détail de la clé externe. Il suffit de sélectionner le champ (par exemple `MANDT`) puis de cliquer sur le bouton de la clé. Une nouvelle fenêtre s’ouvre avec les informations suivantes :
 
-![](../99%20-%20Ressources/06_Tables_DB%20-%2007%20-%2002.png)
+  ![](../99%20-%20Ressources/06_Tables_DB%20-%2007%20-%2002.png)
 
 - `Description synthétique de la clé`.
 - `Table de contrôle` correspondant à la table de valeurs définie dans le domaine (ici, il s’agit de `T000`), automatiquement importée par SAP.
 
-![](../99%20-%20Ressources/06_Tables_DB%20-%2007%20-%2003.png)
+  ![](../99%20-%20Ressources/06_Tables_DB%20-%2007%20-%2003.png)
 
 - La `liste des champs utilisés dans la table de contrôle`, là encore, `SAP` importe automatiquement les champs qui sont en règle générale les clés de la table de contrôle, il faudra s’assurer alors de toutes les renseigner.
 - `Contrôle souhaité` (par défaut cette option est cochée) permettant ainsi que ce champ soit vérifié dans les Dynpros (écran spécifique à un programme).
@@ -31,11 +31,11 @@ Pour ces deux dernières options, un exemple serait de prendre la table `BKPF` (
 
 - `zones clé d’une table texte.` Certaines tables ont des tables textes associées, comme par exemple `MARA` associée à `MAKT`. Pour y accéder, il est possible d’utiliser la transaction `SE11` (Table base de données puis `MAKT`) ou de passer par l’écran de gestion du dictionnaire `ABAP` de `MARA`, en utilisant le menu Saut - Table des textes.
 
-![](../99%20-%20Ressources/06_Tables_DB%20-%2007%20-%2004.png)
+  ![](../99%20-%20Ressources/06_Tables_DB%20-%2007%20-%2004.png)
 
-La `clé externe` du champ `MATNR` sera sur la table de contrôle `MARA` mais comme zone clé d’une table texte.
+  La `clé externe` du champ `MATNR` sera sur la table de contrôle `MARA` mais comme zone clé d’une table texte.
 
-![](../99%20-%20Ressources/06_Tables_DB%20-%2007%20-%2005.png)
+  ![](../99%20-%20Ressources/06_Tables_DB%20-%2007%20-%2005.png)
 
 - `Cardinalité` définit le nombre d’occurrences entre le champ de la table et celui de la clé externe, basé sur un rapport n : m, n représentant le nombre d’occurrences de la table contrôlée et m celui de la table de contrôle. Ainsi, n peut prendre comme valeur :
 

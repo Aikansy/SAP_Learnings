@@ -17,11 +17,11 @@ ENDLOOP.
 
 ## CARACTERISTIQUES
 
-Deux types de boucles ont été vues : le [`DO/ENDDO`](../../03_Boucles/01_do_enddo.md) et le [`WHILE/ENDWHILE`](../../03_Boucles/05_while_endwhile.md). Cependant il existe une troisième plus adaptée aux tables internes : le `LOOP`.
+Deux types de boucles ont été vues : le [DO/ENDDO](../../03%20-%20Boucles/01%20-%20do%20enddo.md) et le [WHILE/ENDWHILE](../../03%20-%20Boucles/05%20-%20while%20endwhile.md). Cependant il existe une troisième plus adaptée aux tables internes : le `LOOP`.
 
-Un `LOOP` va lire ligne par ligne la table interne `itab` et comme pour le `READ TABLE`, le résultat peut être stocké dans une structure (`INTO wa`), ou dans un `field symbol` (`ASSIGNING <fs>`), mais il est également possible de na pas le stocker afin de vérifier seulement si la ligne existe (`TRANSPORTING NO FIELDS`) en mettant à jour les variables système [SY-SUBRC](../../99_Help/02_SY-SYSTEM.md) (code retour) et [Sy-TABIX](../../99_Help/02_SY-SYSTEM.md) (index de la table lue dans la boucle).
+Un `LOOP` va lire ligne par ligne la table interne `itab` et comme pour le `READ TABLE`, le résultat peut être stocké dans une structure (`INTO wa`), ou dans un `field symbol` (`ASSIGNING <fs>`), mais il est également possible de na pas le stocker afin de vérifier seulement si la ligne existe (`TRANSPORTING NO FIELDS`) en mettant à jour les variables système [SY-SUBRC](../../99%20-%20Help/02%20-%20SY-SYSTEM.md) (code retour) et [Sy-TABIX](../../99%20-%20Help/02%20-%20SY-SYSTEM.md) (index de la table lue dans la boucle).
 
-Aussi, deux paramètres optionnels sont disponibles comme pour le [`DELETE`](../../08_instructions/07_delete_lines.md) (suppression de plusieurs lignes) : `FROM idx1` et/ou `TO idx2` permettant de restreindre la oucle à une sélection de lignes, et la clause `WHERE` permettant d'effectuer une sélection d'un ou plusieurs champs.
+Aussi, deux paramètres optionnels sont disponibles comme pour le [`DELETE`](../../08%20-%20Instructions_itab/05%20-%20Delete/02%20-%20delete%20itab%20lines.md) (suppression de plusieurs lignes) : `FROM idx1` et/ou `TO idx2` permettant de restreindre la oucle à une sélection de lignes, et la clause `WHERE` permettant d'effectuer une sélection d'un ou plusieurs champs.
 
 _Exemple_
 

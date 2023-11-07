@@ -113,7 +113,7 @@ Il existe des options pour le `SELECT-OPTIONS` :
 
    Assigne une valeur initiale au champ.
 
-   _Définir la valeur initiale du champ `S_TRDATE` avec la date système [`SY-DATUM`](../../99%20-%20Help/02_SY-SYSTEM.md)_
+   _Définir la valeur initiale du champ `S_TRDATE` avec la date système [`SY-DATUM`](../../99%20-%20Help/02%20-%20SY-SYSTEM.md)_
 
    ```JS
    TABLES: ztravel.

@@ -1,26 +1,28 @@
 # **`TABLES INTERNES`**
 
-Une `table interne` est un `objet` dans un programme permettant de stocker des données le temps de l’exécution dudit programme.
+- `Table interne` :
 
-Elle se déclare de la façon suivante :
+  Une `table interne` est un `objet` dans un programme permettant de stocker des données le temps de l’exécution dudit programme.
 
-```JS
-TYPES: BEGIN OF ty_tab,
-         obj1 TYPE dtel1,
-         obj2 TYPE dtel2,
-         obj3 TYPE dtel3,
-         . . .
-       END OF ty_tab.
+  Elle se déclare de la façon suivante :
 
-DATA: it_tab_types TYPE TABLE OF ty_tab,
-      wa_tab_types TYPE ty_tab.
-```
+  ```JS
+  TYPES: BEGIN OF ty_tab,
+           obj1 TYPE dtel1,
+           obj2 TYPE dtel2,
+           obj3 TYPE dtel3,
+           . . .
+        END OF ty_tab.
 
-Un `type de structure` est tout d’abord créé, c’est une sorte de squelette qui sera utilisé comme une référence par la table interne `IT_TAB_TYPES` avec l’instruction `TYPE TABLE OF`, et la `structure WA_TAB_TYPES` avec `TYPE`.
+  DATA: it_tab_types TYPE TABLE OF ty_tab,
+        wa_tab_types TYPE ty_tab.
+  ```
 
-L’instruction commence par la commande `TYPES` puis `BEGIN OF` indiquant qu’un type de structure va être créé. Les champs qui la composent sont ensuite listés et référencés. Cette référence à une spécificité technique, peut se faire de plusieurs manières.
+  Un `type de structure` est tout d’abord créé, c’est une sorte de squelette qui sera utilisé comme une référence par la table interne `IT_TAB_TYPES` avec l’instruction `TYPE TABLE OF`, et la `structure WA_TAB_TYPES` avec `TYPE`.
 
-Il n'y a pas vraiment de grandes différences aussi bien techniques que pour l’optimisation du programme.
+  L’instruction commence par la commande `TYPES` puis `BEGIN OF` indiquant qu’un type de structure va être créé. Les champs qui la composent sont ensuite listés et référencés. Cette référence à une spécificité technique, peut se faire de plusieurs manières.
+
+  Il n'y a pas vraiment de grandes différences aussi bien techniques que pour l’optimisation du programme.
 
 ## **REFERENCE DIRECT à un TYPE de champ et une LONGUEUR**
 

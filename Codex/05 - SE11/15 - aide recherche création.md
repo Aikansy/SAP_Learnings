@@ -6,16 +6,16 @@ La suite de cette section va lister toutes les étapes nécessaires à la créat
 2. Dans l’écran de gestion du dictionnaire `ABAP`, cocher l’option `Aide recherche`.
 3. Entrer le nom `ZAR_MARA` puis appuyer sur le bouton `Créer` (ou bouton raccourci-clavier `[F5]`).
 
-![](../99%20-%20Ressources/05_SE11%20-%2015%20-%2001.png)
+   ![](../99%20-%20Ressources/05_SE11%20-%2015%20-%2001.png)
 
 4. Choisir `Aide recherche élémentaire`.
 
-![](../99%20-%20Ressources/05_SE11%20-%2015%20-%2002.png)
+   ![](../99%20-%20Ressources/05_SE11%20-%2015%20-%2002.png)
 
 5. Entrer une `description` (obligatoire), par exemple `Aide à la recherche MARA`.
 6. Renseigner la `méthode de sélection` avec la table `MARA` puis confirmer par la touche `[Entrée]`. Automatiquement, `SAP` importe la table des textes `MAKT`.
 
-![](../99%20-%20Ressources/05_SE11%20-%2015%20-%2003.png)
+   ![](../99%20-%20Ressources/05_SE11%20-%2015%20-%2003.png)
 
 7. Choisir l’option `Affichage de valeurs immédiat` pour le Type de dialogue.
 8. Cette aide à la recherche affichera les champs :
@@ -34,7 +34,7 @@ Les paramètres ressembleront à ceci :
 | `MTART` |     |     | 3    | 3    | MTART        |
 | `MATKL` |     |     | 4    | 4    | MATKL        |
 
-![](../99%20-%20Ressources/05_SE11%20-%2015%20-%2004.png)
+    ![](../99%20-%20Ressources/05_SE11%20-%2015%20-%2004.png)
 
 9. `Sauvegarder` (pour plus de commodité, l’aide à la recherche sera créée en local).
 10. `Contrôler`.

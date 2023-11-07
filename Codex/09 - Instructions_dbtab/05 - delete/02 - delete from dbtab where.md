@@ -24,7 +24,7 @@ ENDIF.
 
 La constante `C_USER_ID` de type `ZUSER_ID` et avec comme valeur `P0005` est créée.
 
-La requête `DELETE` supprimera la ou les lignes de la table `ZPASSENGER` ayant pour champ `ID_PASS` égal à la `constante`. La variable [`SY-SUBRC`](../../99_Help/02_SY-SYSTEM.md) étant égale à `0`, le texte `L’enregistrement a été supprimé avec succès` sera affiché et [`SY-DBCNT`](../../99_Help/02_SY-SYSTEM.md) sera égal à `1`.
+La requête `DELETE` supprimera la ou les lignes de la table `ZPASSENGER` ayant pour champ `ID_PASS` égal à la `constante`. La variable [SY-SUBRC](../../99%20-%20Help/02%20-%20SY-SYSTEM.md) étant égale à `0`, le texte `L’enregistrement a été supprimé avec succès` sera affiché et [SY-DBCNT](../../99%20-%20Help/02%20-%20SY-SYSTEM.md) sera égal à `1`.
 
 _Résultat à l’écran_
 

@@ -4,7 +4,7 @@ Une fonction est un outil technique permettant de traiter des informations selon
 
 ## **IMPORTATION**
 
-![](../00_Ressources/10_Fonctions%20-%2002%20-%2001.png)
+![](../99%20-%20Ressources/10_Fonctions%20-%2002%20-%2001.png)
 
 C'est ici que les paramètres d'entrée sont listés, définis par les informations suivantes :
 
@@ -42,7 +42,7 @@ C'est ici que les paramètres d'entrée sont listés, définis par les informati
 
 ## **EXPORT**
 
-![](../00_Ressources/10_Fonctions%20-%2002%20-%2002.png)
+![](../99%20-%20Ressources/10_Fonctions%20-%2002%20-%2002.png)
 
 Paramètres de sortie regroupant sensiblement les mêmes informations que l'onglet `Importation`.
 
@@ -62,7 +62,7 @@ Paramètres de sortie regroupant sensiblement les mêmes informations que l'ongl
 
 ## **MODIFICATION**
 
-![](../00_Ressources/10_Fonctions%20-%2002%20-%2003.png)
+![](../99%20-%20Ressources/10_Fonctions%20-%2002%20-%2003.png)
 
 Les paramètres de `Modification` quant à eux, sont à la fois des paramètres d'importation et de sortie. Ainsi, leur valeur peut changer pendant l'exécution de la fonction (il n'est pas possible de modifier la valeur des paramètres d'entrée). Concernant les informations du paramètre, ce sont exactement les mêmes que pour l'`Importation` :
 
@@ -86,7 +86,7 @@ Les paramètres de `Modification` quant à eux, sont à la fois des paramètres 
 
 ## **TABLES**
 
-![](../00_Ressources/10_Fonctions%20-%2002%20-%2004.png)
+![](../99%20-%20Ressources/10_Fonctions%20-%2002%20-%2004.png)
 
 L'onglet `Tables`, comme son nom l'indique, va contenir la liste des tables à utiliser dans la fonction, cependant un table peut être modifiable, elle peut donc être à la fois un paramètre d'entrée comme de sortie. Elle possède également les mêmes informations que l'onglet `Export` :
 
@@ -108,53 +108,53 @@ Il est aussi possible d'utiliser la catégorisation `LIKE` avec le nom d'une tab
 
 Il serait intéressant de faire un petit aparté concernant la catégorisation pour les paramètres de type table. Prenons un exemple : une fonction est créée avec comme paramètre de modification, une table `T_TRAVEL` ayant pour référence la table `ZTRAVEL`. La catégorisation à utiliser peut être `TYPE` ou `TYPE REF TO`. Cependant, so le type de référence est une table (ici `ZTRAVEL`) ou une structure, le paramètre `T_TRAVEL` sera considéré comme une structure et ne pourra donc pas contenir de données.
 
-![](../00_Ressources/10_Fonctions%20-%2002%20-%2005.png)
+![](../99%20-%20Ressources/10_Fonctions%20-%2002%20-%2005.png)
 
 Pour que le paramètre `T_TRAVEL` soit considéré comme une table, il est nécessaire d'utiliser un type de table. Un type de table est une sorte de structure qui va définir la ligne servant de modèle. Par exemple, si on souhaite utiliser la table `ZTRAVEL` dans la fonction, il faudra créer le type de table correspondant comme suit :
 
 1. Dans la transaction SE11, insérez le nom du type de table à créer (`ZTT_TRAVEL` par exemple), puis cliquez sur `Créer` :
 
-   ![](../00_Ressources/10_Fonctions%20-%2002%20-%2006.png)
+   ![](../99%20-%20Ressources/10_Fonctions%20-%2002%20-%2006.png)
 
 2. Dans la nouvelle fenêtre pop-up, choisissez `Type de table`.
 
-   ![](../00_Ressources/10_Fonctions%20-%2002%20-%2007.png)
+   ![](../99%20-%20Ressources/10_Fonctions%20-%2002%20-%2007.png)
 
 3. Définissez une description du type de table, puis le type de ligne (ici `ZTRAVEL`)
 
-   ![](../00_Ressources/10_Fonctions%20-%2002%20-%2008.png)
+   ![](../99%20-%20Ressources/10_Fonctions%20-%2002%20-%2008.png)
 
 4. Sauvegardez et activez, le type de table peut maintenant être utilisé dans la fonction.
 
-   ![](../00_Ressources/10_Fonctions%20-%2002%20-%2009.png)
+   ![](../99%20-%20Ressources/10_Fonctions%20-%2002%20-%2009.png)
 
 ## **EXCEPTIONS**
 
 Les exceptions sont une liste d'erreurs que la fonction peut retourner, il serait possible d'utiliser à la place des messages, mais les exceptions donnent la possibilité aux développeurs de les gérer comme ils le souhaitent et sont aussi plus pratiques lorsqu'il s'agit de fonctions de type `RFC`.
 
-![](../00_Ressources/10_Fonctions%20-%2002%20-%2010.png)
+![](../99%20-%20Ressources/10_Fonctions%20-%2002%20-%2010.png)
 
 ## **SOURCE**
 
 Le dernier onglet `Source` contient le code ABAP utilisé par la fonction.
 
-![](../00_Ressources/10_Fonctions%20-%2002%20-%2012.png)
+![](../99%20-%20Ressources/10_Fonctions%20-%2002%20-%2011.png)
 
 Aussi, dans la partie `Source`, il est intéressant de constater que la fonction commence toujours par lister tous les paramètres de celle-ci.
 
-![](../00_Ressources/10_Fonctions%20-%2002%20-%2012.png)
+![](../99%20-%20Ressources/10_Fonctions%20-%2002%20-%2012.png)
 
 Cette fonction contenant un nombre très important de paramètres, il est assez difficile de l'utiliser dans un programme. C'est pour cela que l'option `Modèle` dans l'éditeur ABAP estr une aide considérable. En effet, après avoir exécuté la transaction `SE38` et avoir créé un nouveau programme (ou ouvert, pour modification, un programme existant), il suffira alors de cliquer sur cette option de la barre d'outils, afin de renseigner la fonction souhaitée dans la partie `CALL FUNCTION` :
 
-![](../00_Ressources/10_Fonctions%20-%2002%20-%2013.png)
+![](../99%20-%20Ressources/10_Fonctions%20-%2002%20-%2013.png)
 
 Après avoir validé, SAP a importé le `CALL FUNCTION` de la fonction `SD_CUSTOMER_MAINTAIN_ALL` avec tous ses paramètres et ses exceptions. Aussi, tout ce qui est en commentaire (ligne commençant par `*`) sont des paramètres optionnels. Il est possible de voir qu'ils le sont tous pour cet exemple.
 
-![](../00_Ressources/10_Fonctions%20-%2002%20-%2014.png)
+![](../99%20-%20Ressources/10_Fonctions%20-%2002%20-%2014.png)
 
-![](../00_Ressources/10_Fonctions%20-%2002%20-%2015.png)
+![](../99%20-%20Ressources/10_Fonctions%20-%2002%20-%2015.png)
 
-Concernant les exceptions, chacune est associée à un numéro. Il s'agit en fait de la valeur que prendra la variable système du code retour [`SY-SUBRC`](../99_Help/02_SY-SYSTEM.md) après l'exécution de la fonction.
+Concernant les exceptions, chacune est associée à un numéro. Il s'agit en fait de la valeur que prendra la variable système du code retour [SY-SUBRC](../99%20-%20Help/02%20-%20SY-SYSTEM.md) après l'exécution de la fonction.
 
 > Même si les exception dont facultatives, il est recommandé de les gérer, aidant ainsi l'utilisateur à retourner les erreurs rencontrées.
 

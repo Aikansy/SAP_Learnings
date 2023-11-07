@@ -41,21 +41,21 @@ LOOP AT itab.
 ENDLOOP.
 ```
 
-## 1. AT FIRST
+- `AT FIRST`
 
-Pour la première ligne lue de la table interne `itab`, un traitement spécifique peut être exécuté.
+  Pour la première ligne lue de la table interne `itab`, un traitement spécifique peut être exécuté.
 
-## 2. AT NEW comp1 (AT NEW comp2... AT NEW compn)
+- `AT NEW comp1` (AT NEW comp2... AT NEW compn)
 
-Pour un nouvel élément (`comp1`, `comp2`,... `compn`) de la table interne `itab`, un traitement spécifique peut être exécuté.
+  Pour un nouvel élément (`comp1`, `comp2`,... `compn`) de la table interne `itab`, un traitement spécifique peut être exécuté.
 
-## 3. AT END OF compn (... AT END OF comp2, AT END OF comp1)
+- `AT END OF compn` (... AT END OF comp2, AT END OF comp1)
 
-Pour un dernier élément (`comp1`, `comp2`,... `compn`) de la table interne `itab`, un traitement spécifique peut être exécuté.
+  Pour un dernier élément (`comp1`, `comp2`,... `compn`) de la table interne `itab`, un traitement spécifique peut être exécuté.
 
-## 4. AT LAST
+- `AT LAST`
 
-Pour la dernière ligne lue de la table interne `itab`, un traitement spécifique peut être exécuté.
+  Pour la dernière ligne lue de la table interne `itab`, un traitement spécifique peut être exécuté.
 
 _Exemple_
 

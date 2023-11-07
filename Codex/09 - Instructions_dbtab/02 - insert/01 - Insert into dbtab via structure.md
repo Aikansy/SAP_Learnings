@@ -2,10 +2,10 @@
 
 Cette requête permet d'ajouter une ou plusieurs lignes à la table de la base de données soit via une structure, soit via une table interne, et mettre à jour deux variables système :
 
-- [`SY-SUBRC`](../../99_Help/02_SY-SYSTEM.md) pour indiquer l'état de l'opération :
+- [SY-SUBRC](../../99%20-%20Help/02%20-%20SY-SYSTEM.md) pour indiquer l'état de l'opération :
   - 0 - la ou les lignes ont été correctement insérées.
   - 4 - une ou plusieurs erreurs se sont produites pendant le traitement.
-- [`SY-DBCNT`](../../99_Help/02_SY-SYSTEM.md) retourne le nombre de ligne insérées
+- [SY-DBCNT](../../99%20-%20Help/02%20-%20SY-SYSTEM.md) retourne le nombre de ligne insérées
 
 ```JS
 INSERT INTO dbtab VALUES struct.

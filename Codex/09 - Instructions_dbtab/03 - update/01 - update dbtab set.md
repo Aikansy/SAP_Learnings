@@ -2,10 +2,10 @@
 
 Ce type de requête permet de mettre à jour une ou plusieurs lignes de la table de la base de données de trois manières différentes, et mettra à jour deux variables système :
 
-- [`SY-SUBRC`](../../99_Help/02_SY-SYSTEM.md) pour indiquer l'état de l'opération :
+- [SY-SUBRC](../../99%20-%20Help/02%20-%20SY-SYSTEM.md) pour indiquer l'état de l'opération :
   - 0 - la ou les lignes ont été correctement insérées.
   - 4 - une ou plusieurs erreurs se sont produites pendant le traitement.
-- [`SY-DBCNT`](../../99_Help/02_SY-SYSTEM.md) retourne le nombre de ligne insérées
+- [SY-DBCNT](../../99%20-%20Help/02%20-%20SY-SYSTEM.md) retourne le nombre de ligne insérées
 
 ```JS
 UPDATE dbtab SET col1 = exp1, SET col2 = exp2,... [WHERE cond]...

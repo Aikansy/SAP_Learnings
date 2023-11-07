@@ -46,43 +46,41 @@ Vient ensuite une liste des méthodes de la classe dont les caractéristiques pr
 
 - `Type` pouvant être :
 
-**INSTANCE METHOD**
+  - INSTANCE METHOD
 
-`Instance method` (méthode d’instance) : pour ce genre de méthode, il est nécessaire de générer l’instance de la classe via l’instruction CREATE OBJECT et une variable d’objet faisant référence à cette classe.
+    `Instance method` (méthode d’instance) : pour ce genre de méthode, il est nécessaire de générer l’instance de la classe via l’instruction CREATE OBJECT et une variable d’objet faisant référence à cette classe.
 
-_Exemple avec la classe CL_GUI_ALV_GRID et l’appel de la méthode SET_TABLE_FOR_FIRST_DISPLAY :_
+    _Exemple avec la classe CL_GUI_ALV_GRID et l’appel de la méthode SET_TABLE_FOR_FIRST_DISPLAY :_
 
-```JS
-DATA: o_alv TYPE REF TO cl_gui_alv_grid.
+    ```JS
+    DATA: o_alv TYPE REF TO cl_gui_alv_grid.
 
-CREATE OBJECT o_alv...
+    CREATE OBJECT o_alv...
 
-CALL METHOD o_alv->set_table_for_first_display
-  EXPORTING
-    ...
-  CHANGING
-    ...
-  EXCEPTIONS
-    ...
-```
+    CALL METHOD o_alv->set_table_for_first_display
+      EXPORTING
+        ...
+      CHANGING
+        ...
+      EXCEPTIONS
+        ...
+    ```
 
-**STATIC METHOD**
+  - STATIC METHOD
 
-`Static method` (méthode statique) pour ce genre de méthode, nul besoin de générer l’instance, la méthode peut être appelée directement.
+    `Static method` (méthode statique) pour ce genre de méthode, nul besoin de générer l’instance, la méthode peut être appelée directement.
 
-_Exemple avec la classe CL_GUI_ALV_GRID et la méthode CELL_DISPLAY :_
+    _Exemple avec la classe CL_GUI_ALV_GRID et la méthode CELL_DISPLAY :_
 
-```JS
-CALL METHOD cl_gui_alv_grid=>cell_display
-  EXPORTING
-    ...
-  IMPORTING
-    ...
-  CHANGING
-    ...
-```
-
----
+    ```JS
+    CALL METHOD cl_gui_alv_grid=>cell_display
+      EXPORTING
+        ...
+      IMPORTING
+        ...
+      CHANGING
+        ...
+    ```
 
 - `Visibilité` : même définition que pour les attributs.
 
@@ -100,7 +98,7 @@ CALL METHOD cl_gui_alv_grid=>cell_display
 
   - `Test`
 
-![](../../99%20-%20Ressources/11_Classes%20-%2003%20-%2001%20-%2003.png)
+  ![](../../99%20-%20Ressources/11_Classes%20-%2003%20-%2001%20-%2003.png)
 
 - `Description`
 

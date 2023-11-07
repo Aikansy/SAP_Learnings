@@ -34,7 +34,7 @@ IF sy-subrc = 0.
 ENDIF.
 ```
 
-La constante `C_ID_DRIVER` est créée avec le type `ZDRIVER_ID` et contient la valeur `C0001`. Le programme va commencer par sélectionner tout d’abord l’enregistrement souhaité avec un `SELECT SINGLE` dont le résultat sera stocké dans la structure `S_TRAVEL`. Il va ensuite vérifier qu’il n’y a pas eu de problème et que le code retour de la variable système [`SY-SUBRC`](../../99_Help/02_SY-SYSTEM.md) est bien égal à `0` (pour rappel, 0 tout va bien, 4 aucune donnée n’a été trouvée). Les champs `TOLL` et `GASOL` vont ensuite être calculés, et enfin la table `ZTRAVEL` sera mise à jour avec la structure `S_TRAVEL`. Le code retour est une fois de plus testé pour vérifier si la mise à jour s’est bien terminée : `0` le programme affichera le texte `Mise à jour réussie`, sinon le texte `Echec de la mise à jour`.
+La constante `C_ID_DRIVER` est créée avec le type `ZDRIVER_ID` et contient la valeur `C0001`. Le programme va commencer par sélectionner tout d’abord l’enregistrement souhaité avec un `SELECT SINGLE` dont le résultat sera stocké dans la structure `S_TRAVEL`. Il va ensuite vérifier qu’il n’y a pas eu de problème et que le code retour de la variable système [SY-SUBRC](../../99%20-%20Help/02%20-%20SY-SYSTEM.md) est bien égal à `0` (pour rappel, 0 tout va bien, 4 aucune donnée n’a été trouvée). Les champs `TOLL` et `GASOL` vont ensuite être calculés, et enfin la table `ZTRAVEL` sera mise à jour avec la structure `S_TRAVEL`. Le code retour est une fois de plus testé pour vérifier si la mise à jour s’est bien terminée : `0` le programme affichera le texte `Mise à jour réussie`, sinon le texte `Echec de la mise à jour`.
 
 _Enregistrement avant `UPDATE`_
 

@@ -80,7 +80,7 @@ Dans la table `ZDRIVER_CAR`, il n’y aura pas besoin de restriction, l’option
 
 - Il existe deux possibilités pour définir l’`écran de synthèse` ; le mettre à `1` (comme le groupe de fonctions est nouveau), ou cliquer sur le bouton `Rechercher N° écran` pour que `SAP` lui en attribue un automatiquement.
 
-![](../99%20-%20Ressources/06_Tables_DB%20-%2009%20-%2008.png)
+  ![](../99%20-%20Ressources/06_Tables_DB%20-%2009%20-%2008.png)
 
 - Cliquer ensuite sur l’option `Créer de la barre d’outils` (![](../99%20-%20Ressources/06_Tables_DB%20-%2009%20-%2009.png)) ou via le menu déroulant suivant : `Objets générés` - `Créer [F6]`
 - La gestion des écrans étant indépendante de la définition de table, le `package` devra être renseigné ainsi qu’un autre (package) pour le groupe de fonctions. Pour plus de facilité, l’option `Objet local` sera de nouveau choisie.

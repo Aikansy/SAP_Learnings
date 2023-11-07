@@ -11,45 +11,49 @@ IF log_exp1.
 ENDIF.
 ```
 
-L’instruction `IF` est une condition permettant de contrôler et de comparer une variable selon une valeur ou une autre variable, et d’exécuter un traitement si la condition est vraie.
+- `IF` :
 
-_Exemple_
+  L’instruction `IF` est une condition permettant de contrôler et de comparer une variable selon une valeur ou une autre variable, et d’exécuter un traitement si la condition est vraie.
 
-```JS
-DATA: v_a TYPE i,
-      v_b TYPE i,
-      v_c TYPE i.
+  _Exemple_
 
-v_b = 3.
-V_c = 2.
+  ```JS
+  DATA: V_a TYPE i,
+        V_b TYPE i,
+        V_c TYPE i.
 
-v_a = v_b + v_c.
+  V_b = 3.
+  V_c = 2.
 
-IF v_a = 5.
-  WRITE:/ 'Condition confirmée, v_a = 5'.
-ENDIF.
-```
+  V_a = V_b + V_c.
 
-Trois variables ont été créées, `V_A`, `V_B` et `V_C` de type entier. `V_B` prend la valeur `3`, `V_C`, la valeur `2`, quant à `V_A` elle est la somme de `V_B` et `V_C`. Vient ensuite une condition, comparant la variable `V_A` avec la valeur `5`. Si cette condition est valide, le texte `Condition confirmée, v_a = 5` sera affiché.
+  IF V_a = 5.
+    WRITE:/ 'Condition confirmée, v_a = 5'.
+  ENDIF.
+  ```
 
-![](../00_Ressources/02_01_01.png)
+  Trois variables ont été créées, `V_A`, `V_B` et `V_C` de type entier. `V_B` prend la valeur `3`, `V_C`, la valeur `2`, quant à `V_A` elle est la somme de `V_B` et `V_C`. Vient ensuite une condition, comparant la variable `V_A` avec la valeur `5`. Si cette condition est valide, le texte `Condition confirmée, v_a = 5` sera affiché.
 
-L’opérateur de comparaison de cette condition est le signe égal (=) mais d’autres existent également sur SAP.
+  ![](../99%20-%20Ressources/02_Conditions%20-%2001%20-%2001.png)
+
+  L’opérateur de comparaison de cette condition est le signe égal (=) mais d’autres existent également sur SAP.
 
 ## **OPERATEURS DE COMPARAISON**
 
-Les opérateurs de comparaison suivants peuvent être utilisés pour tous les types de données, que ce soit pour des valeurs numériques, alphanumériques ou même du texte.
+- opérateurs de comparaison :
 
-Opérateurs de comparaison pour tout type de données :
+  Les opérateurs de comparaison suivants peuvent être utilisés pour tous les types de données, que ce soit pour des valeurs numériques, alphanumériques ou même du texte.
 
-| **`Opération`**           | **``Signe** | **`Keyword`** | **`Signification`** |
-| ------------------------- | ----------- | ------------- | ------------------- |
-| `Egal`                    | =           | `EQ`          | EQual               |
-| `Strictement supérieur à` | >           | `GT`          | Greater Than        |
-| `Supérieur ou égal à`     | >=          | `GE`          | Greatrer or Equal   |
-| `Strictement inférieur à` | <           | `LT`          | Lower Than          |
-| `Inférieur ou égal à`     | <=          | `LE`          | Lower or Equal      |
-| `Différent`               | <>          | `NE`          | Not Equal           |
+  _Opérateurs de comparaison (pour tout type de données) :_
+
+  | **OPERATION**             | **SIGNE** | **KEYWORD** | **SIGNIFICATION** |
+  | ------------------------- | --------- | ----------- | ----------------- |
+  | `Egal`                    | =         | EQ          | EQual             |
+  | `Strictement supérieur à` | >         | GT          | Greater Than      |
+  | `Supérieur ou égal à`     | >=        | GE          | Greatrer or Equal |
+  | `Strictement inférieur à` | <         | LT          | Lower Than        |
+  | `Inférieur ou égal à`     | <=        | LE          | Lower or Equal    |
+  | `Différent`               | <>        | NE          | Not Equal         |
 
 ## **DUMP**
 
@@ -93,7 +97,7 @@ ENDIF.
 
 ## **ELSEIF**
 
-La condition `IF` peut intégrer une variante avec le `ELSEIF` pouvant par exemple tester les différentes valeurs de la variable `V_MONTH` contenant le mois de la date système [sy_datum](../99_Help/02_SY-SYSTEM.md), et afficher un texte adéquat :
+La condition `IF` peut intégrer une variante avec le `ELSEIF` pouvant par exemple tester les différentes valeurs de la variable `V_MONTH` contenant le mois de la date système [SY-DATUM](../99%20-%20Help/02%20-%20SY-SYSTEM.md), et afficher un texte adéquat :
 
 ```JS
 DATA v_month TYPE i.

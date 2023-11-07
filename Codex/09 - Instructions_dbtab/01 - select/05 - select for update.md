@@ -25,4 +25,4 @@ SELECT SINGLE FOR UPDATE surname, name
 
 Même si seulement deux champs sont sélectionnés, la ligne entière de la table `ZDRIVER_CAR` sera `bloquée pour modification`.
 
-> Pour sécuriser les données, le `FOR UPDATE` fonctionne uniquement si une condition est définie avec la clause `WHERE` afin que la ligne bloquée ne soit pas définie arbitrairement. Dans le cas des exemples ci-dessus, la sélection ne se fera pas (la structure et les deux variables resteront vides) et un `code retour 8` sera retourné dans la variable système [`SY-SUBRC`](../../99_Help/02_SY-SYSTEM.md).
+> Pour sécuriser les données, le `FOR UPDATE` fonctionne uniquement si une condition est définie avec la clause `WHERE` afin que la ligne bloquée ne soit pas définie arbitrairement. Dans le cas des exemples ci-dessus, la sélection ne se fera pas (la structure et les deux variables resteront vides) et un `code retour 8` sera retourné dans la variable système [`SY-SUBRC`](../../99%20-%20Help/02%20-%20SY-SYSTEM.md).

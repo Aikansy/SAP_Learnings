@@ -4,7 +4,7 @@ Les paramètre définis dans la clause `WHERE` de la requête permettent d'affin
 
 ## OPERATEURS DE COMPARAISON
 
-[Liste Opérateurs de comparaison](../../99%20-%20Help/03_OPERATORS.md)
+[Liste Opérateurs de comparaison](../../99%20-%20Help/03%20-%20OPERATORS.md)
 
 ![](../../99%20-%20Ressources/09_Instructions_dbtab%20-%2001%20-%2021%20-%2001.png)
 

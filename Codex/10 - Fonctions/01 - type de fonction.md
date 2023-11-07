@@ -9,7 +9,7 @@ L’éditeur de gestion des fonctions se fait via la `transaction SE37`. Il est 
 
   `Menu SAP - Outils - ABAP Workbench - Développement - SE37 Function Builder`
 
-![](../00_Ressources/10_Fonctions%20-%2001%20-%2001.png)
+  ![](../99%20-%20Ressources/10_Fonctions%20-%2001%20-%2001.png)
 
 L’écran d’accueil de la gestion du module fonction est assez sobre avec un champ pour renseigner la fonction et les trois boutons pour Afficher, Modifier ou Créer.
 
@@ -19,11 +19,11 @@ L’écran d’accueil de la gestion du module fonction est assez sobre avec un 
 
 - `Module Fonction` - `Créer` [F5]
 
-![](../00_Ressources/10_Fonctions%20-%2001%20-%2002.png)
+  ![](../99%20-%20Ressources/10_Fonctions%20-%2001%20-%2002.png)
 
 La barre d'outils également n'a pas de grandes nouveautés avec (de gauche à droite) :
 
-![](../00_Ressources/10_Fonctions%20-%2001%20-%2003.png)
+![](../99%20-%20Ressources/10_Fonctions%20-%2001%20-%2003.png)
 
 - `Contrôler`
 
@@ -65,23 +65,23 @@ Cette dernière fonctionnalité permet d’affecter un nouveau groupe de fonctio
 
 Tout d’abord, il serait intéressant de reprendre l’exemple cité dans le chapitre `Dictionnaire de données` (`DDIC`) - Les domaines, où il a été vu qu’une routine de conversion pouvait être spécifiée pour un domaine.
 
-![](../00_Ressources/10_Fonctions%20-%2001%20-%2004.png)
+![](../99%20-%20Ressources/10_Fonctions%20-%2001%20-%2004.png)
 
 En double cliquant dessus, plusieurs options de fonctions se sont présentées et l’exemple avec `CONVERSION_EXIT_MATN1_INPUT` avait été choisi.
 
-![](../00_Ressources/10_Fonctions%20-%2001%20-%2005.png)
+![](../99%20-%20Ressources/10_Fonctions%20-%2001%20-%2005.png)
 
 De retour à l’écran d’accueil de la `SE37`, la fonction citée précédemment est donc choisie et renseignée dans le champ approprié.
 
-![](../00_Ressources/10_Fonctions%20-%2001%20-%2006.png)
+![](../99%20-%20Ressources/10_Fonctions%20-%2001%20-%2006.png)
 
 En cliquant sur `Afficher`, le détail du module fonction s’affiche.
 
-![](../00_Ressources/10_Fonctions%20-%2001%20-%2007.png)
+![](../99%20-%20Ressources/10_Fonctions%20-%2001%20-%2007.png)
 
 Là encore, il n’y a pas de nouveauté dans la `barre d’outils`, en effet, elle est exactement la même que celle de l’`éditeur ABAP` avec une petite différence pour les fonctionnalités suivantes :
 
-![](../00_Ressources/10_Fonctions%20-%2001%20-%2008.png)
+![](../99%20-%20Ressources/10_Fonctions%20-%2001%20-%2008.png)
 
 - `Motif` était présenté avec le titre Modèle dans la barre d’outils de l’éditeur ABAP. Ceci est une aide pour certains objets ABAP (fonction, méthode d’une classe...) pour afficher les paramètres obligatoires ou facultatifs, d’entrée, de sortie, de tables...
 - `Documentation de module fonction` est une documentation associée à l’utilisation de la fonction, de son rôle...
@@ -96,19 +96,19 @@ Entre les boutons `Motif` et `Documentation` apparaissent cinq autres boutons, q
 
 Cependant, même ainsi les boutons restent grisés et impossibles à sélectionner, car il est nécessaire d’avoir la clé de l’objet pour pouvoir le modifier. La clé d’un objet est une sécurité de SAP pour éviter la modification de tous les objets standards.
 
-![](../00_Ressources/10_Fonctions%20-%2001%20-%2009.png)
+![](../99%20-%20Ressources/10_Fonctions%20-%2001%20-%2009.png)
 
-De retour au module fonction, en cliquant sur le bouton `Afficher liste d’objets` ![](../00_Ressources/10_Fonctions%20-%2001%20-%2010.png), un volet dans la partie gauche de l’écran va lister tous les objets associés au module fonctions. C’est ici que le groupe de fonctions est défini.
+De retour au module fonction, en cliquant sur le bouton `Afficher liste d’objets` ![](../99%20-%20Ressources/10_Fonctions%20-%2001%20-%2010.png), un volet dans la partie gauche de l’écran va lister tous les objets associés au module fonctions. C’est ici que le groupe de fonctions est défini.
 
 Pour l’exemple de la fonction `CONVERSION_EXIT_MATN1_INPUT`, le groupe fonction associé est OMCV et on peut voir que d’autres fonctions font partie de ce groupe. On peut également constater que ce groupe de fonctions contient des Includes, des Points d’extension (ou Enhancement Point)...
 
-![](../00_Ressources/10_Fonctions%20-%2001%20-%2011.png)
+![](../99%20-%20Ressources/10_Fonctions%20-%2001%20-%2011.png)
 
 Un groupe de fonctions n’est ni plus ni moins qu’un programme ABAP central de type F possédant plusieurs objets techniques. Ainsi, dans l’écran d’accueil de la transaction SE37, il est possible de modifier le groupe de fonctions affecté à une fonction et lui en attribuer un autre grâce au bouton `Réaffecter`.
 
 Pour revenir à l’éditeur du module fonction, il est possible de voir qu’il dispose de sept onglets. Le premier concerne comme d’habitude les `Propriétés` de la fonction, mais cette fois-ci il est nécessaire de s’y attarder un peu.
 
-![](../00_Ressources/10_Fonctions%20-%2001%20-%2012.png)
+![](../99%20-%20Ressources/10_Fonctions%20-%2001%20-%2012.png)
 
 Tout d’abord, le groupe de fonctions est renseigné avec une brève description. Vient ensuite le type d’exécution définie par trois possibilités :
 
@@ -118,7 +118,7 @@ Tout d’abord, le groupe de fonctions est renseigné avec une brève descriptio
 
 Pour cette dernière option, il est nécessaire de bien comprendre les étapes d’exécution d’un programme sur SAP.
 
-![](../00_Ressources/10_Fonctions%20-%2001%20-%2013.png)
+![](../99%20-%20Ressources/10_Fonctions%20-%2001%20-%2013.png)
 
 Quand un utilisateur, un développeur, ou un fonctionnel se connecte sur un système de SAP (schématisé par l’écran avec l’icône du Sap Logon), et qu’il exécute un programme ou une transaction quelconque, une requête est envoyée à un Dispatcher (répartiteur en français) qui va sélectionner la tâche (plus souvent trouvée sous le terme anglais work process) à exécuter.
 
@@ -130,11 +130,11 @@ Work process est divisé en différents types :
 - `Enqueue` (file d’attente) est l’élément qui va permettre de bloquer les tables de la base de données avant mise à jour.
 - `Spool` est le processus qui va gérer les pools d’impression.
 
-![](../00_Ressources/10_Fonctions%20-%2001%20-%2014.png)
+![](../99%20-%20Ressources/10_Fonctions%20-%2001%20-%2014.png)
 
 Certaines de ces tâches sont regroupées dans une `LUW` (Logical Unit of Work ou Unité Logique de Travail), comme par exemple dans le chapitre Les requêtes `SQL`, lorsque la table `ZTRAVEL` a été mise à jour via l’instruction `UPDATE`. Il s’est alors produit le processus suivant :
 
-![](../00_Ressources/10_Fonctions%20-%2001%20-%2015.png)
+![](../99%20-%20Ressources/10_Fonctions%20-%2001%20-%2015.png)
 
 Cette unité logique a commencé au moment où le programme contenant la requête de modification de la table `ZTRAVEL` a été exécuté. Une fois le programme terminé (et surtout le processus `Dialog Work Process`), une deuxième tâche (ou `Work Process`, pour rappel), mais d’update cette fois-ci, est exécutée. La table `ZTRAVEL` est ensuite bloquée pour mise à jour (`Enqueue`), et quand cette dernière étape est terminée, l’unité logique peut se terminer et débloquer la table.
 
@@ -146,21 +146,21 @@ SELECT SINGLE * FOR UPDATE FROM dtab...
 
 Dans le chapitre Les requêtes SQL - Définition, un schéma expliquait comment se déroulait une `requête SQL` sur SAP. Il peut maintenant être complété car la partie ABAP/Interface base de données, fait en réalité partie du processus Dialog Work Process.
 
-![](../00_Ressources/10_Fonctions%20-%2001%20-%2016.png)
+![](../99%20-%20Ressources/10_Fonctions%20-%2001%20-%2016.png)
 
 Pour revenir à la fonction, trois types la caractérisent, qui peuvent être définis ainsi :
 
 - `Fonction Normal` : exécutée dès qu’elle est appelée.
 
-![](../00_Ressources/10_Fonctions%20-%2001%20-%2017.png)
+  ![](../99%20-%20Ressources/10_Fonctions%20-%2001%20-%2017.png)
 
 - `Accessible à distance` ou `RFC` : la fonction est appelée par un système externe (SAP ou autre) et exécutée immédiatement.
 
-![](../00_Ressources/10_Fonctions%20-%2001%20-%2018.png)
+  ![](../99%20-%20Ressources/10_Fonctions%20-%2001%20-%2018.png)
 
 - `Mise à jour` : la fonction est appelée pendant le processus Dialog Work Process, mise en attente, et exécutée pendant le processus UPDATE.
 
-![](../00_Ressources/10_Fonctions%20-%2001%20-%2019.png)
+  ![](../99%20-%20Ressources/10_Fonctions%20-%2001%20-%2019.png)
 
 Aussi pour les modules fonction de mise à jour, il existe plusieurs options :
 

@@ -31,11 +31,11 @@ Pour ceci, il faut :
 - Exécuter la transaction `SE11`
 - Choisir l'option `Table base données`, renseigner le champ avec `ZTRAVEL` puis cliquer sur `Afficher` ou `Modifier` (pas d'importance).
 
-![](../../99%20-%20Ressources/09_Instructions_dbtab%20-%2006%20-%2001%20-%2001.png)
+  ![](../../99%20-%20Ressources/09_Instructions_dbtab%20-%2006%20-%2001%20-%2001.png)
 
 - Dans la barre d'outils, cliquer sur le bouton `Index`...
 
-![](../../99%20-%20Ressources/09_Instructions_dbtab%20-%2006%20-%2001%20-%2002.png)
+  ![](../../99%20-%20Ressources/09_Instructions_dbtab%20-%2006%20-%2001%20-%2002.png)
 
 Une nouvelle fenêtre s'ouvre. Elle est composée d'une barre d'outils dont les trois dernières options sont les plus importantes :
 
@@ -54,7 +54,7 @@ Techniquement, il n'y a aucune différence entre ces deux options, et il est pos
 - Cliquer sur `Créer index`
 - Définir un `code d'indexation` (champ alphanumérique de trois positions), par exemple `Z01`.
 
-![](../../99%20-%20Ressources/09_Instructions_dbtab%20-%2006%20-%2001%20-%2005.png)
+  ![](../../99%20-%20Ressources/09_Instructions_dbtab%20-%2006%20-%2001%20-%2005.png)
 
 - Insérer une description, par exemple ` Index secondaire CITY_FROM`.
 
@@ -66,7 +66,7 @@ Techniquement, il n'y a aucune différence entre ces deux options, et il est pos
 - Laisser ces options par défaut (`Index non unique` / `Index dans tous les systèmes de BD`).
 - Cliquer ensuite sur le bouton `Zones de table`. La liste des champs de la table apparaît ; choisir alors les deux nécessaires ; `CITY_FROM` et `COUNTRY_FROM`.
 
-![](../../99%20-%20Ressources/09_Instructions_dbtab%20-%2006%20-%2001%20-%2006.png)
+  ![](../../99%20-%20Ressources/09_Instructions_dbtab%20-%2006%20-%2001%20-%2006.png)
 
 Au final, l'index devra contenir les informations suivantes :
 

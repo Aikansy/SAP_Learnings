@@ -64,7 +64,7 @@ CASE WHEN sql_cond1 THEN result1
 END
 ```
 
-Même logique que pour le `CASE simple` sauf que cette fois-ci les `WHEN` vérifient une `condition SQL` qui peut s’exprimer via les [`opérations de comparaison`](../../99%20-%20Help/03_OPERATORS.md), ou le `BETWEEN` pour vérifier si une valeur est entre deux autres (col `BETWEEN var1 AND var2`), et enfin vérifier si la valeur du champ est `nulle ou non` (`col IS [NOT] NULL`).
+Même logique que pour le `CASE simple` sauf que cette fois-ci les `WHEN` vérifient une `condition SQL` qui peut s’exprimer via les [`opérations de comparaison`](../../99%20-%20Help/03%20-%20OPERATORS.md), ou le `BETWEEN` pour vérifier si une valeur est entre deux autres (col `BETWEEN var1 AND var2`), et enfin vérifier si la valeur du champ est `nulle ou non` (`col IS [NOT] NULL`).
 
 _Exemple_
 

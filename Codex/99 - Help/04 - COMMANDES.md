@@ -1,8 +1,6 @@
 # **COMMANDS**
 
-## **LISTE COMMANDES**
-
 | **COMMANDS** | **DEF**       | **DESCRIPTION**               |
-|--------------|---------------|-------------------------------|
-| ULINE.       | UnderLINE     | Affiche une ligne horizontale |
-| VLINE        | Vertical LINE | Affiche une ligne vertical    |
+| ------------ | ------------- | ----------------------------- |
+| `ULINE.`     | UnderLINE     | Affiche une ligne horizontale |
+| `VLINE`      | Vertical LINE | Affiche une ligne vertical    |

@@ -1,7 +1,5 @@
 # **SY-SYSTEM**
 
-## **LISTE SY-SYSTEM**
-
 | CODE       | DESCRIPTION                                                                                                                        |
 | ---------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | `sy-batch` | est-on en mode batch                                                                                                               |
@@ -31,11 +29,11 @@
 | `sy-user`  | contient le nom de l'utilisateur                                                                                                   |
 | `sy-uzeit` | contient l'heure système en format HHMMSS                                                                                          |
 
-### **SY_MSGTY**
+## **SY_MSGTY**
 
 > Le statut de message `SY-MSGTY` sera toujours accompagné d’une classe de message `SY-MSGID`, et de son numéro `SY-MSGNO`, avec les paramètres `SY-MSGV1`, `SY-MSGV2`, `SY-MSGV3`, et `SY-MSGV4` consultables via la transaction `SE91`.
 >
-> ![](../00_Ressources/99_02_01.png)
+> ![](../99%20-%20Ressources/99_02_01.png)
 >
 > Ce message comporte trois paramètres symbolisés par le caractère `&`. Ainsi la valeur du premier paramètre sera stockée dans la variable système `SY-MSGV1`, le deuxième dans `SY-MSGV2`, et le troisième dans `SY-MSGV3` (le quatrième sera vide car non utilisé). Aussi, si les valeurs sont définies de la façon suivante :
 >
@@ -61,4 +59,4 @@
 > WRITE / c_text.
 > ```
 >
-> ![](../00_Ressources/99_02_02.png)
+> ![](../99%20-%20Ressources/99_02_02.png)

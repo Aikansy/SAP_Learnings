@@ -4,7 +4,7 @@
 . . .HAVING condition. . .
 ```
 
-Cette option permet de rajouter un critère de recherche supplémentaire défini par le `paramètre condition`. Ce terme, assez vague, regroupe en fait plusieurs types comme un [`comparaison`](../../99_Help/03_OPERATORS.md) entre deux objets :
+Cette option permet de rajouter un critère de recherche supplémentaire défini par le `paramètre condition`. Ce terme, assez vague, regroupe en fait plusieurs types comme un [`comparaison`](../../99%20-%20Help/03%20-%20OPERATORS.md) entre deux objets :
 
 ```JS
 . . .HAVING obj1 EQ obj2. . .

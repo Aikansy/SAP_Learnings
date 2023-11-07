@@ -36,13 +36,14 @@ Plusieurs paramètres définissent l’aide à la recherche élémentaire, à sa
     > Une vue est un ensemble de champs provenant de tables diverses, associées entre elles par une clé commune. Dans cet exemple, la vue `M_MAT1M` est utilisée. Elle regroupe des champs de la table `MARA` plus quelques-uns de sa table texte `MAKT`.
 
 - `Comportement de dialogue` sont des options relatives à l’écran de l’aide à la recherche comme :
+
   - `Type de dialogue` dont la valeur peut être la suivante :
     - `Affichage de valeurs immédiat` qui comme son nom l’indique affichera dans une fenêtre toutes les données disponibles de la table ou la vue définie comme méthode de sélection. Cette option est choisie lorsqu’il n’y a pas beaucoup d’entrées.
     - `Dialogue avec restriction des valeurs` affichera tout d’abord une boîte de dialogue permettant à l’utilisateur de restreindre sa sélection en renseignant un filtre (pays, organisation commerciale, entreprise...). Cette option est utile lorsque le nombre d’entrées est très important.
     - `Dialogue dépendant de l’ensemble de valeurs` choisira l’option la plus adéquate : si le nombre d’entrées est inférieur à 100, alors l’aide à la recherche affichera toutes les entrées sinon elle ouvrira une boîte de dialogue pour restreindre la sélection.
   - `Cde abrégée` est un identifiant utilisé comme raccourci pour appeler une aide à la recherche élémentaire. Pour poursuivre l’exemple du champ Article de la transaction MM03, l’aide à la recherche associée est composée de nombreuses élémentaires. D’autre part, le code lié à celui du Numéro/désignation d’article (MAT0M) est défini par la lettre M. Ainsi dans le champ de l’article, il suffit d’écrire =M puis la touche `[F4]`, afin que la boîte de dialogue de l’aide à la recherche MAT0M s’ouvre automatiquement.
 
-![](../99%20-%20Ressources/05_SE11%20-%2014%20-%2004.png)
+  ![](../99%20-%20Ressources/05_SE11%20-%2014%20-%2004.png)
 
 - `Options étendues`
   - `Recherche de propositions` sur des zones de saisie.

@@ -1,8 +1,8 @@
-# **TRANSACTIONS**
+# **`TRANSACTIONS`**
 
 ## **TRANSACTIONS FONCTIONNELLES**
 
-une transaction (code de transaction ou **t-code**) est un identifiant **SAP** pour exécuter divers traitements. Ils peuvent être de l’ordre d’une exécution de programme, de l’ouverture d’un éditeur, de la création d’une facture... Il existe des milliers de transactions et elles sont organisées par catégories correspondant aux modules (**FI**, **SD**, **MM**...) dont voici une toute petite liste des plus utilisées (uniquement les **fonctionnelles**).
+une `transaction` (code de transaction ou `t-code`) est un identifiant `SAP` pour exécuter divers traitements. Ils peuvent être de l’ordre d’une exécution de programme, de l’ouverture d’un éditeur, de la création d’une facture... Il existe des milliers de transactions et elles sont organisées par catégories correspondant aux modules (`FI`, `SD`, `MM`...) dont voici une toute petite liste des plus utilisées (uniquement les **fonctionnelles**).
 
 | TCODE     | Traitement                            |
 | --------- | ------------------------------------- |
@@ -18,13 +18,19 @@ une transaction (code de transaction ou **t-code**) est un identifiant **SAP** p
 | **MIGO**  | Mouvement de Stock                    |
 | **SCC1**  | Copies des données entre les mandants |
 
-En règle générale, les transactions se terminant par ’01’ signifient création, ’02’ modification et ’03’ affichage. Ainsi, la **VA01** va créer une commande client, **VA02** va la modifier et **VA03** l’afficher.
+En règle générale, les `transactions` se terminant par :
+
+- `01` signifient création
+- `02` modification
+- `03` affichage.
+
+Ainsi, la **VA01** va créer une commande client, **VA02** va la modifier et **VA03** l’afficher.
 
 ## **TRANSACTIONS TECHNIQUES**
 
-Concernant les transactions techniques, il en existe bien évidemment plusieurs et celles qui seront utilisées se situent dans la partie Menu SAP - Outils - ABAP Workbench - Développement.
+Concernant les `transactions techniques`, il en existe bien évidemment plusieurs et celles qui seront utilisées se situent dans la partie Menu SAP - Outils - ABAP Workbench - Développement.
 
-[Schéma - Chemin d'accès Tcodes Techniques](https://drive.google.com/file/d/1JI8MtpOUSBpf2XDODtaNW26oie-oEi0P/view?usp=share_link)
+[Schéma - Chemin d'accès Tcodes Techniques](../99%20-%20Ressources/99_Help%20-%2001%20-%2001.png)
 
 | TCODE     | Traitement                                               |
 | --------- | -------------------------------------------------------- |

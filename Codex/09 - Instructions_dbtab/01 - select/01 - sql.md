@@ -16,20 +16,20 @@ Il existe de nombreuses instructions pour constituer une `requête SQL`.
 
 Il est possible de retrouver une petite aide pour la construction des tables dans le fichier DDIC.xlsx ainsi qu’un programme pour les remplir dans 07_CODE_DATA_TABLE.txt.
 
-**ZCAR_BRAND_MOD**
+- **ZCAR_BRAND_MOD**
 
-![](../../99%20-%20Ressources/09_Instructions_dbtab%20-%2001%20-%2001%20-%2002.png)
+  ![](../../99%20-%20Ressources/09_Instructions_dbtab%20-%2001%20-%2001%20-%2002.png)
 
-**ZDRIVER_CAR**
+- **ZDRIVER_CAR**
 
-![](../../99%20-%20Ressources/09_Instructions_dbtab%20-%2001%20-%2001%20-%2003.png)
+  ![](../../99%20-%20Ressources/09_Instructions_dbtab%20-%2001%20-%2001%20-%2003.png)
 
-**ZPASSENGER**
+- **ZPASSENGER**
 
-![](../../99%20-%20Ressources/09_Instructions_dbtab%20-%2001%20-%2001%20-%2004.png)
+  ![](../../99%20-%20Ressources/09_Instructions_dbtab%20-%2001%20-%2001%20-%2004.png)
 
-**ZTRAVEL**
+- **ZTRAVEL**
 
-![](../../99%20-%20Ressources/09_Instructions_dbtab%20-%2001%20-%2001%20-%2005.png)
+  ![](../../99%20-%20Ressources/09_Instructions_dbtab%20-%2001%20-%2001%20-%2005.png)
 
 La plupart des requêtes ci-dessous sont à retrouver dans le fichier Word 07_CODE_REQUÊTES.docx.

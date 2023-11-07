@@ -7,12 +7,13 @@ Il serait intéressant de voir maintenant comment créer un domaine de type alph
 3. Entrer un `nom`, comme par exemple `ZDRIVER_ID` (domaine qui sera repris dans la suite de ce chapitre) puis appuyer sur le bouton `Créer` (ou bouton raccourci-clavier `[F5]`).
 4. Entrer une `description` (obligatoire), par exemple `N° d’identification du conducteur`.
 5. Insérer les informations suivantes :
+
    - `Type de données` CHAR
    - `Nombre positions` 30
    - `Longueur édition` 5
    - `Rout. conversion` ALPHA
 
-![](../99%20-%20Ressources/05_SE11%20-%2006%20-%2001.png)
+   ![](../99%20-%20Ressources/05_SE11%20-%2006%20-%2001.png)
 
 6. `Sauvegarder` (pour plus de commodité, le domaine sera créé en local).
 7. `Contrôler`.

@@ -4,7 +4,7 @@
 . . . FROM table. . .
 ```
 
-Cette notion a déjà été et il s'agit de la version la plus imple. Il n'existe pas de nombreuses variantes du `FROM` mais une doit particulièrement être étudiée : le [`JOIN`]().
+Cette notion a déjà été et il s'agit de la version la plus imple. Il n'existe pas de nombreuses variantes du `FROM` mais une doit particulièrement être étudiée : le [JOIN](../../09%20-%20Instructions_dbtab/01%20-%20select/19%20-%20from%20join.md).
 
 ## AS ALIAS
 

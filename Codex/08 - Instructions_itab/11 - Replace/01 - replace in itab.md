@@ -12,7 +12,7 @@ REPLACE [{FIRST OCCURRENCE}|{ALL OCCURRENCES} OF] pattern
     | [RESULTS result_tab|result_wa] } ...
 ```
 
-L'instruction `REPLACE IN TABLE` possède les mêmes paramètre et se comporte exactement de la même façon que l'instruction [`REPLACE`](../../01_Variables/08_replace.md) dans une variable.
+L'instruction `REPLACE IN TABLE` possède les mêmes paramètre et se comporte exactement de la même façon que l'instruction [REPLACE](../../01%20-%20Variables/08%20-%20replace.md) dans une variable.
 
 _Exemple_
 

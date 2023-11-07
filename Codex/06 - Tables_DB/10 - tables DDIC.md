@@ -20,13 +20,13 @@ Cet élément de données devra ressembler à ceci une fois activé (seuls les o
 
 - `ZPASSENGER_ID`
 
-Cet élément de données devra ressembler à ceci une fois activé (seuls les onglets `Type données` et `Descript. zone` sont renseignés) :
+  Cet élément de données devra ressembler à ceci une fois activé (seuls les onglets `Type données` et `Descript. zone` sont renseignés) :
 
-![](../99%20-%20Ressources/06_Tables_DB%20-%2010%20-%2003.png)
+  ![](../99%20-%20Ressources/06_Tables_DB%20-%2010%20-%2003.png)
 
-![](../99%20-%20Ressources/06_Tables_DB%20-%2010%20-%2004.png)
+  ![](../99%20-%20Ressources/06_Tables_DB%20-%2010%20-%2004.png)
 
-Tous les autres éléments de données utilisés seront standards.
+  Tous les autres éléments de données utilisés seront standards.
 
 ## **TABLES**
 
@@ -75,26 +75,26 @@ Maintenant que la table des véhicules a été créée, il serait intéressant d
 
 - Comme il y a trois zones clés dans la table `ZCAR_BRAND_MOD`, elles seront donc importées et renseignées avec les champs de la table `ZDRIVER_CAR`.
 
-![](../99%20-%20Ressources/06_Tables_DB%20-%2010%20-%2009.png)
+  ![](../99%20-%20Ressources/06_Tables_DB%20-%2010%20-%2009.png)
 
 - Enfin, les `Propriétés sémantiques` seront renseignées de la façon suivante :
 
-![](../99%20-%20Ressources/06_Tables_DB%20-%2010%20-%2010.png)
+  ![](../99%20-%20Ressources/06_Tables_DB%20-%2010%20-%2010.png)
 
 - Activer
 - Cette table ayant une gestion via la transaction `SM30`, il faudra l'actualiser avec les nouvelles informations. Pour ceci, aller dans le menu `Utilitaires - Générateur de gestion de table`.
 - Cliquer sur `Modifier` (bouton avec l'icône du crayon dans la barre d'outils).
 - Une liste de choix apparaît dans une fenêtre pop-up et comme il n'y a pas eu de modification ou suppression de zone, seules ces options seront à cocher.
 
-![](../99%20-%20Ressources/06_Tables_DB%20-%2010%20-%2011.png)
+  ![](../99%20-%20Ressources/06_Tables_DB%20-%2010%20-%2011.png)
 
 - Dans la nouvelle fenêtre pop-up, cocher `Ecran de synthèse`.
 
-![](../99%20-%20Ressources/06_Tables_DB%20-%2010%20-%2012.png)
+  ![](../99%20-%20Ressources/06_Tables_DB%20-%2010%20-%2012.png)
 
-Et à l'avertissement de la suppresion de l'écran 0001, cliquer sur valider.
+  Et à l'avertissement de la suppresion de l'écran 0001, cliquer sur valider.
 
-![](../99%20-%20Ressources/06_Tables_DB%20-%2010%20-%2013.png)
+  ![](../99%20-%20Ressources/06_Tables_DB%20-%2010%20-%2013.png)
 
 La gestion de table est maintenant à jour.
 
@@ -135,25 +135,25 @@ Là aussi, comme pour la table `ZDRIVER_CAR`, il serait utile de créer une gest
 
 _Zones de la table :_
 
-| **Zone**        | **Clé** | **Val.** | **Elément de données** |
-| --------------- | :-----: | :------: | ---------------------- |
-| `MANDT`         |    X    |    X     | MANDT                  |
-| `DATE_TRAVEL`   |    X    |    X     | LEAVE_DATE             |
-| `HOUR_TRAVEL`   |    X    |    X     | S_DEP_TIME             |
-| `ID_DRIVER`     |    X    |    X     | Z_DRIVER_ID            |
-| `ID_PASSENGER1` |         |          | ZPASSENGER_ID          |
-| `ID_PASSENGER2` |         |          | ZPASSENGER_ID          |
-| `ID_PASSENGER3` |         |          | ZPASSENGER_ID          |
-| `CITY_FROM`     |         |          | S_FROM_CIT             |
-| `COUNTRY_FROM`  |         |          | FPM_CTRYFR             |
-| `CITY_TO`       |         |          | S_TO_CITY              |
-| `COUNTRY_TO`    |         |          | FPM_CTRYTO             |
-| `KMS`           |         |          | ICL_MILEAGE            |
-| `KMS_UNIT`      |         |          | ICL_MILEAGEUNIT        |
-| `DURATION`      |         |          | N1DAUER                |
-| `TOLL`          |         |          | ZTRAVEL_TOLL           |
-| `GAZOL`         |         |          | RKESKWFULK             |
-| `UNIT`          |         |          | WAERS                  |
+| **ZONE**        | **CLE** | **VAL.** | **ELEMENTS DE DONNEES** |
+| --------------- | :-----: | :------: | ----------------------- |
+| `MANDT`         |    X    |    X     | MANDT                   |
+| `DATE_TRAVEL`   |    X    |    X     | LEAVE_DATE              |
+| `HOUR_TRAVEL`   |    X    |    X     | S_DEP_TIME              |
+| `ID_DRIVER`     |    X    |    X     | Z_DRIVER_ID             |
+| `ID_PASSENGER1` |         |          | ZPASSENGER_ID           |
+| `ID_PASSENGER2` |         |          | ZPASSENGER_ID           |
+| `ID_PASSENGER3` |         |          | ZPASSENGER_ID           |
+| `CITY_FROM`     |         |          | S_FROM_CIT              |
+| `COUNTRY_FROM`  |         |          | FPM_CTRYFR              |
+| `CITY_TO`       |         |          | S_TO_CITY               |
+| `COUNTRY_TO`    |         |          | FPM_CTRYTO              |
+| `KMS`           |         |          | ICL_MILEAGE             |
+| `KMS_UNIT`      |         |          | ICL_MILEAGEUNIT         |
+| `DURATION`      |         |          | N1DAUER                 |
+| `TOLL`          |         |          | ZTRAVEL_TOLL            |
+| `GAZOL`         |         |          | RKESKWFULK              |
+| `UNIT`          |         |          | WAERS                   |
 
 #### Livraison et gestion
 

@@ -14,22 +14,22 @@ Ce code va tourner en boucle en permanence, affichant la variable [SY-INDEX](../
 
 Lorsque ce programme est exécuté, il sera totalement bloqué et impossible de l’arrêter directement. Il faudra alors exécuter les actions suivantes :
 
-> 1 - Exécuter la transaction `SM50` dans une nouvelle session : `/oSM50`.
+1. Exécuter la transaction `SM50` dans une nouvelle session : `/oSM50`.
 
-![](../99%20-%20Ressources/03_Boucles%20-%2009%20-%2001.png)
+   ![](../99%20-%20Ressources/03_Boucles%20-%2009%20-%2001.png)
 
-> 2 - La liste de tous les processus en cours apparaît. Une fois que le programme en cause est repéré (nom de `colonne Progr.`) et qu’il est bien associé au nom d’utilisateur de connexion (`Nom d’util.`), cliquer sur le nom du programme puis dans la liste déroulante, choisir l’option Interrompre :
+2. La liste de tous les processus en cours apparaît. Une fois que le programme en cause est repéré (nom de `colonne Progr.`) et qu’il est bien associé au nom d’utilisateur de connexion (`Nom d’util.`), cliquer sur le nom du programme puis dans la liste déroulante, choisir l’option Interrompre :
 
-_Administration - Programme - Interrompre_
+   _Administration - Programme - Interrompre_
 
-![](../99%20-%20Ressources/03_Boucles%20-%2009%20-%2002.png)
+   ![](../99%20-%20Ressources/03_Boucles%20-%2009%20-%2002.png)
 
-![](../99%20-%20Ressources/03_Boucles%20-%2009%20-%2003.png)
+   ![](../99%20-%20Ressources/03_Boucles%20-%2009%20-%2003.png)
 
-> 3 - Au message d’alerte demandant si cette action doit être poursuivie, répondez par `Oui`.
+3. Au message d’alerte demandant si cette action doit être poursuivie, répondez par `Oui`.
 
-![](../99%20-%20Ressources/03_Boucles%20-%2009%20-%2004.png)
+   ![](../99%20-%20Ressources/03_Boucles%20-%2009%20-%2004.png)
 
-En rafraîchissant l’écran (touche clavier `[F8]` ou le bouton avec les deux Flèches bleues en dessous du titre), la ligne du programme a disparu, et la fenêtre où était exécuté le programme est retournée à l’écran d’accueil.
+   En rafraîchissant l’écran (touche clavier `[F8]` ou le bouton avec les deux Flèches bleues en dessous du titre), la ligne du programme a disparu, et la fenêtre où était exécuté le programme est retournée à l’écran d’accueil.
 
-![](../99%20-%20Ressources/03_Boucles%20-%2009%20-%2005.png)
+   ![](../99%20-%20Ressources/03_Boucles%20-%2009%20-%2005.png)

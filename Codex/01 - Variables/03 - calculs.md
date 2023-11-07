@@ -45,13 +45,13 @@ MOVE: 5   TO v_c,
 
 _Bien évidemment, d’autres opérations existent :_
 
-| `OPERATIONS`     | `SIGNE` | `MOTS-CLES`            |
-| ---------------- | ------- | ---------------------- |
-| `EGAL`           | `=`     | `MOVE`                 |
-| `ADDITION`       | `+`     | `ADD... TO...`         |
-| `SOUSTRACTION`   | `-`     | `SUBSTRACT... FROM...` |
-| `MULTIPLICATION` | `\*`    | `MULTIPLY... BY...`    |
-| `DIVISION`       | `/`     | `DIVIDE... BY...`      |
+| **OPERATIONS**   | **SIGNE** | **MOTS-CLES**        |
+| ---------------- | --------- | -------------------- |
+| `EGAL`           | =         | MOVE                 |
+| `ADDITION`       | +         | ADD... TO...         |
+| `SOUSTRACTION`   | -         | SUBSTRACT... FROM... |
+| `MULTIPLICATION` | \*        | MULTIPLY... BY...    |
+| `DIVISION`       | `         | DIVIDE... BY...      |
 
 Ainsi l’addition se fera avec le signe `+` ou l’instruction `ADD... TO...`, la soustraction avec le signe `-` ou `SUBSTRACT... FROM...`, la multiplication avec `\*` ou `MULTIPLY... BY...` et enfin la division avec `/` ou `DIVIDE... BY...`.
 

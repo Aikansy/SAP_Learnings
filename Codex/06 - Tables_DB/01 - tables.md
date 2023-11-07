@@ -29,7 +29,7 @@ Dans la barre d’outils, le bouton `Nombre d’entrées` est une option pratiqu
 
 - `Options techniques` permet de renseigner des informations techniques supplémentaires. Saut - Options techniques `[Ctrl][Shift][F9]`
 
-![](../99%20-%20Ressources/06_Tables_DB%20-%2001%20-%2004.png)
+  ![](../99%20-%20Ressources/06_Tables_DB%20-%2001%20-%2004.png)
 
 Dans les `Propriétés générales` sont regroupées toutes les informations concernant le volume de la table et son comportement lors de sa manipulation (sélection, modification...) :
 

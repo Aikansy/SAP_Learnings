@@ -4,41 +4,43 @@
 TRANSLATE text {TO {UPPER | LOWER} CASE} | {USING mask}.
 ```
 
-La commande `TRANSLATE` permet de convertir la casse d’une chaîne de caractères (tout en majuscules `UPPER CASE` ou tout en minuscules `LOWER CASE`) ou bien de convertir la chaîne selon un schéma défini dans un masque.
+- `TRANSLATE` :
 
-_Exemple_
+  permet de convertir la casse d’une chaîne de caractères (tout en majuscules `UPPER CASE` ou tout en minuscules `LOWER CASE`) ou bien de convertir la chaîne selon un schéma défini dans un masque.
 
-```js
-DATA: v_text1 TYPE string,
-      v_text2 TYPE string,
-      v_text3 TYPE string.
+  _Exemple_
 
-v_text1 = v_text2 = 'Hello World'.
-v_text3 = 'Barbcbdbarb'.
+  ```JS
+  DATA: v_text1 TYPE string,
+        v_text2 TYPE string,
+        v_text3 TYPE string.
 
-TRANSLATE v_text1 TO UPPER CASE.
-TRANSLATE v_text2 TO LOWER CASE.
+  v_text1 = v_text2 = 'Hello World'.
+  v_text3 = 'Barbcbdbarb'.
 
-TRANSLATE v_text3 USING 'ABBAabba'.
+  TRANSLATE v_text1 TO UPPER CASE.
+  TRANSLATE v_text2 TO LOWER CASE.
 
-WRITE: /'V_TEXT1 = ', v_text1,
-       /'V_TEXT2 = ', v_text2,
-       /'V_TEXT3 = ', v_text3.
-```
+  TRANSLATE v_text3 USING 'ABBAabba'.
 
-Trois variables ont été définies, toutes de type string : les deux premières contiennent le texte `Hello World` alors que la troisième est égale à `Barbcbdbarb`.
+  WRITE: /'V_TEXT1 = ', v_text1,
+         /'V_TEXT2 = ', v_text2,
+         /'V_TEXT3 = ', v_text3.
+  ```
 
-Le premier translate va modifier `V_TEXT1` et aura comme valeur `HELLO WORLD`.
+  Trois variables ont été définies, toutes de type string : les deux premières contiennent le texte `Hello World` alors que la troisième est égale à `Barbcbdbarb`.
 
-Le deuxième translate va modifier `V_TEXT2` qui aura comme valeur `hello world`.
+  Le premier translate va modifier `V_TEXT1` et aura comme valeur `HELLO WORLD`.
 
-Le troisième translate va utiliser le masque `ABBAabba` sur la variable `V_TEXT3`. Le masque a la logique suivante (il est nécessaire pour comprendre de prendre par paquet de deux lettres) :
+  Le deuxième translate va modifier `V_TEXT2` qui aura comme valeur `hello world`.
 
-- Lorsque la lettre `A` est rencontrée, la changer pour `B`.
-- Lorsque la lettre `B` est rencontrée, la changer pour `A`.
-- Lorsque la lettre `a` est rencontrée, la changer pour `b`.
-- Lorsque la lettre `b` est rencontrée, la changer pour `a`.
+  Le troisième translate va utiliser le masque `ABBAabba` sur la variable `V_TEXT3`. Le masque a la logique suivante (il est nécessaire pour comprendre de prendre par paquet de deux lettres) :
 
-Ainsi, suivant cette logique, le texte `V_TEXT3` aura comme valeur finale `Abracadabra`.
+  - Lorsque la lettre `A` est rencontrée, la changer pour `B`.
+  - Lorsque la lettre `B` est rencontrée, la changer pour `A`.
+  - Lorsque la lettre `a` est rencontrée, la changer pour `b`.
+  - Lorsque la lettre `b` est rencontrée, la changer pour `a`.
 
-![](../99%20-%20Ressources/01_Variables%20-%2009%20-%2001.png)
+    Ainsi, suivant cette logique, le texte `V_TEXT3` aura comme valeur finale `Abracadabra`.
+
+    ![](../99%20-%20Ressources/01_Variables%20-%2009%20-%2001.png)

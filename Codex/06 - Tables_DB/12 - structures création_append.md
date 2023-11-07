@@ -9,32 +9,32 @@ Pour cela, la table `ZCAR_BRAND_MOD`, créée à la section `DDIC` de table, ser
 - Cliquer sur le bouton Structure `Append`.
 - Une fenêtre pop-up va apparaître afin d’indiquer le nom de la structure append comme par exemple `ZAPPEND`.
 
-![](../99%20-%20Ressources/06_Tables_DB%20-%2012%20-%2001.png)
+  ![](../99%20-%20Ressources/06_Tables_DB%20-%2012%20-%2001.png)
 
 - L’écran de création d’une structure va alors apparaître. Indiquer une description brève (’Structure append Détail Motorisation’ par exemple).
 - Dans l’onglet Composantes, insérer les champs suivants en respectant les informations données :
 
-| **Composante** | **Catégorie typage** | **Type composante**   |
-| -------------- | -------------------- | --------------------- |
-| `POWER`        | Types                | CMS_DTE_SHP_POWER     |
-| `POWER_UOM`    | Types                | CMS_DTE_SHP_POWER_UOM |
+  | **Composante** | **Catégorie typage** | **Type composante**   |
+  | -------------- | -------------------- | --------------------- |
+  | `POWER`        | Types                | CMS_DTE_SHP_POWER     |
+  | `POWER_UOM`    | Types                | CMS_DTE_SHP_POWER_UOM |
 
-![](../99%20-%20Ressources/06_Tables_DB%20-%2012%20-%2002.png)
+  ![](../99%20-%20Ressources/06_Tables_DB%20-%2012%20-%2002.png)
 
 - Dans l'onglet `Zones devises/quantités`, indiquer la table et la zone de référence du champ `POWER`.
 
-![](../99%20-%20Ressources/06_Tables_DB%20-%2012%20-%2003.png)
+  ![](../99%20-%20Ressources/06_Tables_DB%20-%2012%20-%2003.png)
 
 - Indiquer une extension avec le menu `[Autres fonctions]` - `[Catégorie d’extension...]` (la définir en `Extensible sans restriction` par exemple).
 - `Sauvegarder` puis `activer`.
 - Revenir à la gestion de la table (via la touche raccourci-clavier `[F3]` ou le bouton vert de retour arrière de la barre de commande).
 - De retour à la table `ZCAR_BRAND_MOD`, l’append apparaît bien en fin de liste, et en utilisant la fonction `Développer tout`, le champ de l’append apparaît.
 
-![](../99%20-%20Ressources/06_Tables_DB%20-%2012%20-%2004.png)
+  ![](../99%20-%20Ressources/06_Tables_DB%20-%2012%20-%2004.png)
 
-Cliquer à nouveau sur le bouton `Structure append` pour faire apparaître tous ceux créés pour la table.
+  Cliquer à nouveau sur le bouton `Structure append` pour faire apparaître tous ceux créés pour la table.
 
-![](../99%20-%20Ressources/06_Tables_DB%20-%2012%20-%2005.png)
+  ![](../99%20-%20Ressources/06_Tables_DB%20-%2012%20-%2005.png)
 
 Dans la barre d'outils, deux fonctionnalités sont à connnaître :
 

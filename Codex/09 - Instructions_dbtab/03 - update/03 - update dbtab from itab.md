@@ -51,7 +51,7 @@ Les enregistrements de la table `ZTRAVEL` sont ensuite sélectionnés avec le ch
 
 Utilisant un `field symbol`, la table `T_TRAVEL` sera automatiquement mise à jour avec les nouvelles valeurs, et lorsque le programme sortira de la boucle, un `UPDATE FROM TABLE` sera exécuté afin de mettre à jour la table de la base de données `ZTRAVEL`.
 
-Un contrôle sur le code retour permettra d’afficher à l’écran le statut de cette dernière opération : [`SY-SUBRC`](../../99_Help/02_SY-SYSTEM.md) égal à 0, le texte `Mise à jour réussie de la table ZTRAVEL` sera affiché, sinon ce sera `Echec de la mise à jour`.
+Un contrôle sur le code retour permettra d’afficher à l’écran le statut de cette dernière opération : [SY-SUBRC](../../99%20-%20Help/02%20-%20SY-SYSTEM.md) égal à 0, le texte `Mise à jour réussie de la table ZTRAVEL` sera affiché, sinon ce sera `Echec de la mise à jour`.
 
 _Enregistrement avant `UPDATE`_
 

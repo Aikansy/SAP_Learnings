@@ -8,13 +8,13 @@ Dans cette mise en pratique, un `Module fonction` sera créé pas à pas. Il s'a
 
    Saut - Gestion groupes de fonctions - Créer groupe
 
-   ![](../00_Ressources/10_Fonctions%20-%2003%20-%2001.png)
+   ![](../99%20-%20Ressources/10_Fonctions%20-%2003%20-%2001.png)
 
 3. Entrez le nom du groupe de fonctions comme par exemple ZCARPOOLING.
 
 4. Entrez une désignation comme `Covoiturage`.
 
-   ![](../00_Ressources/10_Fonctions%20-%2003%20-%2002.png)
+   ![](../99%20-%20Ressources/10_Fonctions%20-%2003%20-%2002.png)
 
 5. Dans la nouvelle fenêtre, définissez l'objet en local ou, si vous le souhaitez, utilisez une classe de développement, puis un ordre de transport si besoin.
 
@@ -26,7 +26,7 @@ Une fois le groupe de fonctions créé comme indiqué dans la barre des messages
 
 7. Dans la fenêtre pop-up, entrez le nom du groupe de fonctions créé précédemment, puis désignation.
 
-   ![](../00_Ressources/10_Fonctions%20-%2003%20-%2004.png)
+   ![](../99%20-%20Ressources/10_Fonctions%20-%2003%20-%2003.png)
 
 8. Une fenêtre de warning peut apparaître, validez simplement pour passer à l'étape suivante.
 
@@ -34,19 +34,19 @@ Une fois le groupe de fonctions créé comme indiqué dans la barre des messages
 
 10. Comme il s'agit d'un module `RFC` et donc exécutable à distance, cochez l'option `Module accessible à distance.
 
-    ![](../00_Ressources/10_Fonctions%20-%2003%20-%2005.png)
+    ![](../99%20-%20Ressources/10_Fonctions%20-%2003%20-%2004.png)
 
 11. Dans l'onglet `Importation`, nous allons avoir besoin d'une structure en entrée avec les informations nécessaires du conducteur et de son véhicule. Pour faciliter, il s'agira d'une structure utilisant la structure `ZDRIVER_CAR` comme référence. AUssi, comme il s'agit d'une fonction `RFC`, l'option `Passage par valeur` est obligatoire.
 
-    ![](../00_Ressources/10_Fonctions%20-%2003%20-%2006.png)
+    ![](../99%20-%20Ressources/10_Fonctions%20-%2003%20-%2005.png)
 
 12. Dans l'onglet `Export`, il y aura seulement le numéro d'identification à retourner (même si le champ est renseigné dans la structure en entrée, il ne sera pas pris en compte, car c'est la fonction qui devra en contrôler la numérotation). Le champ aura comme référence l'élément de connées défini pour le champ `DRIVER_ID` de la table `ZDRIVER_CAR`. Là encore, comme il s'agit d'une fonction `RFC`, l'option `Passage par valeur` est obligatoire.
 
-    ![](../00_Ressources/10_Fonctions%20-%2003%20-%2007.png)
+    ![](../99%20-%20Ressources/10_Fonctions%20-%2003%20-%2006.png)
 
 13. Enfin, l'onglet `Exceptions` listera les erreurs rencontrées comme : le conducteur existe déjà, les informations concernant le conducteur dont incomplètes, les informations concernant le véhicule sont incomplètes.
 
-    ![](../00_Ressources/10_Fonctions%20-%2003%20-%2008.png)
+    ![](../99%20-%20Ressources/10_Fonctions%20-%2003%20-%2007.png)
 
 14. Puis le programme sera développé selon l'algorithme suivant :
 
@@ -102,7 +102,7 @@ Une fois le groupe de fonctions créé comme indiqué dans la barre des messages
     CONDENSE v_id_driver NO-GAPS.
     ```
 
-    e. Mettez à jour le champ `ID_DRIVER` de la structure `WA_DRIVER_CAR`, puis utilisez l'instruction `INSERT` pour ajouter l'enregistrement à la table de la base de données `ZDRIVER_CAR`. Si tout s'est bien déroulé (variable système de code retour [`SY-SUBRC`](../99_Help/02_SY-SYSTEM.md) égal à `0`), le paramètre de sortie `EV_ID_DRIVER` est mis à jour avec l'identifiant trouvé précédemment.
+    e. Mettez à jour le champ `ID_DRIVER` de la structure `WA_DRIVER_CAR`, puis utilisez l'instruction `INSERT` pour ajouter l'enregistrement à la table de la base de données `ZDRIVER_CAR`. Si tout s'est bien déroulé (variable système de code retour [`SY-SUBRC`](../99%20-%20Help/03%20-%20OPERATORS.md) égal à `0`), le paramètre de sortie `EV_ID_DRIVER` est mis à jour avec l'identifiant trouvé précédemment.
 
     ```JS
     wa_driver_car-id_driver = v_id_driver.
@@ -119,7 +119,7 @@ Module fonction - Exécuter - Tests de module
 
 L'écran de test s'affiche avec une barre d'outils comprenant les fonctionnalités suivantes :
 
-![](../00_Ressources/10_Fonctions%20-%2003%20-%2009.png)
+![](../99%20-%20Ressources/10_Fonctions%20-%2003%20-%2009.png)
 
 - `Exécuter` :
 
@@ -143,14 +143,14 @@ L'écran de test s'affiche avec une barre d'outils comprenant les fonctionnalit�
 
 Dans la partie principale de l'écran sont listés les paramètres de la fonction.
 
-![](../00_Ressources/10_Fonctions%20-%2003%20-%2010.png)
+![](../99%20-%20Ressources/10_Fonctions%20-%2003%20-%2010.png)
 
 Pour cet exemple, il n'y aura que `IS_DRIVER`. Il suffira de cliquer sur l'icône `Vue détaillée/Traiter` pour remplir les champs de la structure.
 
-![](../00_Ressources/10_Fonctions%20-%2003%20-%2011.png)
+![](../99%20-%20Ressources/10_Fonctions%20-%2003%20-%2011.png)
 
 Une fois les champs renseignés, il faudra revenir en arrière avec le bouton `Retour` de la barre de commande. Puis, avec le boutin `Exécuter, la fonction sera lancée et le résultat affiché avec le paramètre de sortie renseigné, la durée d'éxécution...
 
-![](../00_Ressources/10_Fonctions%20-%2003%20-%2012.png)
+![](../99%20-%20Ressources/10_Fonctions%20-%2003%20-%2012.png)
 
 Il est possible de retrouver le code de ce programme dans le fichier 08_CODE_02.txt.

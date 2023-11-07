@@ -6,7 +6,7 @@ L’`include` et l’`append` sont aussi bien utilisés pour une `table` que pou
 
 - `Include de structure` : additionne les champs venus d’une structure existante. Par exemple, la table `MARA`, utilise l’`include EMARA` pour insérer tous les champs existants de cette structure. Ainsi si cette dernière est mise à jour (suppression, ajout ou modification de champs), la table `MARA` sera impactée et subira automatiquement cette même actualisation.
 
-![](../99%20-%20Ressources/06_Tables_DB%20-%2002%20-%2001.png)
+  ![](../99%20-%20Ressources/06_Tables_DB%20-%2002%20-%2001.png)
 
 Lors de l’utilisation d’un `include` ou d’un `append`, les champs listés sont de couleur bleue, signifiant qu’ils ne sont pas directement liés à la table mais qu’ils font partie d’un ensemble extérieur.
 

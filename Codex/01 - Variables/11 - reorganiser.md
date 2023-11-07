@@ -23,7 +23,7 @@ WRITE:/ sy-datum,
       / v_date.
 ```
 
-Une variable `V_DATE` est déclarée de type chaîne de caractères de dix positions afin de pouvoir stocker la date finale, puis la date système [`SY-DATUM`](../99_Help/02_SY-SYSTEM.md) sera travaillée de la façon suivante :
+Une variable `V_DATE` est déclarée de type chaîne de caractères de dix positions afin de pouvoir stocker la date finale, puis la date système [SY-DATUM](../99%20-%20Help/02%20-%20SY-SYSTEM.md) sera travaillée de la façon suivante :
 
 - `SY-DATUM+6(2)` : à la sixième position, prendre deux caractères afin d’obtenir le jour.
 - `SY-DATUM+4(2)` : à la quatrième position, prendre deux caractères afin d’extraire le mois.

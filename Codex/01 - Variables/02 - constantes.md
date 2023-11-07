@@ -4,7 +4,7 @@
 
   Une constante est un symbole informatique associant un nom à une valeur qui peut varier durant l’exécution du programme. Cette définition s’applique également à une variable, à la différence près que sa valeur n'est pas fixée dès le début et peut changer au cours de l’exécution du programme.
 
-L’instruction commencera par `CONSTANTS` et devra comporter obligatoirement une valeur fixe avec `VALUE`.
+  L’instruction commencera par `CONSTANTS` et devra comporter obligatoirement une valeur fixe avec `VALUE`.
 
 ## **INTEGER**
 

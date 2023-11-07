@@ -17,7 +17,7 @@ Il s'agit de sélectionner des données contenues dans deux tables différentes 
 - `LEFT JOIN` : sélectionnera toutes les données de `table1` (située à gauche de la syntaxe) et affichera les données de `table2` ou les affichera `vides` si elles n'existent pas
 - `RIGHT JOIN` : fonctionne exactement de la même façon sauf qu'il s'agira de la table située à droite de l'instruction (ici table2).
 
-![](../../99%20-%20Ressources/09_Instructions_dbtab%20-%2001%20-%2019%20-%2001.png)
+  ![](../../99%20-%20Ressources/09_Instructions_dbtab%20-%2001%20-%2019%20-%2001.png)
 
 ## **INNER JOIN**
 
