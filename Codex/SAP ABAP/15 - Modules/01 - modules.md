@@ -28,9 +28,7 @@ La `composante logistique de la solution SAP` est divisée en plusieurs modules,
 
 - `Module SAP PP` (Production Planning) ou gestion de la production
 
-  Il concerne la gestion de la Production.
-
-  Y sont intégrées des notions telles que :
+  Il concerne la gestion de la Production. Y sont intégrées des notions telles que :
 
   - La planification de la production
 
@@ -54,7 +52,7 @@ La `composante logistique de la solution SAP` est divisée en plusieurs modules,
 
 - `Module SAP PS` (Project Systems) ou gestion des projets
 
-  Il couvreles notions suvantes :
+  Il couvre les notions suvantes :
 
   - Structuration des projets
 
@@ -72,7 +70,7 @@ La `composante logistique de la solution SAP` est divisée en plusieurs modules,
 
 - `Module SAP SD` (Sales and Distribution) ou Administration des ventes
 
-  Y sont intégrées des notions telles que:
+  Y sont intégrées des notions telles que :
 
   - La gestion des appels d'offres
 
