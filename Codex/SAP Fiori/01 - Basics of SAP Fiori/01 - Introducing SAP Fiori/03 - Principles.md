@@ -28,4 +28,4 @@ Les `cinq principes` de conception de `SAP Fiori` sont au cœur de chaque applic
 
 `SAP Fiori` a changé l'expérience utilisateur et a permis aux utilisateurs d'utiliser des applications basées sur des `rôles` plutôt que des applications basées sur des fonctionnalités.
 
-Regardez la [vidéo](https://learning.sap.com/learning-journey/learn-the-basics-of-sap-fiori/introducing-sap-fiori_c3915ced-ffd1-4127-a822-e217ff45fd72) pour découvrir comment `SAP Fiori` a modifié l'expérience utilisateur, passant d'une expérience fonctionnelle à une expérience basée sur les rôles.
+Regardez la [Role-based User Experience - vidéo](https://learning.sap.com/learning-journey/learn-the-basics-of-sap-fiori/introducing-sap-fiori_c3915ced-ffd1-4127-a822-e217ff45fd72) pour découvrir comment `SAP Fiori` a modifié l'expérience utilisateur, passant d'une expérience fonctionnelle à une expérience basée sur les rôles.

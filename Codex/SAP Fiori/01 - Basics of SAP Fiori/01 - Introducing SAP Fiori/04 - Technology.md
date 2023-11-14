@@ -2,7 +2,7 @@
 
 La technologie est une autre dimension de `SAP Fiori`. Devons-nous regarder comment tout a commencé et comment `SAP Fiori` a continuellement évolué depuis ses débuts en 2013 ?
 
-[Vidéo](https://learning.sap.com/learning-journey/learn-the-basics-of-sap-fiori/introducing-sap-fiori_c3915ced-ffd1-4127-a822-e217ff45fd72)
+[SAP Fiori Evolution - Vidéo](https://learning.sap.com/learning-journey/learn-the-basics-of-sap-fiori/introducing-sap-fiori_c3915ced-ffd1-4127-a822-e217ff45fd72)
 
 L'un des nouveaux aspects les plus demandés était de fournir plus d'informations sur les pages d'accueil prises en charge via des cartes. En outre, `SAP` a réinventé la façon dont des aspects de l'intelligence tels que l'interaction en `langage naturel` et l'`intelligence artificielle` peuvent devenir un élément clé de l'expérience. Il les a profondément intégrés dans la base de la conception, offrant les fonctionnalités suivantes :
 
