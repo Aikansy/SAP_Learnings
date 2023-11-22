@@ -1,10 +1,13 @@
 # **STMS**
 
 Anne-Laure Labreuche - Responsable RH & Recrutement
+
 Laurent Peret - Directeur Associé STMS
+
 Frantz Bagneris - Responsable Pôle Technique
 
 Xavier Ayral - Directeur Associé STMS
+
 Frédéric Bellomo - Directeur Associé STMS
 
 ## **[ KEY WORDS ]**
