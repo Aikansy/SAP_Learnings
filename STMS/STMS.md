@@ -1,32 +1,34 @@
 # **STMS**
 
-Anne-Laure Labreuche - Responsable RH & Recrutement
+`Laurent Peret` - Directeur Associé STMS
 
-Laurent Peret - Directeur Associé STMS
+`Xavier Ayral` - Directeur Associé STMS
 
-Frantz Bagneris - Responsable Pôle Technique
+`Frédéric Bellomo` - Directeur Associé STMS
 
-Xavier Ayral - Directeur Associé STMS
+`Frantz Bagneris` - Responsable Pôle Technique
 
-Frédéric Bellomo - Directeur Associé STMS
+`Anne-Laure Labreuche` - Responsable RH & Recrutement
 
 ## **[ KEY WORDS ]**
 
 - `Programme`
 
-  Ensemble d'**instructions** exécutables et qui permet à ce dernier de répondre à un problème. Il est essentiellement créé à l'aide d'**algorithmes** prenant un ensemble de données en entrée, exécute des **instructions** puis retourne des données en sortie.
+  **Instructions** exécutables répondant à un problème
+
+  Créé à l'aide d'**algorithmes**
+
+  Prend un ensemble de données en **entrée**, exécute des **instructions** puis retourne des données en **sortie**
 
 - `Algorithme`
 
-  Ensemble de méthodes utilisées (par un ordinateur) pour résoudre un problème donné. Il décrit une suite d'**instruction** permettant d'obtenir un résultat à partir d'éléments fournis en entrée.
-
   - **Construction** :
 
-    Découper un grand problème en sous-problèmes plus accessibles et plus simples, débutez un raisonnement par un angle permettant d'identifier et de séparer chaque action progressivement et logiquement.
+    Découper un problème en sous-problèmes plus simples, identifiés et de séparés par des actions progressive et logique.
 
   - **Ecriture** :
 
-    **pseudo-code**, ou **LDA** (Langage de Description Algorithmique) : manière informelle de décrire la programmation, qui ne nécessite **aucune** syntaxe de langage de programmation stricte. Il est utilisé pour créer une ébauche, un brouillon d'un **programme**.
+    **pseudo-code**, ou **LDA** (Langage de Description Algorithmique) : ne nécessite **aucune** syntaxe de langage de programmation stricte.
 
   - **Programmation structurée** :
 
@@ -34,19 +36,226 @@ Frédéric Bellomo - Directeur Associé STMS
 
 - `Domaine`
 
-  Un domaine va définir les caractéristiques techniques de base d’un champ contenu dans une table. Il peut être de plusieurs types dont voici les principaux : CHAR, DATS, NUMC, MATNR, STRING, ...
+  Un domaine va définir les caractéristiques techniques de base d’un champ (ex : CHAR, DATS, NUMC, MATNR, STRING)
 
 - `Eléments de données`
 
   l’élément de données est tout simplement l’objet qui va définir le visuel du champ (titre, nom des colonnes...) et quelques caractéristiques additionnelles (aide à la recherche...) et il n’est pas rare de rencontrer un nom de domaine identique à celui de l’élément de données.
 
-- `Instruction`
+- `Structure`
 
-  On distingue trois grandes catégories d'instructions :
+  ```JS
+  TYPES: BEGIN OF ty_tab,
+         obj1 TYPE dtel1,
+         obj2 TYPE dtel2,
+         obj3 TYPE dtel3,
+         . . .
+      END OF ty_tab.
+  ```
 
-  - **Opérations de base** : addition, soustraction, multiplication, division
-  - **Exécution conditionnelle** : IF (condition), THEN (alors fais ça), ELSE IF (sinon fais ça)
-  - **Itération** : répéter une instruction, un nombre de fois déterminé ou non déterminé (FOR, WHILE, DO WHILE)
+- `Tables internes`
+
+  ```JS
+  TYPES: BEGIN OF ty_tab,
+         obj1 TYPE dtel1,
+         obj2 TYPE dtel2,
+         obj3 TYPE dtel3,
+         . . .
+      END OF ty_tab.
+
+  DATA: it_tab_types TYPE TABLE OF ty_tab,
+        wa_tab_types TYPE ty_tab.
+  ```
+
+  - **REFERENCE DIRECT à un TYPE de champ et une LONGUEUR**
+
+    ```JS
+    . . .
+    obj1(5) TYPE c,
+    obj2(4) TYPE n,
+    . . .
+    ```
+
+  - **REFERENCE DIRECT à un ELEMENT DE DONNEES**
+
+    ```JS
+    . . .
+    obj1 TYPE char5,
+    Obj2 TYPE numc4,
+    . . .
+    ```
+
+  - **REFERENCE INDIRECT à un ELEMENT DE DONNEES via le nom d’une table et son champ**
+
+    ```JS
+    . . .
+    obj1 TYPE zdriver_car-driver_id,
+    Obj2 TYPE zdriver_car-car_year,
+    . . .
+    ```
+
+  - **TYPE STANDARD TABLE OF**
+
+    ```JS
+    DATA itab { {TYPE [STANDARD]|SORTED|HASHED TABLE OF type}
+          [ WITH primary_key ]
+          [ WITH secondary_key1 ] [ WITH secondary_key2 ].
+    ```
+
+    - la table n’est pas ordonnée mais peut l’être de différentes façons au cours du programme
+    - elle peut comporter plusieurs clés
+    - elle est plus facile pour gérer les données
+    - c’est cependant celle qui consomme le plus de mémoire système
+
+  - **TYPE SORTED TABLE OF**
+
+    ```JS
+    TYPES: BEGIN OF ty_tab,
+         obj1 TYPE dtel1,
+         obj2 TYPE dtel2,
+         obj3 TYPE dtel3,
+         . . .
+           END OF ty_tab.
+
+    DATA: it_tab_types TYPE SORTED TABLE OF ty_tab
+                       WITH UNIQUE KEY obj1.
+    ```
+
+    - organisée par une clé de la table
+    - clé nécessairement déclarée
+    - contient un index
+
+  - **TYPE HASHED TABLE OF**
+
+    ```JS
+    TYPES: BEGIN OF ty_tab,
+         obj1 TYPE dtel1,
+         obj2 TYPE dtel2,
+         obj3 TYPE dtel3,
+         . . .
+           END OF ty_tab.
+
+    DATA: it_tab_types TYPE HASHED TABLE OF ty_tab
+                       WITH UNIQUE KEY obj1.
+    ```
+
+    - organisée par une clé de la table
+    - clé nécessairement déclarée
+    - ne contient pas d'index
+
+  - **TYPE RANGE OF**
+
+    ```JS
+    DATA: r_matnr TYPE RANGE OF matnr.
+    ```
+
+    - a déjà une structure définie
+      - SIGN de type C (alphanumérique) et de longueur d’une seule position, accepte les valeurs I (Inclure) ou E (Exclure).
+      - OPTION de type C (alphanumérique) et de longueur deux positions, contient les valeurs définies dans le chapitre Instructions basiques ABAP - Instructions conditionnelles, à savoir EQ (égal), NE (différent), GT (strictement plus grand que), GE (plus grand ou égal), LE (inférieur ou égal), LT (strictement inférieur), CP (contient le modèle), NP (ne contient pas le modèle). Ce champ peut également prendre comme valeur BT (compris entre), et NB (non compris entre).
+      - LOW intervalle inférieur dont le type et la longueur de champ varient selon la référence attribuée.
+      - HIGH intervalle supérieur dont le type et la longueur de champ varient selon la référence attribuée.
+
+- `Read`
+
+  ```JS
+  READ TABLE itab
+    {   FROM wa }
+      | WITH KEY { comp1 = obj1 comp2 = obj2 ... [BINARY SEARCH]
+      | INDEX idx
+    }
+    {   INTO wa }
+      | ASSIGNING <fs>
+      | TRANSPORTING NO FIELDS
+    .
+  ```
+
+- `Conditions`
+
+  - If Elseif Endif
+
+    - CO (Contains Only)
+
+    - CN (Contains Not Only)
+
+    - CA (Contains Any)
+
+    - NA (Not Any)
+
+    - CS (Contains String)
+
+    - NS (No String)
+
+    - CP (Covers Pattern)
+
+    - NP (No Pattern)
+
+  - Case When When Other Endcase
+
+- `Paramètres`
+
+  - Check : Si vrai => continue // sort
+
+  - Exit : Si vrai => sort // continue
+
+  - Continue : tant que vrai => continue
+
+- `Boucles`
+
+  - Do [n times] Enddo
+
+  - While Endwhile
+
+  - Loop
+
+    ```JS
+    LOOP AT itab { INTO wa }
+                 | ASSIGNING <fs>
+                 | TRANSPORTING NO FIELDS
+               }
+               [FROM idx1] [TO idx2]
+               [WHERE log_exp]
+    ...
+    AT ...
+      ...
+    ENDAT.
+    ...
+    ENDLOOP.
+    ```
+
+- `Select`
+
+  ```JS
+  SELECT result
+         FROM source
+         [[INNER JOIN] [LEFT JOIN] [RIGHT JOIN]] keytab1 ON keytab2
+         [[FOR ALL ENTRIES IN itab] WHERE sql_cond
+         [GROUP BY group] [HAVING group_cond]
+         [ORDER BY sort_key]
+         INTO|APPENDING target
+         [UP TO n ROWS]
+         [BYPASSING BUFFER]
+         [CONNECTION con|(con_syntax).
+  ```
+
+- `Instruction Itab`
+
+  - Insert
+  - Append
+  - Collect (si ls (avec KEY) non contenue dans lt => créer une nouvelle ligne // adition des valeurs)
+  - Modify
+  - Read
+  - Sort
+  - Delete
+  - Loop
+  - Find
+
+- `Instruction Dbtab`
+
+  - Select
+  - Insert
+  - Update
+  - Modify
+  - Delete
 
 - `Diagrammes UML` (Unified Modeling Language)
 
